@@ -51,9 +51,10 @@
 
 		<div class="container">
 
-			<div class="filter">
+			<div class="filter float-right">
 
-				<input type="text" class="filter" list="keywords" onkeyup="renderImages()">
+				<label for="filter">Filter images: </label>
+				<input type="text" id="filter" list="keywords" onkeyup="renderImages()">
 				<datalist id="keywords" onselect="renderImages()"></datalist>
 
 			</div>

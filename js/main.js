@@ -59,26 +59,23 @@ function createImages() {
 
 // Add image to the images model
 function createImage(imgUrl, keywords) {
-	var meme = {
+	var image = {
 		id: makeId(),
 		url: imgUrl,
 		keywords: keywords
 	}
-
-	// update modal
-	gImgs.push(meme);
+	gImgs.push(image);
 }
 
 // Render images grid on screen
 function renderImages() {
-	// Render images
 	var srtHTML = '';
-	gImgs.forEach(function (meme) {
+	gImgs.forEach(function (image) {
 		srtHTML += `
 		<li class="hex">
 			<div class="hexIn">
 				<div class="hexLink">
-					<img src="${meme.url}" alt="" onclick="placeImgToCanvas(this); " />
+					<img src="${image.url}" alt="" onclick="placeImgToCanvas(this); " />
 				</div>
 			</div>
 		</li>`;
@@ -86,7 +83,7 @@ function renderImages() {
 
 	// Update images on screen
 	var elImages = document.querySelector('.images');
-	elImages.innerHTML = srtHTML
+	elImages.innerHTML = srtHTML;
 }
 
 

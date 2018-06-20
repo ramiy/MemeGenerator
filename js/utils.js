@@ -1,5 +1,15 @@
 'use strict';
 
+// Save data to local storage
+function saveToStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value))
+}
+
+// Load data from local storage
+function loadFromStorage(key) {
+    return JSON.parse(localStorage.getItem(key))
+}
+
 // Create a unique ID
 function makeId() {
     var length = 6;

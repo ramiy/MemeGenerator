@@ -1,6 +1,6 @@
 'use strict';
 
-var gImgs = [];
+var gImgs = []; // An object with: id, url, keywords
 var gMeme = {
 	selectedImgId: 5,
 	txts: [
@@ -84,9 +84,9 @@ function renderImages() {
 		</li>`;
 	});
 
-	// Update screen
-	var elMemes = document.querySelector('.memes');
-	elMemes.innerHTML = srtHTML
+	// Update images on screen
+	var elImages = document.querySelector('.images');
+	elImages.innerHTML = srtHTML
 }
 
 

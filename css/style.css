@@ -11,6 +11,14 @@ img {
 	height: auto;
 }
 
+a,
+a:link,
+a:hover,
+a:focus {
+	color: #2eb398;
+	text-decoration: none;
+}
+
 /********** GENERAL **********/
 
 .container {
@@ -44,36 +52,35 @@ img {
 /********** HEADER **********/
 
 header {
+	position: relative;
 	background-color: #333;
 	color: #fff;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 63px;
-}
-
-header ul {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-header ul li {
+	height: 70px;
 	font-size: 10px;
 	font-weight: 700;
 	text-transform: uppercase;
 }
 
-header a {
-	padding: 1em;
-	color: #494e62;
+header:after {
+	content:'';
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 0;
+	height: 0;
+	border-top: solid 25px #333;
+	border-left: solid 25px transparent;
+	border-right: solid 25px transparent;
 }
 
-header a:hover,
-header a:focus,
-header .active a {
-	color: #2eb398;
+header a {
+	padding: 1em;
+	color: #fff;
 }
 
 /********** MAIN **********/

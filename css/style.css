@@ -80,11 +80,12 @@ header .active a {
 
 main {
 	background-color: #fff;
+	margin: 30px auto;
 }
 
 .meme-canvas {
 	border: 1px solid grey;
-	margin: 0 auto;
+	margin: 30px auto;
 }
 
 /********** FOOTER **********/

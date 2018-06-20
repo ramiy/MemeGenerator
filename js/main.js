@@ -22,6 +22,9 @@ function init() {
 	// Create initial images
 	createImages();
 
+	// Images keywords
+	renderKeywords();
+
 	// Render images grid
 	renderImages();
 }
@@ -61,26 +64,23 @@ function createImages() {
 
 // Add image to the images model
 function createImage(imgUrl, keywords) {
-	var meme = {
+	var image = {
 		id: makeId(),
 		url: imgUrl,
 		keywords: keywords
 	}
-
-	// update modal
-	gImgs.push(meme);
+	gImgs.push(image);
 }
 
 // Render images grid on screen
 function renderImages() {
-	// Render images
 	var srtHTML = '';
-	gImgs.forEach(function (meme) {
+	gImgs.forEach(function (image) {
 		srtHTML += `
 		<li class="hex">
 			<div class="hexIn">
 				<div class="hexLink">
-					<img src="${meme.url}" alt="" onclick="placeImgToCanvas(this); " />
+					<img src="${image.url}" alt="" onclick="placeImgToCanvas(this); " />
 				</div>
 			</div>
 		</li>`;
@@ -88,9 +88,31 @@ function renderImages() {
 
 	// Update images on screen
 	var elImages = document.querySelector('.images');
-	elImages.innerHTML = srtHTML
+	elImages.innerHTML = srtHTML;
 }
 
+// Render keywords on screen
+function renderKeywords() {
+	var keywords = [];
+	gImgs.forEach(function (img) {
+		keywords.push(img.keywords);
+	});
+
+	// Sort keywords
+	keywords = flattenArray(keywords);
+	keywords = sortArrayByOccurrences(keywords);
+	console.log(keywords);
+
+	// Create keywords HTML
+	var srtHTML = '';
+	for (var keyword in keywords) {
+        srtHTML += `<option value="${keyword}"></option>`;
+    }
+
+	// Update keywords data list on screen
+	var elKeywordsDataList = document.querySelector('#keywords');
+	elKeywordsDataList.innerHTML = srtHTML;
+}
 
 
 /*************** CANVAS ***************/

@@ -51,16 +51,12 @@
 
 		<div class="container">
 
-			<div class="filter">
+			<div class="filter float-right">
 
-				<input list="keywords">
-				<datalist id="keywords">
-					<option value="happy"></option>
-					<option value="crazy"></option>
-					<option value="sarcastic"></option>
-					<option value="sad"></option>
-					<option value="animal"></option>
-				</datalist>
+				<label for="filter">Filter images: </label>
+				<input type="text" id="filter" list="keywords" onkeyup="renderImages()">
+				<datalist id="keywords" onselect="renderImages()"></datalist>
+
 			</div>
 
 			<h2 class="sr-only">Images list</h2>

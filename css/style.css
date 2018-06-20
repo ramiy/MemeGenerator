@@ -49,6 +49,14 @@ a:focus {
 	display: inline-block;
 }
 
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
 /********** HEADER **********/
 
 header {
@@ -88,6 +96,10 @@ header a {
 main {
 	background-color: #fff;
 	margin: 30px auto;
+}
+
+.filter {
+	padding-bottom: 1em;
 }
 
 .meme-canvas {

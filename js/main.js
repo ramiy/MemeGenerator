@@ -24,6 +24,10 @@ function init() {
 	renderImages();
 }
 
+
+
+/*************** IMAGES ***************/
+
 // Create initial images
 function createImages() {
 	createImage('img/2.jpg', ['happy']);
@@ -53,7 +57,7 @@ function createImages() {
 	createImage('img/X-Everywhere.jpg', ['happy', 'kids', 'toys']);
 }
 
-// add image to the images model
+// Add image to the images model
 function createImage(imgUrl, keywords) {
 	var meme = {
 		id: makeId(),
@@ -73,9 +77,9 @@ function renderImages() {
 		srtHTML += `
 		<li class="hex">
 			<div class="hexIn">
-				<a class="hexLink" href="#">
+				<div class="hexLink">
 					<img src="${meme.url}" alt="" onclick="placeImgToCanvas(this); " />
-				</a>
+				</div>
 			</div>
 		</li>`;
 	});
@@ -85,8 +89,11 @@ function renderImages() {
 	elMemes.innerHTML = srtHTML
 }
 
-// Draw image to canvas
 
+
+/*************** CANVAS ***************/
+
+// Draw image to canvas
 function placeImgToCanvas(el) {
 	var elCanvas = document.querySelector('.meme-canvas');
 	var ctx = elCanvas.getContext('2d');

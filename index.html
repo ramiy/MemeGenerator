@@ -80,14 +80,18 @@
 			<h2 class="sr-only">Add New Meme</h2>
 
 			<form action="http://ca-upload.com/here/upload.php" onchange="handleImage(event)" method="POST" enctype="multipart/form-data">
-				<h2>type in a text:</h2>
-				<input type="text" onkeypress="myFunction()"> <br><br>
-				<input type="file" name="image" onchange="onFileInputChange(event)" />
-				<input type="submit" />
+				<div class="display-none input-txt">
+					<h2>type in a text:</h2>
+					<input type="text" onkeyup="myFunction()">
+				</div>
+					<br>
+					<br>
+					<input type="file" name="image" onchange="onFileInputChange(event)" />
+					<input type="submit" />
 			</form>
 			<canvas class="meme-canvas" width="500" height="500"></canvas>
 			<button class="add-txt" onclick="addTxtToImg(this)">Add Text To Image</button>
-			
+
 		</div>
 
 	</section>

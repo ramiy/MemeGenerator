@@ -107,5 +107,7 @@ function placeImgToCanvas(el) {
 
 function addTxtToImg(el) {
 	el.classList.add('display-none');
-	
+	var elImgTxtInputField = document.querySelector('.input-txt');
+	elImgTxtInputField.classList.remove('display-none');
+
 }

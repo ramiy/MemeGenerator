@@ -3,26 +3,84 @@
 }
 
 html {
-
+	font-family: 'Lato', sans-serif;
 }
 
 /********** GENERAL **********/
 
+.container {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.inline-list {
+	list-style-type: none;
+}
 
 /********** HEADER **********/
 
 header {
+	background-color: #333;
+	color: #fff;
 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 63px;
+}
+
+header ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header ul li {
+	font-size: 10px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+header a {
+	padding: 1em;
+	color: #494e62;
+}
+
+header a:hover,
+header a:focus,
+header .active a {
+	color: #2eb398;
 }
 
 /********** MAIN **********/
 
 main {
+	background-color: #fff;
+}
 
+.meme-canvas {
+	border: 1px solid grey;
+	margin: 0 auto;
 }
 
 /********** FOOTER **********/
 
 footer {
-
+	background-color: #333;
+	color: #fff;
 }

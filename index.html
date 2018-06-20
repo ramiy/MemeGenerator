@@ -5,23 +5,39 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 	<title>Meme Generator</title>
 
 	<link rel="stylesheet" href="css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body onload="init()">
 
 	<!-- header -->
 	<header>
 
 		<ul class="inline-list">
-			<li>Portfolio</li>
-			<li>About</li>
-			<li class="logo"></li>
-			<li>Blog</li>
-			<li>Get In Touch</li>
+			<li>
+				<a href="#">Portfolio</a>
+			</li>
+			<li>
+				<a href="#"></a>About</a>
+			</li>
+		</ul>
+
+		<h1 class="logo">
+
+		</h1>
+
+		<ul class="inline-list">
+			<li>
+				<a href="#"></a>Blog</a>
+			</li>
+			<li>
+				<a href="#"></a>Get In Touch</a>
+			</li>
 		</ul>
 
 	</header>
@@ -32,19 +48,44 @@
 
 		<div class="container">
 
-			<input list="keywords">
-			<datalist id="keywords">
-				<option value="happy"></option>
-				<option value="crazy"></option>
-				<option value="sarcastic"></option>
-				<option value="sad"></option>
-				<option value="animal"></option>
-			</datalist>
+			<form action="">
+				<input list="keywords">
+				<datalist id="keywords">
+					<option value="happy"></option>
+					<option value="crazy"></option>
+					<option value="sarcastic"></option>
+					<option value="sad"></option>
+					<option value="animal"></option>
+				</datalist>
+			</form>
+
+			<h2 class="sr-only">Memes list</h2>
+			<ul class="memes">
+			</ul>
 
 		</div>
 
 	</main>
 	<!-- /main -->
+
+	<!-- canvas section -->
+	<section class="canvas-section">
+
+		<div class="container text-center">
+
+			<h2 class="sr-only">Add New Meme</h2>
+
+			<form action="http://ca-upload.com/here/upload.php" onchange="handleImage(event)" method="POST" enctype="multipart/form-data">
+				<input type="file" name="image" onchange="onFileInputChange(event)" />
+				<input type="submit" />
+			</form>
+
+			<canvas class="meme-canvas" width="500" height="500"></canvas>
+
+		</div>
+
+	</section>
+	<!-- canvas section -->
 
 	<!-- footer -->
 	<footer>
@@ -56,7 +97,9 @@
 	</footer>
 	<!-- /footer -->
 
+	<script src="js/utils.js"></script>
 	<script src="js/main.js"></script>
+
 </body>
 
 </html>

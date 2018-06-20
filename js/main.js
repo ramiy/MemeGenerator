@@ -1,6 +1,6 @@
 'use strict';
 
-var gImgs = []; // An object with: id, url, keywords
+var gImages = []; // { id: '', url: '', keywords: '' }
 var gMeme = {
 	selectedImgId: 5,
 	txts: [
@@ -20,10 +20,10 @@ var gCurrImg;
 
 // Initialize the app
 function init() {
-	// Create initial images
-	createImages();
+	// Add initial images
+	addImages();
 
-	// Images keywords
+	// Render images keywords
 	renderKeywords();
 
 	// Render images grid
@@ -34,49 +34,64 @@ function init() {
 
 /*************** IMAGES ***************/
 
-// Create initial images
-function createImages() {
-	createImage('img/2.jpg', ['happy']);
-	createImage('img/003.jpg', ['crazy', 'sarcastic']);
-	createImage('img/004.jpg', ['happy', 'animal']);
-	createImage('img/005.jpg', ['kids', 'calm', 'slip', 'animal']);
-	createImage('img/5.jpg', ['sarcastic', 'kids']);
-	createImage('img/006.jpg', ['animal', 'calm']);
-	createImage('img/8.jpg', ['happy']);
-	createImage('img/9.jpg', ['crazy', 'sarcastic']);
-	createImage('img/12.jpg', ['crazy']);
-	createImage('img/19.jpg', ['crazy', 'sarcastic']);
-	createImage('img/Ancient-Aliens.jpg', ['sarcastic']);
-	createImage('img/drevil.jpg', ['crazy', 'sarcastic']);
-	createImage('img/img2.jpg', ['happy', 'kids']);
-	createImage('img/img4.jpg', ['crazy', 'sarcastic']);
-	createImage('img/img5.jpg', ['kids']);
-	createImage('img/img6.jpg', ['animal']);
-	createImage('img/img11.jpg', ['happy']);
-	createImage('img/img12.jpg', ['sad']);
-	createImage('img/leo.jpg', ['happy']);
-	createImage('img/meme1.jpg', ['sarcastic']);
-	createImage('img/One-Does-Not-Simply.jpg', ['happy']);
-	createImage('img/Oprah-You-Get-A.jpg', ['happy', 'crazy']);
-	createImage('img/patrick.jpg', ['happy']);
-	createImage('img/putin.jpg', ['sarcastic', 'crazy']);
-	createImage('img/X-Everywhere.jpg', ['happy', 'kids', 'toys']);
+// Add initial images to the images model
+function addImages() {
+	addImage('img/2.jpg', ['happy']);
+	addImage('img/003.jpg', ['crazy', 'sarcastic']);
+	addImage('img/004.jpg', ['happy', 'animal']);
+	addImage('img/005.jpg', ['kids', 'calm', 'slip', 'animal']);
+	addImage('img/5.jpg', ['sarcastic', 'kids']);
+	addImage('img/006.jpg', ['animal', 'calm']);
+	addImage('img/8.jpg', ['happy']);
+	addImage('img/9.jpg', ['crazy', 'sarcastic']);
+	addImage('img/12.jpg', ['crazy']);
+	addImage('img/19.jpg', ['crazy', 'sarcastic']);
+	addImage('img/Ancient-Aliens.jpg', ['sarcastic']);
+	addImage('img/drevil.jpg', ['crazy', 'sarcastic']);
+	addImage('img/img2.jpg', ['happy', 'kids']);
+	addImage('img/img4.jpg', ['crazy', 'sarcastic']);
+	addImage('img/img5.jpg', ['kids']);
+	addImage('img/img6.jpg', ['animal']);
+	addImage('img/img11.jpg', ['happy']);
+	addImage('img/img12.jpg', ['sad']);
+	addImage('img/leo.jpg', ['happy']);
+	addImage('img/meme1.jpg', ['sarcastic']);
+	addImage('img/One-Does-Not-Simply.jpg', ['happy']);
+	addImage('img/Oprah-You-Get-A.jpg', ['happy', 'crazy']);
+	addImage('img/patrick.jpg', ['happy']);
+	addImage('img/putin.jpg', ['sarcastic', 'crazy']);
+	addImage('img/X-Everywhere.jpg', ['happy', 'kids', 'toys']);
 }
 
-// Add image to the images model
+// Add a single image and add it to the images model
+function addImage(imgUrl, keywords) {
+	gImages.push(createImage(imgUrl, keywords));
+}
+
+// Create a single image object
 function createImage(imgUrl, keywords) {
-	var image = {
+	return {
 		id: makeId(),
 		url: imgUrl,
 		keywords: keywords
 	}
-	gImgs.push(image);
 }
 
 // Render images grid on screen
 function renderImages() {
+
+	// Retrieve filter parameter
+	var elKeywordsFilter = document.querySelector('#filter');
+	var filterBy = elKeywordsFilter.value;
+
+	// Filter images
+	var filteredImages = gImages.filter(function (image) {
+		return (image.keywords).join().includes(filterBy);
+	});
+
+	// Create images HTML
 	var srtHTML = '';
-	gImgs.forEach(function (image) {
+	filteredImages.forEach(function (image) {
 		srtHTML += `
 		<li class="hex">
 			<div class="hexIn">
@@ -95,14 +110,13 @@ function renderImages() {
 // Render keywords on screen
 function renderKeywords() {
 	var keywords = [];
-	gImgs.forEach(function (img) {
+	gImages.forEach(function (img) {
 		keywords.push(img.keywords);
 	});
 
 	// Sort keywords
 	keywords = flattenArray(keywords);
 	keywords = sortArrayByOccurrences(keywords);
-	console.log(keywords);
 
 	// Create keywords HTML
 	var srtHTML = '';
@@ -114,6 +128,7 @@ function renderKeywords() {
 	var elKeywordsDataList = document.querySelector('#keywords');
 	elKeywordsDataList.innerHTML = srtHTML;
 }
+
 
 
 /*************** CANVAS ***************/
@@ -128,19 +143,12 @@ function placeImgToCanvas(el) {
 	ctx.drawImage(elImg, 0, 0, 500, 500);
 }
 
-
-//When "add Text To Image" button is pressed
+// When "add Text To Image" button is pressed
 function addTxtToImg(el) {
 	el.classList.add('display-none');
 	var elImgTxtInputField = document.querySelector('.input-txt');
 	elImgTxtInputField.classList.remove('display-none');
-
 }
-/*
-function activateTypeOnImg() {
-	
-}
-*/
 
 //The typing on the image
 
@@ -149,6 +157,7 @@ function typeOnImg() {
 	var ctx = elCanvas.getContext('2d');
 	ctx.font = "40px Comic Sans MS";
 	ctx.fillStyle = "white";
+
 	var elTxtField = document.querySelector('.txt-field');
 
 	elTxtField.onkeyup = function (ev) {

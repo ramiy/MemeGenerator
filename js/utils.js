@@ -1,10 +1,11 @@
 'use strict';
 
+// Create a unique ID
 function makeId() {
     var length = 6;
-    var txt = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
+    
+    var txt = '';
     for (var i = 0; i < length; i++) {
         txt += possible.charAt(Math.floor(Math.random() * possible.length));
     }
@@ -12,6 +13,7 @@ function makeId() {
     return txt;
 }
 
+// Flatten an array of arrays
 function flattenArray(values) {
     return values.reduce(function (acc, currentValue) {
         if (Array.isArray(currentValue)) currentValue = flattenArray(currentValue);
@@ -19,7 +21,7 @@ function flattenArray(values) {
     }, []);
 }
 
-
+// Sort an array by occurrences
 function sortArrayByOccurrences(values) {
     // Map occurrences
     var occurObj = values.reduce(function (acc, currentValue) {
@@ -35,8 +37,8 @@ function sortArrayByOccurrences(values) {
 
     // Sort the array
     sortable.sort(function (a, b) {
-        return a[1] - b[1];
+        return b[1] - a[1];
     });
 
-    return occurObj;
+    return sortable;
 }

@@ -13,6 +13,8 @@ var gMeme = {
 	]
 }
 
+var gTxtPosition;   // Is used for function that types a text on the image
+
 
 
 // Initialize the app
@@ -98,16 +100,53 @@ function placeImgToCanvas(el) {
 	var elCanvas = document.querySelector('.meme-canvas');
 	var ctx = elCanvas.getContext('2d');
 	var elImg = el; 
-	//elImg.style.height = '500px';
-	//elImg.style.width = '500px';
+	/* context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);  */
 	ctx.drawImage(elImg, 0, 0, 500, 500);
 }
 
-/* context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);  */
 
+//When "add Text To Image" button is pressed
 function addTxtToImg(el) {
 	el.classList.add('display-none');
 	var elImgTxtInputField = document.querySelector('.input-txt');
 	elImgTxtInputField.classList.remove('display-none');
 
 }
+/*
+function activateTypeOnImg() {
+	
+}
+*/
+
+//The typing on the image
+function typeOnImg() {
+	var elCanvas = document.querySelector('.meme-canvas');
+	var ctx = elCanvas.getContext('2d');
+	ctx.font = "30px Arial";
+	ctx.fillStyle = "white";
+	var elTxtField = document.querySelector('.txt-field');
+	elTxtField.onkeyup = function() {
+		
+		ctx.strokeText(elTxtField.value,80,80);
+	}
+
+
+
+
+
+	
+
+}
+
+/*
+
+<script>
+document.getElementById("fname").onkeyup = function() {myFunction()};
+
+function myFunction() {
+    var x = document.getElementById("fname");
+    x.value = x.value.toUpperCase();
+}
+</script>
+
+*/

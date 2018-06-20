@@ -47,10 +47,23 @@ function renderMemes() {
 	// Render images
 	var srtHTML = '';
 	gImgs.forEach(function( meme ){
-		srtHTML += `<li><img src="${meme.url}"></li>`;
+		srtHTML += `<li><img src="${meme.url}" onclick="placeImgToCanvas(this)"></li>`;
 	});
 
 	// Update screen
 	var elMemes = document.querySelector('.memes');
 	elMemes.innerHTML = srtHTML
+}
+
+// Draw image to canvas
+
+function placeImgToCanvas(el) {
+	var elCanvas = document.querySelector('.meme-canvas');
+	var ctx = elCanvas.getContext('2d');
+	var img = el;
+	ctx.drawImage(img, 10, 10);
+
+	//Adjust canvas container to image size
+	
+	
 }

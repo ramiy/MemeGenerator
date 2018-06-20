@@ -13,7 +13,7 @@ var gMeme = {
 	]
 }
 
-var gTxtPosition;   // Is used for function that types a text on the image
+var gTxtPosition;   // Is used for function that types a text on the image (not sure we need that..)
 var gCurrImg;
 
 
@@ -153,26 +153,22 @@ function typeOnImg() {
 
 	elTxtField.onkeyup = function (ev) {
 		if (ev.key === 'Backspace') {
+			ctx.clearRect(0, 0, 500, 550);
 			placeImgToCanvas(gCurrImg);
-			typeOnImg();
-			ctx.fillText(delTxt, 70, elCanvas.height / 3);
+            // copy from 5 first lines of typeOnImg(), to avoid recursion
+			elCanvas = document.querySelector('.meme-canvas');
+			ctx = elCanvas.getContext('2d');
+			ctx.font = "40px Comic Sans MS";
+			ctx.fillStyle = "white";
+			elTxtField = document.querySelector('.txt-field');
 
-		} else {
+			ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+
+		} else { 
 			ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
 			console.log(ev.key, elTxtField.value);
 		}
 	}
 }
 
-/*
 
-<script>
-document.getElementById("fname").onkeyup = function() {myFunction()};
-
-function myFunction() {
-    var x = document.getElementById("fname");
-    x.value = x.value.toUpperCase();
-}
-</script>
-
-*/

@@ -6,6 +6,11 @@ html {
 	font-family: 'Lato', sans-serif;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 /********** GENERAL **********/
 
 .container {
@@ -30,6 +35,10 @@ html {
 
 .inline-list {
 	list-style-type: none;
+}
+
+.inline-list li {
+	display: inline-block;
 }
 
 /********** HEADER **********/

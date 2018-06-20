@@ -26,6 +26,11 @@ function createMemes() {
 	createMeme('img/putin.jpg', ['sarcastic']);
 	createMeme('img/trump.jpg', ['crazy', 'sarcastic']);
 	createMeme('img/dogs.jpg', ['happy']);
+	createMeme('img/dogs.jpg', ['happy']);
+	createMeme('img/dogs.jpg', ['happy']);
+	createMeme('img/dogs.jpg', ['happy']);
+	createMeme('img/dogs.jpg', ['happy']);
+	createMeme('img/dogs.jpg', ['happy']);
 }
 
 function createMeme(imgUrl, keywords) {
@@ -47,7 +52,16 @@ function renderMemes() {
 	// Render images
 	var srtHTML = '';
 	gImgs.forEach(function( meme ){
-		srtHTML += `<li><img src="${meme.url}"></li>`;
+		srtHTML += `
+		<li class="hex">
+        <div class="hexIn">
+          <a class="hexLink" href="#">
+            <img src="${meme.url}" alt="" />
+            <h1>This is a title</h1>
+            <p>Some sample text about the article this hexagon leads to</p>
+          </a>
+        </div>
+      </li>`;
 	});
 
 	// Update screen

@@ -46,15 +46,15 @@
 	</header>
 	<!-- /header -->
 
-	<!-- main -->
-	<main>
+	<!-- gallery section -->
+	<section class="gallery-section">
 
 		<div class="container">
 
 			<div class="filter float-right">
 
 				<label for="filter">Filter images: </label>
-				<input type="text" id="filter" list="keywords" onkeyup="renderImages()">
+				<input type="text" id="filter" list="keywords" placeholder="Filter images..." onkeyup="renderImages()">
 				<datalist id="keywords" onselect="renderImages()"></datalist>
 
 			</div>
@@ -65,33 +65,35 @@
 
 		</div>
 
-	</main>
-	<!-- /main -->
+	</section>
+	<!-- /gallery section -->
 
 	<!-- canvas section -->
 	<section class="canvas-section">
 
-		<div class="container text-center">
+		<div class="container">
+
+			<button class="btn btn-back" onclick="backToGallery()">Back to Gallery</button>
 
 			<h2 class="sr-only">Add New Meme</h2>
-
 			<form action="http://ca-upload.com/here/upload.php" onchange="handleImage(event)" method="POST" enctype="multipart/form-data">
 				<div class="display-none input-txt">
 					<h2>type in a text:</h2>
 					<input class="txt-field" type="text" onkeyup="typeOnImg()">
 				</div>
-					<br>
-					<br>
-					<input type="file" name="image" onchange="onFileInputChange(event)" />
-					<input type="submit" />
+				<br>
+				<br>
+				<input type="file" name="image" onchange="onFileInputChange(event)" />
+				<input type="submit" />
 			</form>
+
 			<canvas class="meme-canvas" width="500" height="500"></canvas>
 			<button class="add-txt" onclick="addTxtToImg(this)">Add Text To Image</button>
 
 		</div>
 
 	</section>
-	<!-- canvas section -->
+	<!-- /canvas section -->
 
 	<!-- footer -->
 	<footer>

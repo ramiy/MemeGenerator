@@ -26,6 +26,10 @@ function init() {
 
 	// Render images grid
 	renderImages();
+
+	// Hide canvas, show gallery
+	hideElement('.canvas-section');
+	showElement('.gallery-section');
 }
 
 
@@ -94,7 +98,7 @@ function renderImages() {
 		<li class="hex">
 			<div class="hexIn">
 				<div class="hexLink">
-					<img src="${image.url}" alt="" onclick="placeImgToCanvas(this); " />
+					<img src="${image.url}" alt="" onclick="placeImgToCanvas(this)" />
 				</div>
 			</div>
 		</li>`;
@@ -131,13 +135,23 @@ function renderKeywords() {
 
 /*************** CANVAS ***************/
 
+// Back to gallery - hide 
+function backToGallery() {
+	// Hide canvas, show gallery
+	hideElement('.canvas-section');
+	showElement('.gallery-section');
+}
+
 // Draw image to canvas
-function placeImgToCanvas(el) {
+function placeImgToCanvas(elImg) {
 	var elCanvas = document.querySelector('.meme-canvas');
 	var ctx = elCanvas.getContext('2d');
-	var elImg = el;
 	/* context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);  */
 	ctx.drawImage(elImg, 0, 0, 500, 500);
+
+	// Hide gallery, show canvas
+	hideElement('.gallery-section');
+	showElement('.canvas-section');
 }
 
 // When "add Text To Image" button is pressed

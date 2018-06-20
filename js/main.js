@@ -74,8 +74,19 @@ function createImage(imgUrl, keywords) {
 
 // Render images grid on screen
 function renderImages() {
+
+	// Retrieve filter parameter
+	var elKeywordsFilter = document.querySelector('#filter');
+	var filterBy = elKeywordsFilter.value;
+
+	// Filter images
+	var filteredImages = gImgs.filter(function (image) {
+		return (image.keywords).join().includes(filterBy);
+	});
+
+	// Create images HTML
 	var srtHTML = '';
-	gImgs.forEach(function (image) {
+	filteredImages.forEach(function (image) {
 		srtHTML += `
 		<li class="hex">
 			<div class="hexIn">

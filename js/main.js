@@ -17,23 +17,44 @@ var gMeme = {
 
 // Initialize the app
 function init() {
-	createMemes();
+	// Create initial images
+	createImages();
+
+	// Render images grid
+	renderImages();
 }
 
-function createMemes() {
-	createMeme('img/meme1.jpg', ['happy']);
-	createMeme('img/leo.jpg', ['happy']);
-	createMeme('img/putin.jpg', ['sarcastic']);
-	createMeme('img/trump.jpg', ['crazy', 'sarcastic']);
-	createMeme('img/dogs.jpg', ['happy']);
-	createMeme('img/dogs.jpg', ['happy']);
-	createMeme('img/dogs.jpg', ['happy']);
-	createMeme('img/dogs.jpg', ['happy']);
-	createMeme('img/dogs.jpg', ['happy']);
-	createMeme('img/dogs.jpg', ['happy']);
+// Create initial images
+function createImages() {
+	createImage('img/2.jpg', ['happy']);
+	createImage('img/003.jpg', ['crazy', 'sarcastic']);
+	createImage('img/004.jpg', ['happy', 'animal']);
+	createImage('img/005.jpg', ['kids', 'calm', 'slip', 'animal']);
+	createImage('img/5.jpg', ['sarcastic', 'kids']);
+	createImage('img/006.jpg', ['animal', 'calm']);
+	createImage('img/8.jpg', ['happy']);
+	createImage('img/9.jpg', ['crazy', 'sarcastic']);
+	createImage('img/12.jpg', ['crazy']);
+	createImage('img/19.jpg', ['crazy', 'sarcastic']);
+	createImage('img/Ancient-Aliens.jpg', ['sarcastic']);
+	createImage('img/drevil.jpg', ['crazy', 'sarcastic']);
+	createImage('img/img2.jpg', ['happy', 'kids']);
+	createImage('img/img4.jpg', ['crazy', 'sarcastic']);
+	createImage('img/img5.jpg', ['kids']);
+	createImage('img/img6.jpg', ['animal']);
+	createImage('img/img11.jpg', ['happy']);
+	createImage('img/img12.jpg', ['sad']);
+	createImage('img/leo.jpg', ['happy']);
+	createImage('img/meme1.jpg', ['sarcastic']);
+	createImage('img/One-Does-Not-Simply.jpg', ['happy']);
+	createImage('img/Oprah-You-Get-A.jpg', ['happy', 'crazy']);
+	createImage('img/patrick.jpg', ['happy']);
+	createImage('img/putin.jpg', ['sarcastic', 'crazy']);
+	createImage('img/X-Everywhere.jpg', ['happy', 'kids', 'toys']);
 }
 
-function createMeme(imgUrl, keywords) {
+// add image to the images model
+function createImage(imgUrl, keywords) {
 	var meme = {
 		id: makeId(),
 		url: imgUrl,
@@ -42,13 +63,10 @@ function createMeme(imgUrl, keywords) {
 
 	// update modal
 	gImgs.push(meme);
-
-	// render memes
-	renderMemes();
 }
 
-// Render memes on screen
-function renderMemes() {
+// Render images grid on screen
+function renderImages() {
 	// Render images
 	var srtHTML = '';
 	gImgs.forEach(function (meme) {
@@ -57,7 +75,6 @@ function renderMemes() {
 			<div class="hexIn">
 				<a class="hexLink" href="#">
 					<img src="${meme.url}" alt="" onclick="placeImgToCanvas(this); " />
-	
 				</a>
 			</div>
 		</li>`;

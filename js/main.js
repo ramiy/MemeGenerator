@@ -56,7 +56,7 @@ function renderMemes() {
 		<li class="hex">
         <div class="hexIn">
           <a class="hexLink" href="#">
-            <img src="${meme.url}" alt="" />
+            <img src="${meme.url}" alt="" onclick="placeImgToCanvas(this)" />
             <h1>This is a title</h1>
             <p>Some sample text about the article this hexagon leads to</p>
           </a>
@@ -67,4 +67,17 @@ function renderMemes() {
 	// Update screen
 	var elMemes = document.querySelector('.memes');
 	elMemes.innerHTML = srtHTML
+}
+
+// Draw image to canvas
+
+function placeImgToCanvas(el) {
+	var elCanvas = document.querySelector('.meme-canvas');
+	var ctx = elCanvas.getContext('2d');
+	var img = el;
+	ctx.drawImage(img, 10, 10);
+
+	//Adjust canvas container to image size
+	
+	
 }

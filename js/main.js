@@ -20,6 +20,9 @@ function init() {
 	// Create initial images
 	createImages();
 
+	// Images keywords
+	renderKeywords();
+
 	// Render images grid
 	renderImages();
 }
@@ -86,6 +89,28 @@ function renderImages() {
 	elImages.innerHTML = srtHTML;
 }
 
+// Render keywords on screen
+function renderKeywords() {
+	var keywords = [];
+	gImgs.forEach(function (img) {
+		keywords.push(img.keywords);
+	});
+
+	// Sort keywords
+	keywords = flattenArray(keywords);
+	keywords = sortArrayByOccurrences(keywords);
+	console.log(keywords);
+
+	// Create keywords HTML
+	var srtHTML = '';
+	for (var keyword in keywords) {
+        srtHTML += `<option value="${keyword}"></option>`;
+    }
+
+	// Update keywords data list on screen
+	var elKeywordsDataList = document.querySelector('#keywords');
+	elKeywordsDataList.innerHTML = srtHTML;
+}
 
 
 /*************** CANVAS ***************/

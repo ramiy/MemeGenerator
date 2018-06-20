@@ -14,6 +14,7 @@ var gMeme = {
 }
 
 var gTxtPosition;   // Is used for function that types a text on the image
+var gCurrImg;
 
 
 
@@ -106,8 +107,8 @@ function renderKeywords() {
 	// Create keywords HTML
 	var srtHTML = '';
 	for (var keyword in keywords) {
-        srtHTML += `<option value="${keyword}"></option>`;
-    }
+		srtHTML += `<option value="${keyword}"></option>`;
+	}
 
 	// Update keywords data list on screen
 	var elKeywordsDataList = document.querySelector('#keywords');
@@ -119,9 +120,10 @@ function renderKeywords() {
 
 // Draw image to canvas
 function placeImgToCanvas(el) {
+	gCurrImg = el;
 	var elCanvas = document.querySelector('.meme-canvas');
 	var ctx = elCanvas.getContext('2d');
-	var elImg = el; 
+	var elImg = el;
 	/* context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);  */
 	ctx.drawImage(elImg, 0, 0, 500, 500);
 }
@@ -141,23 +143,25 @@ function activateTypeOnImg() {
 */
 
 //The typing on the image
+
 function typeOnImg() {
 	var elCanvas = document.querySelector('.meme-canvas');
 	var ctx = elCanvas.getContext('2d');
-	ctx.font = "30px Arial";
+	ctx.font = "40px Comic Sans MS";
 	ctx.fillStyle = "white";
 	var elTxtField = document.querySelector('.txt-field');
-	elTxtField.onkeyup = function() {
-		
-		ctx.strokeText(elTxtField.value,80,80);
+
+	elTxtField.onkeyup = function (ev) {
+		if (ev.key === 'Backspace') {
+			placeImgToCanvas(gCurrImg);
+			typeOnImg();
+			ctx.fillText(delTxt, 70, elCanvas.height / 3);
+
+		} else {
+			ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+			console.log(ev.key, elTxtField.value);
+		}
 	}
-
-
-
-
-
-	
-
 }
 
 /*

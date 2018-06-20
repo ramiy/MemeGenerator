@@ -73,10 +73,15 @@ function renderMemes() {
 function placeImgToCanvas(el) {
 	var elCanvas = document.querySelector('.meme-canvas');
 	var ctx = elCanvas.getContext('2d');
+	var elImg = el; 
+	//elImg.style.height = '500px';
+	//elImg.style.width = '500px';
+	ctx.drawImage(elImg, 0, 0, 500, 500);
+}
 
-	ctx.drawImage(el, 0, 0);
+/* context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);  */
 
-	//Adjust canvas container to image size
-
-
+function addTxtToImg(el) {
+	el.classList.add('display-none');
+	
 }

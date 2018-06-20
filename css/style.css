@@ -93,3 +93,12 @@ footer {
 	background-color: #333;
 	color: #fff;
 }
+
+.add-txt{
+    position: fixed;
+    bottom: 50px;
+}
+
+.display-none {
+	display: none;
+}

@@ -1,16 +1,24 @@
 'use strict';
 
 var gMeme = {
-    selectedImgElement: 5,
+    selectedImgElement: null,
     txts: [
         {
-            line: 'Your text here...',
-            font: 'arial',
-            color: 'red',
+            text: 'Your top text...',
+            font: 'fantasy',
+            color: 'white',
             size: 30,
             positionX: 170,
             positionY: 80
-        }
+        },
+        {
+            text: 'Your bottom text...',
+            font: 'fantasy',
+            color: 'white',
+            size: 30,
+            positionX: 160,
+            positionY: 480
+        },
     ]
 }
 
@@ -30,7 +38,7 @@ function getMemeImage() {
 
 // Retrieve meme text
 function getMemeText() {
-    return gMeme.txts[0].line;
+    return gMeme.txts[0].text;
 }
 
 // Retrieve meme font
@@ -67,7 +75,7 @@ function updateMemeImage(img) {
 
 // Update the meme text
 function updateMemeText(text) {
-    gMeme.txts[0].line = text;
+    gMeme.txts[0].text = text;
 }
 
 // Update the meme font

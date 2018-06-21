@@ -147,8 +147,14 @@ header a {
 }
 
 .filter {
-	padding-bottom: 1em;
+	text-align: center;
+}
 	
+.filter input {
+	padding: 10px;
+	margin-bottom: 40px;
+	width: 300px;
+	font-size: 1em;
 }
 
 .canvas-section {

@@ -105,16 +105,19 @@ function getCanvas() {
 }
 
 // Render canvas
-function renderCanvas() {
+function renderCanvas(img) {
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
+
+	// If no image uploaded, use meme image
+	if (!img) img = getMemeImage();
 
 	// Clean board
 	ctx.fillStyle = "#fff";
 	ctx.fillRect(0, 0, ctx.elCanvas, elCanvas.height);
 
 	// Print Image
-	ctx.drawImage(getMemeImage(), 0, 0, 500, 500);
+	ctx.drawImage(img, 0, 0, 500, 500);
 
 	// Print text
 	ctx.font = `${getMemeSize()}px ${getMemeFont()}`;
@@ -133,7 +136,18 @@ function loadMemeData() {
 	document.querySelector('.select-color').value = getMemeColor();
 }
 
-// On change meme image
+// On upload meme image
+function onUploadMemeImage(ev) {
+	var reader = new FileReader();
+	reader.onload = function (event) {
+		var img = new Image();
+		img.onload = renderCanvas.bind(null, img)
+		img.src = event.target.result;
+	}
+	reader.readAsDataURL(ev.target.files[0]);
+}
+
+// On change meme image (from the gallery)
 function onChangeMemeImage(elImg) {
 	updateMemeImage(elImg);
 	renderCanvas();

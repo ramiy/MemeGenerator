@@ -16,9 +16,10 @@ var gMeme = {
 var gTxtPosition; // Is used for function that types a text on the image (not sure we need that..)
 var gCurrImg;
 
-var gColor;
+var gColor = 'white';
 var gFont;
 var gTxtStr;
+var gFontSize = 50;
 
 
 
@@ -206,8 +207,8 @@ function placeImgToCanvas(elImg) {
 function typeOnImg() {
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
-	ctx.font = `40px ${gFont}`;
-	ctx.fillStyle = "white";
+	ctx.font = `${gFontSize}px ${gFont}`;
+	ctx.fillStyle = gColor;
 
 	var elTxtField = document.querySelector('.txt-field');
 
@@ -218,8 +219,8 @@ function typeOnImg() {
             // copy from 5 first lines of typeOnImg(), to avoid recursion
 			elCanvas = getCanvas();
 			ctx = elCanvas.getContext('2d');
-			ctx.font = `40px ${gFont}`;
-			ctx.fillStyle = "white";
+			ctx.font = `${gFontSize}px ${gFont}`;
+			ctx.fillStyle = gColor;
 			elTxtField = document.querySelector('.txt-field');
 
 			ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
@@ -235,6 +236,23 @@ function typeOnImg() {
 //Text adjustment functions
 function changeFont(elFont) {
 	gFont = elFont.value;	
+	
+	ctx.clearRect(0, 0, 500, 550);
+	placeImgToCanvas(gCurrImg);
+
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+
+	
+	var elTxtField = document.querySelector('.txt-field');
+	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+	
+	
+	
+}
+
+function changeColor(elColor) {
+	gColor = elColor.value;
 
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
@@ -244,16 +262,26 @@ function changeFont(elFont) {
 	typeOnImg();
 }
 
-function changeColor() {
-
-}
-
 function fontSizeUp() {
+	gFontSize += 10; 
 
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+
+	ctx.clearRect(0, 0, 500, 550);
+	placeImgToCanvas(gCurrImg);
+	typeOnImg();
 }
 
 function fontSizeDown() {
+	gFontSize -= 10;
 
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+
+	ctx.clearRect(0, 0, 500, 550);
+	placeImgToCanvas(gCurrImg);
+	typeOnImg();
 }
 
 function moveUp() {

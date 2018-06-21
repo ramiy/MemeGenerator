@@ -3,8 +3,8 @@
 }
 
 @font-face {
-    font-family: 'Impact';
-    src: url('../fonts/maximum-impact.ttf');
+	font-family: 'Impact';
+	src: url('../fonts/maximum-impact.ttf');
 }
 
 html {
@@ -143,18 +143,26 @@ header a {
 
 .gallery-section {
 	min-height: 90vh;
-	margin: 50px auto;
+	margin: 50px auto 0;
 }
 
 .filter {
 	text-align: center;
+	margin-bottom: 50px;
 }
-	
+
 .filter input {
 	padding: 10px;
-	margin-bottom: 40px;
 	width: 300px;
 	font-size: 1em;
+}
+
+.searches {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-bottom: 50px;
+	color: #dd0;
 }
 
 .canvas-section {
@@ -172,11 +180,11 @@ header a {
 
 .meme {
 	display: flex;
-    justify-content: space-between;
-    border-width: 42px;
-    border-color: rgba(102, 129, 49, 0.43);
-    border-style: solid;
-    padding: 18px;
+	justify-content: space-between;
+	border-width: 42px;
+	border-color: rgba(102, 129, 49, 0.43);
+	border-style: solid;
+	padding: 18px;
 }	
 
 .meme-canvas {
@@ -187,16 +195,16 @@ header a {
 
 .text-editor fieldset { 
 	display: block;
-    margin: 0 1em 1em;
-    padding: 0.5em 1.5em;
-    border: 1px solid #999;
+	margin: 0 1em 1em;
+	padding: 0.5em 1.5em;
+	border: 1px solid #999;
 }
 
 .text-editor legend {
 	padding: 0.2em 0.5em;
-    border: 1px solid #999;
-    color: #fff;
-    font-size: 1em;
+	border: 1px solid #999;
+	color: #fff;
+	font-size: 1em;
 }
 
 .text-editor .btn {
@@ -204,8 +212,8 @@ header a {
 	min-width: 50px;
 	min-height: 30px;
 	padding: 5px 15px;
-    background-color: #555;
-    border: 1px solid #999;
+	background-color: #555;
+	border: 1px solid #999;
 	color: #ddd;
 	font-weight: bold;
 }

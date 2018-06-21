@@ -80,7 +80,7 @@ function renderGallery() {
 function renderKeywords() {
 	var keywords = getKeywords();
 	var srtHTML = '';
-	for (let i = 0; i < keywords.length; i++) {
+	for (var i = 0; i < keywords.length; i++) {
 		var keyword = keywords[i];
 		srtHTML += `<option value="${keyword[0]}">${keyword[0]}</option>`;
 	}
@@ -102,7 +102,7 @@ function onSearch(search) {
 
 	// Save search to local storage
 	if (keywordExist) {
-		var searches = loadFromStorage('MemeGeneratorSearch');
+		var searches = getSearches();
 		searches = addSearchKeyword( searches, search );
 		saveToStorage('MemeGeneratorSearch', searches);
 	}

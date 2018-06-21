@@ -51,13 +51,17 @@
 
 		<div class="container">
 
+			<h2 class="sr-only">Popular searches</h2>
+			<ul class="searches inline-list">
+			</ul>
+
 			<div class="filter">
-				<label for="filter" class="sr-only">Filter images: </label>
+				<label for="filter" class="sr-only">Filter images</label>
 				<input type="text" id="filter" list="keywords" placeholder="Filter images..." oninput="onSearch( this.value )">
 				<datalist id="keywords"></datalist>
 			</div>
 
-			<h2 class="sr-only">Images list</h2>
+			<h2 class="sr-only">Images gallery</h2>
 			<ul class="images inline-list" id="hexGrid">
 			</ul>
 
@@ -166,6 +170,7 @@
 	<script src="js/service-utils.js"></script>
 	<script src="js/service-gallery.js"></script>
 	<script src="js/service-keywords.js"></script>
+	<script src="js/service-popular-searches.js"></script>
 	<script src="js/service-meme.js"></script>
 	<script src="js/main.js"></script>
 

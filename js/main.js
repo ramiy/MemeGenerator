@@ -115,12 +115,12 @@ function renderGallery() {
 
 // Render keywords on screen
 function renderKeywords() {
-	var keywords = [];
-	gGallery.forEach(function (img) {
-		keywords.push(img.keywords);
+	// Retrieve all the keywords
+	var keywords = gGallery.map(function (img) {
+		return img.keywords;
 	});
 
-	// Sort keywords
+	// Sort the keywords
 	keywords = flattenArray(keywords);
 	keywords = sortArrayByOccurrences(keywords);
 

@@ -51,9 +51,9 @@
 
 		<div class="container">
 
-			<div class="filter float-right">
-				<label for="filter">Filter images: </label>
-				<input type="text" id="filter" list="keywords" placeholder="Filter images..." onkeyup="renderGallery()">
+			<div class="filter">
+				<label for="filter" class="sr-only">Filter images: </label>
+				<input type="text" id="filter" list="keywords" placeholder="Filter images..." oninput="renderGallery()"> <!-- oninput -->
 				<datalist id="keywords" onselect="renderGallery()"></datalist>
 			</div>
 
@@ -91,8 +91,7 @@
 						<label for="">Set custom image:</label>
 						<br>
 						<br>
-						<input type="file" name="image" onchange="onFileInputChange(event)" />
-						<input type="submit" value="Update" />
+						<input type="file" name="image" onchange="onUploadMemeImage(event)" />
 
 					</fieldset>
 
@@ -118,8 +117,8 @@
 						<br>
 						<br>
 
-						<label for="">Color:</label>
-						<select class="select-color" onchange="onChangeMemeColor(this.value)">
+						<label for="meme-color">Color:</label>
+						<select class="meme-color" id="meme-color" onchange="onChangeMemeColor(this.value)">
 							<option value="white">white</option>
 							<option value="blue">blue</option>
 							<option value="green">green</option>
@@ -131,25 +130,22 @@
 						<br>
 						<br>
 
-						<button class="btn btn-plus" onclick="onMemeSizeIncrease()">＋</button>
-						<button class="btn btn-minus" onclick="onMemeSizeDecrease()">−</button>
+						<button class="btn btn-plus" onclick="onMemeSizeIncrease()">&plus;</button>
+						<button class="btn btn-minus" onclick="onMemeSizeDecrease()">&minus;</button>
 
 						<br>
 						<br>
 
-						<div class="arrows-grid">
-							<button class="btn arrow-up" onclick="moveUp()">↑</button>
-							<button class="btn arrow-right" onclick="moveRight()">→</button>
-							<button class="btn arrow-down" onclick="moveDown()">↓</button>
-							<button class="btn arrow-left" onclick="moveLeft()">←</button>
+						<div class="arrows-grid" aria-label="Move the text position using those arrows">
+							<button class="btn arrow-up" onclick="moveUp()" aria-label="Move up">&uarr;</button>
+							<button class="btn arrow-right" onclick="moveRight()" aria-label="Move right">&rarr;</button>
+							<button class="btn arrow-down" onclick="moveDown()" aria-label="Move down">&darr;</button>
+							<button class="btn arrow-left" onclick="moveLeft()" aria-label="Move left">&larr;</button>
 						</div>
 
 					</fieldset>
 
-					<a href="#" onclick="downloadImage(this)" download="my-img.jpg" class="btn btn-success float-right">
-						Download Meme
-					</a>
-					<!-- <button class="btn btn-success float-right" onclick="downloadImage()">Download Meme</button> -->
+					<a href="#" class="btn btn-success float-right" onclick="downloadImage(this)" download="my-img.jpg">Download Meme</a>
 
 				</div>
 				<!-- /text editor -->
@@ -171,9 +167,9 @@
 	</footer>
 	<!-- /footer -->
 
-	<script src="js/serivece-utils.js"></script>
-	<script src="js/serivece-gallery.js"></script>
-	<script src="js/serivece-meme.js"></script>
+	<script src="js/service-utils.js"></script>
+	<script src="js/service-gallery.js"></script>
+	<script src="js/service-meme.js"></script>
 	<script src="js/main.js"></script>
 
 </body>

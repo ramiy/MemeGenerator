@@ -7,9 +7,9 @@ var gMeme = {
             line: 'Your text here...',
             font: 'arial',
             color: 'red',
-            size: 20,
-            positionX: 70,
-            positionY: 100
+            size: 30,
+            positionX: 170,
+            positionY: 80
         }
     ]
 }

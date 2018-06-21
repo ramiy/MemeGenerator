@@ -20,6 +20,7 @@ function init() {
 }
 
 
+
 /*************** SCREENS ***************/
 
 // Show gallery screen
@@ -142,16 +143,8 @@ function downloadImage(elLink) {
 
 // Draw image to canvas
 function placeImgToCanvas(elImg, imgId) {
-	// Update global image
-	gCurrImg = elImg;
-
-	// Update the meme image
 	updateMemeImage(elImg);
-
-	// Render canvas
 	renderCanvas(elImg);
-
-	// Hide gallery, show canvas
 	showCanvas();
 }
 
@@ -160,7 +153,7 @@ function updateCanvas() {
 	var ctx = elCanvas.getContext('2d');
 	ctx.clearRect(0, 0, 500, 550);
 
-	placeImgToCanvas(gCurrImg);
+	placeImgToCanvas(getMemeImage());
 
 	ctx.font = `${getMemeSize()}px ${getMemeFont()}`;
 	ctx.fillStyle = getMemeColor();

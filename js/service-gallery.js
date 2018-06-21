@@ -3,6 +3,12 @@
 var gGallery = []; // An array of objects: { id: '', url: '', keywords: '' }
 
 
+
+// Retrieve the gallery model
+function getGallery() {
+	return gGallery;
+}
+
 // Add initial images to the images model
 function addImages() {
 	addImage('img/2.jpg', ['happy']);
@@ -44,9 +50,4 @@ function createImage(imgUrl, keywords) {
 		url: imgUrl,
 		keywords: keywords
 	}
-}
-
-// Retrieve the gallery model
-function getGallery() {
-	return gGallery;
 }

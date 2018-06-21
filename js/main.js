@@ -205,7 +205,7 @@ function placeImgToCanvas(elImg) {
 function typeOnImg() {
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
-	ctx.font = "40px Comic Sans MS";
+	ctx.font = `40px ${gFont}`;
 	ctx.fillStyle = "white";
 
 	var elTxtField = document.querySelector('.txt-field');
@@ -217,7 +217,7 @@ function typeOnImg() {
             // copy from 5 first lines of typeOnImg(), to avoid recursion
 			elCanvas = getCanvas();
 			ctx = elCanvas.getContext('2d');
-			ctx.font = "40px Comic Sans MS";
+			ctx.font = `40px ${gFont}`;
 			ctx.fillStyle = "white";
 			elTxtField = document.querySelector('.txt-field');
 
@@ -230,9 +230,17 @@ function typeOnImg() {
 	}
 }
 
+
 //Text adjustment functions
-function changeFont() {
-	
+function changeFont(el) {
+	gFont = el.value;	
+
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+
+	ctx.clearRect(0, 0, 500, 550);
+	placeImgToCanvas(gCurrImg);
+	typeOnImg();
 }
 
 function changeColor() {

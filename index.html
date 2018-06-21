@@ -83,13 +83,13 @@
 			<div class="txt-editor">
 				<h2>type in a text:</h2>
 				<input class="txt-field" type="text" onfocus="typeOnImg()">
-				<select onchange="changeFont()">
+				<select class="select-font" onchange="changeFont(this)">
 					<option value="arial">arial
 					<option value="monospace">monospace
 					<option value="fantasy">fantasy
 					<option value="cursive">cursive
 				</select>
-				<select onchange="changeColor()">
+				<select class="select-color" onchange="changeColor()">
 						<option value="white">white
 						<option value="blue">blue
 						<option value="green">green

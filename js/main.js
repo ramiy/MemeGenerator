@@ -12,13 +12,9 @@ var gMeme = {
 		}
 	]
 }
-
-var gTxtPosition; // Is used for function that types a text on the image (not sure we need that..)
 var gCurrImg;
-
 var gColor;
 var gFont;
-
 
 
 
@@ -31,7 +27,7 @@ function init() {
 	renderKeywords();
 
 	// Render images grid
-	renderImages();
+	renderGallery();
 
 	// Hide canvas, show gallery
 	hideElement('.canvas-section');
@@ -40,7 +36,7 @@ function init() {
 
 
 
-/*************** IMAGES ***************/
+/*************** GALLERY ***************/
 
 // Add initial images to the images model
 function addImages() {
@@ -85,8 +81,8 @@ function createImage(imgUrl, keywords) {
 	}
 }
 
-// Render images grid on screen
-function renderImages() {
+// Render gallery grid on screen
+function renderGallery() {
 
 	// Retrieve filter parameter
 	var elKeywordsFilter = document.querySelector('#filter');
@@ -162,25 +158,23 @@ function renderCanvas(img) {
 	ctx.drawImage(img, 0, 0, 500, 500);
 }
 
-// 
-function onFileInputChange(ev) {
-    handleImageFromInput(ev, renderCanvas)
-}
+// //
+// function onFileInputChange(ev) {
+//     handleImageFromInput(ev, renderCanvas)
+// }
 
-// 
-function handleImageFromInput(ev, onImageReady) {
-	ev.preventDefault();
-
-    document.querySelector('.share-container').innerHTML = ''
-    var reader = new FileReader();
-
-    reader.onload = function (event) {
-        var img = new Image();
-        img.onload = onImageReady.bind(null, img)
-        img.src = event.target.result;
-    }
-    reader.readAsDataURL(ev.target.files[0]);
-}
+// // 
+// function handleImageFromInput(ev, onImageReady) {
+// 	ev.preventDefault();
+//     document.querySelector('.share-container').innerHTML = ''
+//     var reader = new FileReader();
+//     reader.onload = function (event) {
+//         var img = new Image();
+//         img.onload = onImageReady.bind(null, img)
+//         img.src = event.target.result;
+//     }
+//     reader.readAsDataURL(ev.target.files[0]);
+// }
 
 // Download the image
 function downloadImage(elLink) {

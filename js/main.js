@@ -1,6 +1,6 @@
 'use strict';
 
-var gImages = []; // { id: '', url: '', keywords: '' }
+var gGallery = []; // { id: '', url: '', keywords: '' }
 var gMeme = {
 	selectedImgId: 5,
 	txts: [
@@ -12,14 +12,10 @@ var gMeme = {
 		}
 	]
 }
-
-var gTxtPosition; // Is used for function that types a text on the image (not sure we need that..)
 var gCurrImg;
-
 var gColor;
 var gFont;
 var gTxtStr;
-
 
 
 
@@ -32,7 +28,7 @@ function init() {
 	renderKeywords();
 
 	// Render images grid
-	renderImages();
+	renderGallery();
 
 	// Hide canvas, show gallery
 	hideElement('.canvas-section');
@@ -41,7 +37,7 @@ function init() {
 
 
 
-/*************** IMAGES ***************/
+/*************** GALLERY ***************/
 
 // Add initial images to the images model
 function addImages() {
@@ -72,9 +68,9 @@ function addImages() {
 	addImage('img/X-Everywhere.jpg', ['happy', 'kids', 'toys']);
 }
 
-// Add a single image and add it to the images model
+// Add a single image to the images model
 function addImage(imgUrl, keywords) {
-	gImages.push(createImage(imgUrl, keywords));
+	gGallery.push(createImage(imgUrl, keywords));
 }
 
 // Create a single image object
@@ -86,19 +82,19 @@ function createImage(imgUrl, keywords) {
 	}
 }
 
-// Render images grid on screen
-function renderImages() {
+// Render gallery grid on screen
+function renderGallery() {
 
 	// Retrieve filter parameter
 	var elKeywordsFilter = document.querySelector('#filter');
 	var filterBy = elKeywordsFilter.value;
 
 	// Filter images
-	var filteredImages = gImages.filter(function (image) {
+	var filteredImages = gGallery.filter(function (image) {
 		return (image.keywords).join().includes(filterBy);
 	});
 
-	// Create images HTML
+	// Create HTML for each image
 	var srtHTML = '';
 	filteredImages.forEach(function (image) {
 		srtHTML += `
@@ -111,7 +107,7 @@ function renderImages() {
 		</li>`;
 	});
 
-	// Update images on screen
+	// Update gallery on screen
 	var elImages = document.querySelector('.images');
 	elImages.innerHTML = srtHTML;
 }
@@ -119,7 +115,7 @@ function renderImages() {
 // Render keywords on screen
 function renderKeywords() {
 	var keywords = [];
-	gImages.forEach(function (img) {
+	gGallery.forEach(function (img) {
 		keywords.push(img.keywords);
 	});
 
@@ -129,8 +125,9 @@ function renderKeywords() {
 
 	// Create keywords HTML
 	var srtHTML = '';
-	for (var keyword in keywords) {
-		srtHTML += `<option value="${keyword}"></option>`;
+	for (let i = 0; i < keywords.length; i++) {
+		var keyword = keywords[i];
+		srtHTML += `<option value="${keyword[0]}">${keyword[0]}</option>`;
 	}
 
 	// Update keywords data list on screen
@@ -140,7 +137,7 @@ function renderKeywords() {
 
 
 
-/*************** CANVAS ***************/
+/*************** MEME ***************/
 
 // Back to gallery - hide 
 function backToGallery() {
@@ -158,37 +155,53 @@ function getCanvas() {
 // Render canvas
 function renderCanvas(img) {
 	var elCanvas = getCanvas();
+
+	// Update can
 	var ctx = elCanvas.getContext('2d');
-	/* context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);  */
+	ctx.font = `40px ${gFont}`;
+	ctx.fillStyle = "white";
+
+
 	ctx.drawImage(img, 0, 0, 500, 500);
+
 }
 
-// 
-function onFileInputChange(ev) {
-    handleImageFromInput(ev, renderCanvas)
+// Retrieve meme modal
+function getMeme() {
+	return gMeme;
 }
 
-// 
-function handleImageFromInput(ev, onImageReady) {
-	ev.preventDefault();
-
-    document.querySelector('.share-container').innerHTML = ''
-    var reader = new FileReader();
-
-    reader.onload = function (event) {
-        var img = new Image();
-        img.onload = onImageReady.bind(null, img)
-        img.src = event.target.result;
-    }
-    reader.readAsDataURL(ev.target.files[0]);
+// retrieve meme
+function getMeme() {
+	return gMeme;
 }
 
-// Download the image
-function downloadImage(elLink) {
-	var elCanvas = getCanvas();
-    var imgContent = elCanvas.toDataURL('image/jpeg');
-    elLink.href = imgContent
-}
+// // 
+// function onFileInputChange(ev) {
+//     handleImageFromInput(ev, renderCanvas)
+// }
+
+// // 
+// function handleImageFromInput(ev, onImageReady) {
+// 	ev.preventDefault();
+
+//     document.querySelector('.share-container').innerHTML = ''
+//     var reader = new FileReader();
+
+//     reader.onload = function (event) {
+//         var img = new Image();
+//         img.onload = onImageReady.bind(null, img)
+//         img.src = event.target.result;
+//     }
+//     reader.readAsDataURL(ev.target.files[0]);
+// }
+
+// // Download the image
+// function downloadImage(elLink) {
+// 	var elCanvas = getCanvas();
+//     var imgContent = elCanvas.toDataURL('image/jpeg');
+//     elLink.href = imgContent
+// }
 
 // Draw image to canvas
 function placeImgToCanvas(elImg) {
@@ -202,7 +215,7 @@ function placeImgToCanvas(elImg) {
 	showElement('.canvas-section');
 }
 
-//The typing on the image
+// The typing on the image
 function typeOnImg() {
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
@@ -232,7 +245,7 @@ function typeOnImg() {
 }
 
 
-//Text adjustment functions
+// Text adjustment functions
 function changeFont(elFont) {
 	gFont = elFont.value;	
 

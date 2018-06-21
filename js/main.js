@@ -144,7 +144,6 @@ function backToGallery() {
 	showElement('.gallery-section');
 }
 
-
 // Retrieve the canvas element
 function getCanvas() {
 	var elCanvas = document.querySelector('.meme-canvas');
@@ -154,9 +153,9 @@ function getCanvas() {
 // Render canvas
 function renderCanvas(img) {
 	var elCanvas = getCanvas();
-	elCanvas.width = img.width;
-	elCanvas.height = img.height;
-	ctx.drawImage(img, 0, 0);
+	var ctx = elCanvas.getContext('2d');
+	/* context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);  */
+	ctx.drawImage(img, 0, 0, 500, 500);
 }
 
 // 
@@ -189,10 +188,9 @@ function downloadImage(elLink) {
 // Draw image to canvas
 function placeImgToCanvas(elImg) {
 	gCurrImg = elImg;
-	var elCanvas = getCanvas();
-	var ctx = elCanvas.getContext('2d');
-	/* context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);  */
-	ctx.drawImage(elImg, 0, 0, 500, 500);
+
+	// Render canvas
+	renderCanvas(elImg);
 
 	// Hide gallery, show canvas
 	hideElement('.gallery-section');

@@ -297,23 +297,29 @@ function typeOnImg() {
 function changeFont(font) {
 	// Update global font
 	gFont = font;
+
 	// Update meme modal text font
 	gMeme.txts[0].line = font;
+
+	// Update canvas
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
     ctx.clearRect(0, 0, 500, 550);
 	placeImgToCanvas(gCurrImg);
-
 	ctx.font = `${gFontSize}px ${gFont}`;
 	ctx.fillStyle = gColor;
-
 	var elTxtField = document.querySelector('.txt-field');
 	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
 }
 
 function changeColor(color) {
+	// Update global color
 	gColor = color;
 
+	// Update meme modal text color
+	gMeme.txts[0].color = color;
+
+	// Update canvas
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
 	ctx.clearRect(0, 0, 500, 550);
@@ -322,12 +328,16 @@ function changeColor(color) {
 	ctx.fillStyle = gColor;
 	var elTxtField = document.querySelector('.txt-field');
 	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
-	
 }
 
 function fontSizeUp() {
+	// Update global size
 	gFontSize += 10;
 
+	// Update meme modal text size
+	gMeme.txts[0].size += 10;
+
+	// Update canvas
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
 	ctx.clearRect(0, 0, 500, 550);
@@ -336,12 +346,16 @@ function fontSizeUp() {
 	ctx.fillStyle = gColor;
 	var elTxtField = document.querySelector('.txt-field');
 	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
-	
 }
 
 function fontSizeDown() {
+	// Update global size
 	gFontSize -= 10;
 
+	// Update meme modal text size
+	gMeme.txts[0].size -= 10;
+
+	// Update canvas
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
 	ctx.clearRect(0, 0, 500, 550);

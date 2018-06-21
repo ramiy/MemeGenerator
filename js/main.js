@@ -9,8 +9,11 @@ function init() {
 	// Set images keywords
 	setKeywords();
 
-	// Set initial keywords search
-	setInitSearches();
+	// Set initial popular searches
+	setInitPopularSearches();
+
+	// Render popular searches on screen
+	renderSearches();
 
 	// Render keywords on screen
 	renderKeywords();
@@ -59,9 +62,9 @@ function renderGallery() {
 	});
 
 	// Create HTML for each image
-	var srtHTML = '';
+	var strHTML = '';
 	filteredImages.forEach(function (image) {
-		srtHTML += `
+		strHTML += `
 		<li class="hex">
 			<div class="hexIn">
 				<div class="hexLink">
@@ -73,21 +76,57 @@ function renderGallery() {
 
 	// Update gallery on screen
 	var elImages = document.querySelector('.images');
-	elImages.innerHTML = srtHTML;
+	elImages.innerHTML = strHTML;
 }
 
 // Render keywords on screen
 function renderKeywords() {
 	var keywords = getKeywords();
-	var srtHTML = '';
+	var strHTML = '';
 	for (var i = 0; i < keywords.length; i++) {
 		var keyword = keywords[i];
-		srtHTML += `<option value="${keyword[0]}">${keyword[0]}</option>`;
+		strHTML += `<option value="${keyword[0]}">${keyword[0]}</option>`;
 	}
 
 	// Update keywords data list on screen
 	var elKeywordsDataList = document.querySelector('#keywords');
-	elKeywordsDataList.innerHTML = srtHTML;
+	elKeywordsDataList.innerHTML = strHTML;
+}
+
+// Render popular searches on screen
+function renderSearches() {
+	var items = getPopularSearches();
+	var lowVal = Number.MAX_VALUE;
+	var highVal = 0;
+	var minSize = 15;
+	var maxSize = 60;
+
+	for (var i = 0; i < items.length; i++) {
+		var data = parseInt(items[i][1], 10);
+		if (data > highVal) highVal = data;
+		if (data < lowVal) lowVal = data;
+	}
+
+	var spreadSize = maxSize - minSize;
+	var spread = highVal - lowVal;
+
+	var strHTML = '';
+	for (i = 0; i < items.length; i++) {
+		data = parseInt(items[i][1], 10);
+		var size = (spreadSize * (data - lowVal) / spread) + minSize;
+
+		size = Math.round(size);
+		// elements[i].style.fontSize = size + "px";
+
+		var keyword = items[i][0];
+		strHTML += `<li><span role="button" style="font-size: ${size}px">${keyword}</span></li>`;
+	}
+	console.log(strHTML);
+
+
+	// Update popular searches on screen
+	var elSearches = document.querySelector('.searches');
+	elSearches.innerHTML = strHTML;
 }
 
 // When searching by keywords, save search results
@@ -102,11 +141,12 @@ function onSearch(search) {
 
 	// Save search to local storage
 	if (keywordExist) {
-		var searches = getSearches();
-		searches = addSearchKeyword( searches, search );
-		saveToStorage('MemeGeneratorSearch', searches);
+		var searches = getPopularSearches();
+		searches = addPopularSearches(searches, search);
+		saveToStorage(getStorageKey(), searches);
 	}
 
+	renderSearches()
 	renderGallery();
 }
 

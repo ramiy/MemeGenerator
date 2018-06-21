@@ -13,7 +13,7 @@ var gMeme = {
 	]
 }
 
-var gTxtPosition;   // Is used for function that types a text on the image (not sure we need that..)
+var gTxtPosition; // Is used for function that types a text on the image (not sure we need that..)
 var gCurrImg;
 
 
@@ -144,13 +144,55 @@ function backToGallery() {
 	showElement('.gallery-section');
 }
 
-// Draw image to canvas
-function placeImgToCanvas(el) {
-	gCurrImg = el;
+
+// Retrieve the canvas element
+function getCanvas() {
 	var elCanvas = document.querySelector('.meme-canvas');
+	return elCanvas;
+}
+
+// Render canvas
+function renderCanvas(img) {
+	var elCanvas = getCanvas();
+	elCanvas.width = img.width;
+	elCanvas.height = img.height;
+	ctx.drawImage(img, 0, 0);
+}
+
+// 
+function onFileInputChange(ev) {
+    handleImageFromInput(ev, renderCanvas)
+}
+
+// 
+function handleImageFromInput(ev, onImageReady) {
+	ev.preventDefault();
+
+    document.querySelector('.share-container').innerHTML = ''
+    var reader = new FileReader();
+
+    reader.onload = function (event) {
+        var img = new Image();
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result;
+    }
+    reader.readAsDataURL(ev.target.files[0]);
+}
+
+// Download the image
+function downloadImage(elLink) {
+	var elCanvas = getCanvas();
+    var imgContent = elCanvas.toDataURL('image/jpeg');
+    elLink.href = imgContent
+}
+
+// Draw image to canvas
+function placeImgToCanvas(elImg) {
+	gCurrImg = elImg;
+	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
 	/* context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);  */
-	ctx.drawImage(el, 0, 0, 500, 500);
+	ctx.drawImage(elImg, 0, 0, 500, 500);
 
 	// Hide gallery, show canvas
 	hideElement('.gallery-section');
@@ -159,7 +201,7 @@ function placeImgToCanvas(el) {
 
 //The typing on the image
 function typeOnImg() {
-	var elCanvas = document.querySelector('.meme-canvas');
+	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
 	ctx.font = "40px Comic Sans MS";
 	ctx.fillStyle = "white";
@@ -171,7 +213,7 @@ function typeOnImg() {
 			ctx.clearRect(0, 0, 500, 550);
 			placeImgToCanvas(gCurrImg);
             // copy from 5 first lines of typeOnImg(), to avoid recursion
-			elCanvas = document.querySelector('.meme-canvas');
+			elCanvas = getCanvas();
 			ctx = elCanvas.getContext('2d');
 			ctx.font = "40px Comic Sans MS";
 			ctx.fillStyle = "white";

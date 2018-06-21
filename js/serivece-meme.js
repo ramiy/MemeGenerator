@@ -13,7 +13,6 @@ var gMeme = {
         }
     ]
 }
-var gCurrImg;
 
 
 

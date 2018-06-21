@@ -101,13 +101,13 @@
 						<legend>First Line</legend>
 
 						<label for="">Text:</label>
-						<input type="text" class="txt-field" onfocus="typeOnImg()">
+						<input type="text" class="txt-field" onkeyup="onChangeText(this.value)">
 
 						<br>
 						<br>
 
 						<label for="">Font:</label>
-						<select class="select-font" onchange="changeFont(this.value)">
+						<select class="select-font" onchange="onChangeFont(this.value)">
 							<option value="arial">Arial</option>
 							<option value="monospace">Monospace</option>
 							<option value="fantasy">Fantasy</option>
@@ -118,7 +118,7 @@
 						<br>
 
 						<label for="">Color:</label>
-						<select class="select-color" onchange="changeColor(this.value)">
+						<select class="select-color" onchange="onChangeColor(this.value)">
 							<option value="white">white</option>
 							<option value="blue">blue</option>
 							<option value="green">green</option>
@@ -130,8 +130,8 @@
 						<br>
 						<br>
 
-						<button class="btn btn-plus" onclick="fontSizeUp()">＋</button>
-						<button class="btn btn-minus" onclick="fontSizeDown()">−</button>
+						<button class="btn btn-plus" onclick="onSizeIncrease()">＋</button>
+						<button class="btn btn-minus" onclick="onSizeDecrease()">−</button>
 
 						<br>
 						<br>
@@ -172,6 +172,7 @@
 
 	<script src="js/serivece-utils.js"></script>
 	<script src="js/serivece-gallery.js"></script>
+	<script src="js/serivece-meme.js"></script>
 	<script src="js/main.js"></script>
 
 </body>

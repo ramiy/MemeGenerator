@@ -102,8 +102,8 @@
 						<label for="meme-text" class="sr-only">Text:</label>
 						<input type="text" class="meme-text" id="meme-text" onkeyup="onChangeMemeText(this.value)">
 
-						<label for="">Font:</label>
-						<select class="select-font" onchange="onChangeFont(this.value)">
+						<label for="meme-font">Font:</label>
+						<select class="meme-font" id="meme-font" onchange="onChangeMemeFont(this.value)">
 							<option value="arial">Arial</option>
 							<option value="monospace">Monospace</option>
 							<option value="fantasy">Fantasy</option>
@@ -113,8 +113,8 @@
 						<br>
 						<br>
 
-						<label for="">Color:</label>
-						<select class="select-color" onchange="onChangeMemeColor(this.value)">
+						<label for="meme-color">Color:</label>
+						<select class="meme-color" id="meme-color" onchange="onChangeMemeColor(this.value)">
 							<option value="white">white</option>
 							<option value="blue">blue</option>
 							<option value="green">green</option>
@@ -132,19 +132,16 @@
 						<br>
 						<br>
 
-						<div class="arrows-grid">
-							<button class="btn arrow-up" onclick="moveUp()">&uarr;</button>
-							<button class="btn arrow-right" onclick="moveRight()">&rarr;</button>
-							<button class="btn arrow-down" onclick="moveDown()">&darr;</button>
-							<button class="btn arrow-left" onclick="moveLeft()">&larr;</button>
+						<div class="arrows-grid" aria-label="Move the text position using those arrows">
+							<button class="btn arrow-up" onclick="moveUp()" aria-label="Move up">&uarr;</button>
+							<button class="btn arrow-right" onclick="moveRight()" aria-label="Move right">&rarr;</button>
+							<button class="btn arrow-down" onclick="moveDown()" aria-label="Move down">&darr;</button>
+							<button class="btn arrow-left" onclick="moveLeft()" aria-label="Move left">&larr;</button>
 						</div>
 
 					</fieldset>
 
-					<a href="#" onclick="downloadImage(this)" download="my-img.jpg" class="btn btn-success float-right">
-						Download Meme
-					</a>
-					<!-- <button class="btn btn-success float-right" onclick="downloadImage()">Download Meme</button> -->
+					<a href="#" class="btn btn-success float-right" onclick="downloadImage(this)" download="my-img.jpg">Download Meme</a>
 
 				</div>
 				<!-- /text editor -->

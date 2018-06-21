@@ -131,9 +131,9 @@ function renderCanvas(img) {
 
 // Load initial meme data from the model and render it on screen
 function loadMemeData() {
-	document.querySelector('.txt-field').value = getMemeText();
-	document.querySelector('.select-font').value = getMemeFont();
-	document.querySelector('.select-color').value = getMemeColor();
+	document.querySelector('.meme-text').value = getMemeText();
+	document.querySelector('.meme-font').value = getMemeFont();
+	document.querySelector('.meme-color').value = getMemeColor();
 }
 
 // On upload meme image

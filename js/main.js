@@ -8,7 +8,7 @@ var gMeme = {
 			line: 'I never eat Falafel',
 			size: 20,
 			align: 'left',
-			color: 'red',
+			color: 'white',
 			font: 'arial'
 		}
 	]
@@ -155,15 +155,49 @@ function getCanvas() {
 }
 
 // Render canvas
-function renderCanvas(img) {
+function renderCanvas(elImg) {
+	// Retrieve canvas element
 	var elCanvas = getCanvas();
 
-	// Update can
+	// Update canvas
 	var ctx = elCanvas.getContext('2d');
-	ctx.font = `40px ${gFont}`;
-	ctx.fillStyle = "white";
 
-	ctx.drawImage(img, 0, 0, 500, 500);
+	// Clean board
+	ctx.fillStyle = "#fff";
+	ctx.fillRect(0, 0, ctx.elCanvas, elCanvas.height);
+
+	// Print Image
+	ctx.drawImage(elImg, 0, 0, 500, 500);
+
+	// Print text
+	ctx.font = `${gMeme.txts[0].size}px ${gMeme.txts[0].font}`;
+	ctx.fillStyle = gMeme.txts[0].color;
+	ctx.strokeText(gMeme.txts[0].line, 10, 50);
+
+	// gMeme.selectedImgId
+
+	// /**/
+	// ctx.fillStyle = gColor;
+
+	// var elTxtField = document.querySelector('.txt-field');
+
+	// elTxtField.onkeyup = function (ev) {
+	// 	if (ev.key === 'Backspace') {
+	// 		ctx.clearRect(0, 0, 500, 550);
+	// 		placeImgToCanvas(gCurrImg);
+	// 		// copy from 5 first lines of typeOnImg(), to avoid recursion
+	// 		elCanvas = getCanvas();
+	// 		ctx = elCanvas.getContext('2d');
+	// 		ctx.font = `${gFontSize}px ${gFont}`;
+	// 		ctx.fillStyle = gColor;
+	// 		elTxtField = document.querySelector('.txt-field');
+
+	// 		ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+	// 	} else {
+	// 		ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+	// 		console.log(ev.key, elTxtField.value);
+	// 	}
+	// }
 }
 
 // Retrieve meme modal
@@ -196,8 +230,8 @@ function downloadImage(elLink) {
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
 
-    var imgContent = elCanvas.toDataURL('image/jpeg');
-    elLink.href = imgContent
+	var imgContent = elCanvas.toDataURL('image/jpeg');
+	elLink.href = imgContent
 }
 
 // Draw image to canvas
@@ -218,6 +252,10 @@ function placeImgToCanvas(elImg, imgId) {
 
 // The typing on the image
 function typeOnImg() {
+	// Update meme modal text font
+	gMeme.txts[0].line = document.querySelector('.txt-field').value;
+	console.log(gMeme);
+
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
 	ctx.font = `${gFontSize}px ${gFont}`;
@@ -229,7 +267,7 @@ function typeOnImg() {
 		if (ev.key === 'Backspace') {
 			ctx.clearRect(0, 0, 500, 550);
 			placeImgToCanvas(gCurrImg);
-            // copy from 5 first lines of typeOnImg(), to avoid recursion
+			// copy from 5 first lines of typeOnImg(), to avoid recursion
 			elCanvas = getCanvas();
 			ctx = elCanvas.getContext('2d');
 			ctx.font = `${gFontSize}px ${gFont}`;
@@ -238,7 +276,7 @@ function typeOnImg() {
 
 			ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
 
-		} else { 
+		} else {
 			ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
 			console.log(ev.key, elTxtField.value);
 		}
@@ -257,12 +295,12 @@ function changeFont(font) {
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
 
-	
+
 	var elTxtField = document.querySelector('.txt-field');
 	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
-	
-	
-	
+
+
+
 }
 
 function changeColor(elColor) {
@@ -277,7 +315,7 @@ function changeColor(elColor) {
 }
 
 function fontSizeUp() {
-	gFontSize += 10; 
+	gFontSize += 10;
 
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');

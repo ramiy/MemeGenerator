@@ -99,11 +99,8 @@
 
 						<legend>First Line</legend>
 
-						<label for="">Text:</label>
-						<input type="text" class="txt-field" onkeyup="onChangeMemeText(this.value)">
-
-						<br>
-						<br>
+						<label for="meme-text" class="sr-only">Text:</label>
+						<input type="text" class="meme-text" id="meme-text" onkeyup="onChangeMemeText(this.value)">
 
 						<label for="">Font:</label>
 						<select class="select-font" onchange="onChangeFont(this.value)">
@@ -129,17 +126,17 @@
 						<br>
 						<br>
 
-						<button class="btn btn-plus" onclick="onMemeSizeIncrease()">＋</button>
-						<button class="btn btn-minus" onclick="onMemeSizeDecrease()">−</button>
+						<button class="btn btn-plus" onclick="onMemeSizeIncrease()">&plus;</button>
+						<button class="btn btn-minus" onclick="onMemeSizeDecrease()">&minus;</button>
 
 						<br>
 						<br>
 
 						<div class="arrows-grid">
-							<button class="btn arrow-up" onclick="moveUp()">↑</button>
-							<button class="btn arrow-right" onclick="moveRight()">→</button>
-							<button class="btn arrow-down" onclick="moveDown()">↓</button>
-							<button class="btn arrow-left" onclick="moveLeft()">←</button>
+							<button class="btn arrow-up" onclick="moveUp()">&uarr;</button>
+							<button class="btn arrow-right" onclick="moveRight()">&rarr;</button>
+							<button class="btn arrow-down" onclick="moveDown()">&darr;</button>
+							<button class="btn arrow-left" onclick="moveLeft()">&larr;</button>
 						</div>
 
 					</fieldset>

@@ -24,6 +24,7 @@ var gY = 100;
 
 // Initialize the app
 function init() {
+
 	// Add initial images
 	addImages();
 
@@ -36,9 +37,24 @@ function init() {
 	// Render images grid
 	renderGallery();
 
-	// Hide canvas, show gallery
+
+	// Show gallery screen, hide canvas
+	showGallery()
+}
+
+
+/*************** SCREENS ***************/
+
+// Show gallery screen
+function showGallery() {
 	hideElement('.canvas-section');
 	showElement('.gallery-section');
+}
+
+// Show gallery screen
+function showCanvas() {
+	hideElement('.gallery-section');
+	showElement('.canvas-section');
 }
 
 
@@ -109,13 +125,6 @@ function loadMemeData() {
 	document.querySelector('.txt-field').value = gMeme.txts[0].line;
 	document.querySelector('.select-font').value = gMeme.txts[0].font;
 	document.querySelector('.select-color').value = gMeme.txts[0].color;
-}
-
-// Go back to gallery
-function backToGallery() {
-	// Hide canvas, show gallery
-	hideElement('.canvas-section');
-	showElement('.gallery-section');
 }
 
 // Retrieve the canvas element
@@ -216,8 +225,7 @@ function placeImgToCanvas(elImg, imgId) {
 	renderCanvas(elImg);
 
 	// Hide gallery, show canvas
-	hideElement('.gallery-section');
-	showElement('.canvas-section');
+	showCanvas();
 }
 
 // The typing on the image

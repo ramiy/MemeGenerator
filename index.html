@@ -53,7 +53,7 @@
 
 			<div class="filter">
 				<label for="filter" class="sr-only">Filter images: </label>
-				<input type="text" id="filter" list="keywords" placeholder="Filter images..." onkeyup="renderGallery()">
+				<input type="text" id="filter" list="keywords" placeholder="Filter images..." oninput="renderGallery()"> <!-- oninput -->
 				<datalist id="keywords" onselect="renderGallery()"></datalist>
 			</div>
 

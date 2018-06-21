@@ -37,10 +37,6 @@ a:focus {
 	border: 0;
 }
 
-.text-center {
-	text-align: center;
-}
-
 .inline-list {
 	list-style-type: none;
 }
@@ -55,6 +51,14 @@ a:focus {
 
 .float-left {
 	float: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.center-block {
+	margin: 0 auto;
 }
 
 /********** HEADER **********/
@@ -91,20 +95,23 @@ header a {
 	color: #fff;
 }
 
-/********** MAIN **********/
+/********** MAIN SECTIONS **********/
 
-main {
-	background-color: #fff;
-	margin: 30px auto;
+.gallery-section {
+	margin: 50px auto;
 }
 
 .filter {
 	padding-bottom: 1em;
 }
 
+.canvas-section {
+	margin: 50px auto;
+}
+
 .meme-canvas {
 	border: 1px solid grey;
-	margin: 30px auto;
+	margin: 10px auto;
 }
 
 /********** FOOTER **********/
@@ -114,8 +121,8 @@ footer {
 	color: #fff;
 }
 
-.add-txt{
-    position: fixed;
+.add-txt-btn{
+    
     bottom: 50px;
 }
 

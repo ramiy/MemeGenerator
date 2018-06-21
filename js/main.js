@@ -17,6 +17,8 @@ var gColor = 'white';
 var gFont;
 var gTxtStr;
 var gFontSize = 50;
+var gX = 70;
+var gY = 100;
 
 
 
@@ -283,10 +285,10 @@ function typeOnImg() {
 			ctx.fillStyle = gColor;
 			elTxtField = document.querySelector('.txt-field');
 
-			ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+			ctx.fillText(elTxtField.value, gX, gY);
 
 		} else {
-			ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+			ctx.fillText(elTxtField.value, gX, gY);
 			console.log(ev.key, elTxtField.value);
 		}
 	}
@@ -301,14 +303,14 @@ function changeFont(font) {
 	gMeme.txts[0].line = font;
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
-    ctx.clearRect(0, 0, 500, 550);
+	ctx.clearRect(0, 0, 500, 550);
 	placeImgToCanvas(gCurrImg);
 
 	ctx.font = `${gFontSize}px ${gFont}`;
 	ctx.fillStyle = gColor;
 
 	var elTxtField = document.querySelector('.txt-field');
-	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+	ctx.fillText(elTxtField.value, gX, gY);
 }
 
 function changeColor(color) {
@@ -321,8 +323,8 @@ function changeColor(color) {
 	ctx.font = `${gFontSize}px ${gFont}`;
 	ctx.fillStyle = gColor;
 	var elTxtField = document.querySelector('.txt-field');
-	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
-	
+	ctx.fillText(elTxtField.value, gX, gY);
+
 }
 
 function fontSizeUp() {
@@ -335,8 +337,8 @@ function fontSizeUp() {
 	ctx.font = `${gFontSize}px ${gFont}`;
 	ctx.fillStyle = gColor;
 	var elTxtField = document.querySelector('.txt-field');
-	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
-	
+	ctx.fillText(elTxtField.value, gX, gY);
+
 }
 
 function fontSizeDown() {
@@ -349,23 +351,89 @@ function fontSizeDown() {
 	ctx.font = `${gFontSize}px ${gFont}`;
 	ctx.fillStyle = gColor;
 	var elTxtField = document.querySelector('.txt-field');
-	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+	ctx.fillText(elTxtField.value, gX, gY);
 }
 
 function moveUp() {
+	gY -= 10;
+
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+	ctx.clearRect(0, 0, 500, 550);
+	placeImgToCanvas(gCurrImg);
+	ctx.font = `${gFontSize}px ${gFont}`;
+	ctx.fillStyle = gColor;
+	var elTxtField = document.querySelector('.txt-field');
+	ctx.fillText(elTxtField.value, gX, gY);
 
 }
 
 function moveRight() {
+	gX += 10;
+
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+	ctx.clearRect(0, 0, 500, 550);
+	placeImgToCanvas(gCurrImg);
+	ctx.font = `${gFontSize}px ${gFont}`;
+	ctx.fillStyle = gColor;
+	var elTxtField = document.querySelector('.txt-field');
+	ctx.fillText(elTxtField.value, gX, gY);
+
 
 }
 
 function moveDown() {
+	gY += 10;
+
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+	ctx.clearRect(0, 0, 500, 550);
+	placeImgToCanvas(gCurrImg);
+	ctx.font = `${gFontSize}px ${gFont}`;
+	ctx.fillStyle = gColor;
+	var elTxtField = document.querySelector('.txt-field');
+	ctx.fillText(elTxtField.value, gX, gY);
 
 }
 
 function moveLeft() {
+	console.log('decreasing font');
+	gX -= 10
 
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+	ctx.clearRect(0, 0, 500, 550);
+	placeImgToCanvas(gCurrImg);
+	ctx.font = `${gFontSize}px ${gFont}`;
+	ctx.fillStyle = gColor;
+	var elTxtField = document.querySelector('.txt-field');
+	ctx.fillText(elTxtField.value, gX, gY);
+
+}
+
+function handleKeyPress(ev) {
+	console.log(ev.key);
+	switch (ev.key) {
+		case '+':
+			fontSizeUp();
+			break;
+		case '-':
+			fontSizeDown();
+			break;
+		case 'ArrowUp':
+			moveUp();
+			break;
+		case 'ArrowRight':
+			moveRight();
+			break;
+		case 'ArrowDown':
+			moveDown();
+			break;
+		case 'ArrowLeft':
+			moveLeft();
+			break;
+	}
 }
 
 

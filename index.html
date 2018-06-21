@@ -130,17 +130,17 @@
 						<br>
 						<br>
 
-						<button class="btn btn-plus" onclick="fontSizeUp()">＋</button>
-						<button class="btn btn-minus" onclick="fontSizeDown()">−</button>
+						<button class="btn btn-plus" onclick="fontSizeUp()" onkeydown="handleKeyPress(event)">＋</button>
+						<button class="btn btn-minus" onclick="fontSizeDown()" onkeydown="handleKeyPress(event)">−</button>
 
 						<br>
 						<br>
 
 						<div class="arrows-grid">
-							<button class="btn arrow-up" onclick="moveUp()">↑</button>
-							<button class="btn arrow-right" onclick="moveRight()">→</button>
-							<button class="btn arrow-down" onclick="moveDown()">↓</button>
-							<button class="btn arrow-left" onclick="moveLeft()">←</button>
+							<button class="btn arrow-up" onclick="moveUp()" onkeydown="handleKeyPress(event)">↑</button>
+							<button class="btn arrow-right" onclick="moveRight()" onkeydown="handleKeyPress(event)">→</button>
+							<button class="btn arrow-down" onclick="moveDown()" onkeydown="handleKeyPress(event)">↓</button>
+							<button class="btn arrow-left" onclick="moveLeft()" onkeydown="handleKeyPress(event)">←</button>
 						</div>
 
 					</fieldset>

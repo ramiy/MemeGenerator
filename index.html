@@ -77,11 +77,14 @@
 
 			<div class="meme">
 
+				<!-- editor canvas -->
 				<canvas class="meme-canvas" width="500" height="500"></canvas>
+				<!-- /editor canvas -->
 
-				<!-- Text Editor -->
-				<fieldset class="txt-editor">
+				<!-- text editor -->
+				<fieldset>
 
+					<label for="">Custom image:</label>
 					<input type="file" name="image" onchange="onFileInputChange(event)" />
 					<input type="submit" value="Change Image" />
 
@@ -114,17 +117,18 @@
 
 					<br><br>
 
-					<button class="btn-plus" onclick="fontSizeUp()">＋</button>
-					<button class="btn-minus" onclick="fontSizeDown()">−</button>
+					<button class="btn btn-plus" onclick="fontSizeUp()">＋</button>
+					<button class="btn btn-minus" onclick="fontSizeDown()">−</button>
 
 					<br><br>
 
-					<button class="arrow-up" onclick="moveUp()">↑</button>
-					<button class="arrow-right" onclick="moveRight()">→</button>
-					<button class="arrow-down" onclick="moveDown()">↓</button>
-					<button class="arrow-left" onclick="moveLeft()">←</button>
+					<button class="btn arrow-up" onclick="moveUp()">↑</button>
+					<button class="btn arrow-right" onclick="moveRight()">→</button>
+					<button class="btn arrow-down" onclick="moveDown()">↓</button>
+					<button class="btn arrow-left" onclick="moveLeft()">←</button>
 
 				</fieldset>
+				<!-- /text editor -->
 
 			</div>
 

@@ -101,7 +101,7 @@ function renderGallery() {
 		<li class="hex">
 			<div class="hexIn">
 				<div class="hexLink">
-					<img src="${image.url}" alt="" onclick="placeImgToCanvas(this)" />
+					<img src="${image.url}" alt="" onclick="placeImgToCanvas(this, '${image.id}')" />
 				</div>
 			</div>
 		</li>`;
@@ -139,7 +139,7 @@ function renderKeywords() {
 
 /*************** MEME ***************/
 
-// Back to gallery - hide 
+// Go back to gallery
 function backToGallery() {
 	// Hide canvas, show gallery
 	hideElement('.canvas-section');
@@ -161,17 +161,10 @@ function renderCanvas(img) {
 	ctx.font = `40px ${gFont}`;
 	ctx.fillStyle = "white";
 
-
 	ctx.drawImage(img, 0, 0, 500, 500);
-
 }
 
 // Retrieve meme modal
-function getMeme() {
-	return gMeme;
-}
-
-// retrieve meme
 function getMeme() {
 	return gMeme;
 }
@@ -204,8 +197,12 @@ function getMeme() {
 // }
 
 // Draw image to canvas
-function placeImgToCanvas(elImg) {
+function placeImgToCanvas(elImg, imgId) {
+	// Update global image
 	gCurrImg = elImg;
+
+	// Update meme modal image ID
+	gMeme.selectedImgId = imgId;
 
 	// Render canvas
 	renderCanvas(elImg);
@@ -246,8 +243,12 @@ function typeOnImg() {
 
 
 // Text adjustment functions
-function changeFont(elFont) {
-	gFont = elFont.value;	
+function changeFont(font) {
+	// Update global font
+	gFont = font;
+
+	// Update meme modal text font
+	gMeme.txts[0].line = font;
 
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');

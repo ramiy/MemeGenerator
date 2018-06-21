@@ -6,10 +6,16 @@ function init() {
 	// Add initial images
 	addImages();
 
-	// Render images keywords
+	// Set images keywords
+	setKeywords();
+
+	// Set initial keywords search
+	setInitSearches();
+
+	// Render keywords on screen
 	renderKeywords();
 
-	// Render images grid
+	// Render gallery grid on screen
 	renderGallery();
 
 	// Load initial meme data
@@ -72,17 +78,7 @@ function renderGallery() {
 
 // Render keywords on screen
 function renderKeywords() {
-	// Retrieve all the keywords in the gallery
-	var gallery = getGallery();
-	var keywords = gallery.map(function (img) {
-		return img.keywords;
-	});
-
-	// Sort the keywords
-	keywords = flattenArray(keywords);
-	keywords = sortArrayByOccurrences(keywords);
-
-	// Create keywords HTML
+	var keywords = getKeywords();
 	var srtHTML = '';
 	for (let i = 0; i < keywords.length; i++) {
 		var keyword = keywords[i];
@@ -92,6 +88,26 @@ function renderKeywords() {
 	// Update keywords data list on screen
 	var elKeywordsDataList = document.querySelector('#keywords');
 	elKeywordsDataList.innerHTML = srtHTML;
+}
+
+// When searching by keywords, save search results
+function onSearch(search) {
+	// Get all available keywords
+	var keywords = getKeywords();
+
+	// Check if the search equals to one of the keywords
+	var keywordExist = keywords.some(function (keyword) {
+		return keyword[0] === search;
+	});
+
+	// Save search to local storage
+	if (keywordExist) {
+		var searches = loadFromStorage('MemeGeneratorSearch');
+		searches = addSearchKeyword( searches, search );
+		saveToStorage('MemeGeneratorSearch', searches);
+	}
+
+	renderGallery();
 }
 
 

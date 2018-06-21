@@ -53,8 +53,8 @@
 
 			<div class="filter">
 				<label for="filter" class="sr-only">Filter images: </label>
-				<input type="text" id="filter" list="keywords" placeholder="Filter images..." oninput="renderGallery()"> <!-- oninput -->
-				<datalist id="keywords" onselect="renderGallery()"></datalist>
+				<input type="text" id="filter" list="keywords" placeholder="Filter images..." oninput="onSearch( this.value )">
+				<datalist id="keywords"></datalist>
 			</div>
 
 			<h2 class="sr-only">Images list</h2>
@@ -165,6 +165,7 @@
 
 	<script src="js/service-utils.js"></script>
 	<script src="js/service-gallery.js"></script>
+	<script src="js/service-keywords.js"></script>
 	<script src="js/service-meme.js"></script>
 	<script src="js/main.js"></script>
 

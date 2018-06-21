@@ -178,6 +178,13 @@ header a {
     font-size: 1em;
 }
 
+.text-editor .btn {
+	min-width: 50px;
+	min-height: 30px;
+	padding: 5px 15px;
+	margin-right: 15px;
+}
+
 /********** FOOTER **********/
 
 footer {

@@ -26,7 +26,7 @@ function getMeme() {
 
 // Retrieve meme image
 function getMemeImage() {
-    gMeme.selectedImgElement = img;
+    return gMeme.selectedImgElement;
 }
 
 // Retrieve meme text

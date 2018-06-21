@@ -155,7 +155,7 @@ header a {
 	min-height: 90vh;
 	padding-top: 50px;
 	padding-bottom: 50px;
-	background-color: #666;
+	
 	color: #fff;
 }
 
@@ -167,8 +167,8 @@ header a {
 .meme {
 	display: flex;
     justify-content: space-between;
-    border-width: 28px;
-    border-color: #222222;
+    border-width: 42px;
+    border-color: rgba(102, 129, 49, 0.43);
     border-style: solid;
     padding: 18px;
 }	

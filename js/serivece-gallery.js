@@ -46,7 +46,7 @@ function createImage(imgUrl, keywords) {
 	}
 }
 
-// Retrieve the gallery
+// Retrieve the gallery model
 function getGallery() {
 	return gGallery;
 }

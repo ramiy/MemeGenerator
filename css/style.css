@@ -9,6 +9,7 @@
 
 html {
 	font-family: 'Lato', sans-serif;
+	font-size: 16px;
 }
 
 img {
@@ -64,6 +65,40 @@ a:focus {
 
 .center-block {
 	margin: 0 auto;
+}
+
+.btn {
+	background-color: #e7e7e7;
+	border: none;
+	color: #333;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1em;
+}
+.btn-default { /* White */ 
+	background-color: #fff;
+	color: #000;
+}
+.btn-primary { /* Blue */
+	background-color: #008CBA;
+	color: #fff;
+}
+.btn-info { /* Black */
+	background-color: #555;
+	color: #fff;
+}
+.btn-success { /* Green */
+	background-color: #4CAF50;
+	color: #fff;
+}
+.btn-danger { /* Red */ 
+	background-color: #f44336;
+	color: #fff;
+}
+.btn:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 /********** HEADER **********/

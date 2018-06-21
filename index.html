@@ -103,11 +103,15 @@
 
 						<legend>First Line</legend>
 
-						<label for="meme-text" class="sr-only">Text:</label>
-						<input type="text" class="meme-text" id="meme-text" onkeyup="onChangeMemeText(this.value)">
+						<label for="">Top Text:</label>
+						<input type="text" class="txt-field" onkeyup="onChangeMemeText(this.value)">
+						<br><br>
+						<label for="">Bottom Text:</label>
+						<input type="text" class="bottom-txt-field" onkeyup="">
+						<br><br>
 
-						<label for="meme-font">Font:</label>
-						<select class="meme-font" id="meme-font" onchange="onChangeMemeFont(this.value)">
+						<label for="">Font:</label>
+						<select class="select-font"  onchange="onChangeFont(this.value)">
 							<option value="arial">Arial</option>
 							<option value="monospace">Monospace</option>
 							<option value="fantasy">Fantasy</option>

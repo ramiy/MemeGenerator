@@ -59,7 +59,7 @@ function renderGallery() {
 		<li class="hex">
 			<div class="hexIn">
 				<div class="hexLink">
-					<img src="${image.url}" alt="" onclick="onChangeImage(this); showCanvas();" />
+					<img src="${image.url}" alt="" onclick="onChangeMemeImage(this); showCanvas();" />
 				</div>
 			</div>
 		</li>`;
@@ -134,37 +134,37 @@ function loadMemeData() {
 }
 
 // On change meme image
-function onChangeImage(elImg) {
+function onChangeMemeImage(elImg) {
 	updateMemeImage(elImg);
 	renderCanvas();
 }
 
 // On change meme text
-function onChangeText(text) {
+function onChangeMemeText(text) {
 	updateMemeText(text);
 	renderCanvas();
 }
 
 // On change meme font
-function onChangeFont(font) {
+function onChangeMemeFont(font) {
 	updateMemeFont(font);
 	renderCanvas();
 }
 
 // On change meme color
-function onChangeColor(color) {
+function onChangeMemeColor(color) {
 	updateMemeColor(color);
 	renderCanvas();
 }
 
-// On font size increase
-function onSizeIncrease() {
+// On meme font size increase
+function onMemeSizeIncrease() {
 	updateMemeSize(5);
 	renderCanvas();
 }
 
-// On font size decrease
-function onSizeDecrease() {
+// On meme font size decrease
+function onMemeSizeDecrease() {
 	updateMemeSize(-5);
 	renderCanvas();
 }
@@ -198,10 +198,10 @@ function handleKeyPress(ev) {
 	console.log(ev.key);
 	switch (ev.key) {
 		case '+':
-			onSizeIncrease();
+			onMemeSizeIncrease();
 			break;
 		case '-':
-			onSizeDecrease();
+			onMemeSizeDecrease();
 			break;
 		case 'ArrowUp':
 			moveUp();

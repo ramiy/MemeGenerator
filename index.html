@@ -89,7 +89,8 @@
 						<legend>Image</legend>
 
 						<label for="">Set custom image:</label>
-						<br><br>
+						<br>
+						<br>
 						<input type="file" name="image" onchange="onFileInputChange(event)" />
 						<input type="submit" value="Update" />
 
@@ -135,10 +136,12 @@
 						<br>
 						<br>
 
-						<button class="btn arrow-up" onclick="moveUp()">↑</button>
-						<button class="btn arrow-right" onclick="moveRight()">→</button>
-						<button class="btn arrow-down" onclick="moveDown()">↓</button>
-						<button class="btn arrow-left" onclick="moveLeft()">←</button>
+						<div class="arrows-grid">
+							<button class="btn arrow-up arrow-btn" onclick="moveUp()">↑</button>
+							<button class="btn arrow-left arrow-btn" onclick="moveLeft()">←</button>
+							<button class="btn arrow-right arrow-btn" onclick="moveRight()">→</button>
+							<button class="btn arrow-down arrow-btn" onclick="moveDown()">↓</button>
+						</div>
 
 					</fieldset>
 

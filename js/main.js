@@ -227,7 +227,7 @@ function typeOnImg() {
 		if (ev.key === 'Backspace') {
 			ctx.clearRect(0, 0, 500, 550);
 			placeImgToCanvas(gCurrImg);
-            // copy from 5 first lines of typeOnImg(), to avoid recursion
+			// copy from 5 first lines of typeOnImg(), to avoid recursion
 			elCanvas = getCanvas();
 			ctx = elCanvas.getContext('2d');
 			ctx.font = `${gFontSize}px ${gFont}`;
@@ -236,7 +236,7 @@ function typeOnImg() {
 
 			ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
 
-		} else { 
+		} else {
 			ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
 			console.log(ev.key, elTxtField.value);
 		}
@@ -248,41 +248,49 @@ function typeOnImg() {
 function changeFont(font) {
 	// Update global font
 	gFont = font;
-
 	// Update meme modal text font
 	gMeme.txts[0].line = font;
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+    ctx.clearRect(0, 0, 500, 550);
+	placeImgToCanvas(gCurrImg);
+
+	ctx.font = `${gFontSize}px ${gFont}`;
+	ctx.fillStyle = gColor;
+
+	var elTxtField = document.querySelector('.txt-field');
+	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+
+
+
+}
+
+function changeColor(color) {
+	gColor = color;
 
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
-
-	
+	ctx.clearRect(0, 0, 500, 550);
+	placeImgToCanvas(gCurrImg);
+	ctx.font = `${gFontSize}px ${gFont}`;
+	ctx.fillStyle = gColor;
 	var elTxtField = document.querySelector('.txt-field');
 	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
 	
-	
-	
-}
-
-function changeColor(elColor) {
-	gColor = elColor.value;
-
-	var elCanvas = getCanvas();
-	var ctx = elCanvas.getContext('2d');
-
-	ctx.clearRect(0, 0, 500, 550);
-	placeImgToCanvas(gCurrImg);
-	typeOnImg();
 }
 
 function fontSizeUp() {
-	gFontSize += 10; 
+	gFontSize += 10;
 
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
-
 	ctx.clearRect(0, 0, 500, 550);
 	placeImgToCanvas(gCurrImg);
-	typeOnImg();
+	ctx.font = `${gFontSize}px ${gFont}`;
+	ctx.fillStyle = gColor;
+	var elTxtField = document.querySelector('.txt-field');
+	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
+	
 }
 
 function fontSizeDown() {
@@ -290,10 +298,12 @@ function fontSizeDown() {
 
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
-
 	ctx.clearRect(0, 0, 500, 550);
 	placeImgToCanvas(gCurrImg);
-	typeOnImg();
+	ctx.font = `${gFontSize}px ${gFont}`;
+	ctx.fillStyle = gColor;
+	var elTxtField = document.querySelector('.txt-field');
+	ctx.fillText(elTxtField.value, 70, elCanvas.height / 3);
 }
 
 function moveUp() {

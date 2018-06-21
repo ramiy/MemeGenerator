@@ -82,52 +82,66 @@
 				<!-- /editor canvas -->
 
 				<!-- text editor -->
-				<fieldset>
+				<div class="text-editor">
 
-					<label for="">Custom image:</label>
-					<input type="file" name="image" onchange="onFileInputChange(event)" />
-					<input type="submit" value="Change Image" />
+					<fieldset class="change-image">
 
-					<br><br>
+						<legend>Image</legend>
 
-					<label for="">Text:</label>
-					<input type="text" class="txt-field" onfocus="typeOnImg()">
+						<label for="">Custom image:</label>
+						<input type="file" name="image" onchange="onFileInputChange(event)" />
+						<input type="submit" value="Change Image" />
 
-					<br><br>
+					</fieldset>
 
-					<label for="">Font:</label>
-					<select class="select-font" onchange="changeFont(this.value)">
-						<option value="arial">Arial</option>
-						<option value="monospace">Monospace</option>
-						<option value="fantasy">Fantasy</option>
-						<option value="cursive">Cursive</option>
-					</select>
+					<fieldset class="text">
 
-					<br><br>
+						<legend>First Line</legend>
 
-					<label for="">Color:</label>
-					<select class="select-color" onchange="changeColor(this.value)">
-						<option value="white">white</option>
-						<option value="blue">blue</option>
-						<option value="green">green</option>
-						<option value="red">red</option>
-						<option value="hotpink">hotpink</option>
-						<option value="aquamarine">aquamarine</option>
-					</select>
+						<label for="">Text:</label>
+						<input type="text" class="txt-field" onfocus="typeOnImg()">
 
-					<br><br>
+						<br>
+						<br>
 
-					<button class="btn btn-plus" onclick="fontSizeUp()">＋</button>
-					<button class="btn btn-minus" onclick="fontSizeDown()">−</button>
+						<label for="">Font:</label>
+						<select class="select-font" onchange="changeFont(this.value)">
+							<option value="arial">Arial</option>
+							<option value="monospace">Monospace</option>
+							<option value="fantasy">Fantasy</option>
+							<option value="cursive">Cursive</option>
+						</select>
 
-					<br><br>
+						<br>
+						<br>
 
-					<button class="btn arrow-up" onclick="moveUp()">↑</button>
-					<button class="btn arrow-right" onclick="moveRight()">→</button>
-					<button class="btn arrow-down" onclick="moveDown()">↓</button>
-					<button class="btn arrow-left" onclick="moveLeft()">←</button>
+						<label for="">Color:</label>
+						<select class="select-color" onchange="changeColor(this.value)">
+							<option value="white">white</option>
+							<option value="blue">blue</option>
+							<option value="green">green</option>
+							<option value="red">red</option>
+							<option value="hotpink">hotpink</option>
+							<option value="aquamarine">aquamarine</option>
+						</select>
 
-				</fieldset>
+						<br>
+						<br>
+
+						<button class="btn btn-plus" onclick="fontSizeUp()">＋</button>
+						<button class="btn btn-minus" onclick="fontSizeDown()">−</button>
+
+						<br>
+						<br>
+
+						<button class="btn arrow-up" onclick="moveUp()">↑</button>
+						<button class="btn arrow-right" onclick="moveRight()">→</button>
+						<button class="btn arrow-down" onclick="moveDown()">↓</button>
+						<button class="btn arrow-left" onclick="moveLeft()">←</button>
+
+					</fieldset>
+
+				</div>
 				<!-- /text editor -->
 
 			</div>

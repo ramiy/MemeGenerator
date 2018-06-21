@@ -164,6 +164,20 @@ header a {
 	border: 1px solid grey;
 }
 
+.text-editor fieldset { 
+	display: block;
+    margin: 0 1em 1em;
+    padding: 0.5em 1.5em;
+    border: 2px groove grey;
+}
+
+.text-editor legend {
+	padding: 0.2em 0.5em;
+    border: 2px solid grey;
+    color: blue;
+    font-size: 1em;
+}
+
 /********** FOOTER **********/
 
 footer {

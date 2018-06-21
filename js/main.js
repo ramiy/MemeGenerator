@@ -191,12 +191,14 @@ function getMeme() {
 //     reader.readAsDataURL(ev.target.files[0]);
 // }
 
-// // Download the image
-// function downloadImage(elLink) {
-// 	var elCanvas = getCanvas();
-//     var imgContent = elCanvas.toDataURL('image/jpeg');
-//     elLink.href = imgContent
-// }
+// Download the image
+function downloadImage(elLink) {
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+
+    var imgContent = elCanvas.toDataURL('image/jpeg');
+    elLink.href = imgContent
+}
 
 // Draw image to canvas
 function placeImgToCanvas(elImg, imgId) {

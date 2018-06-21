@@ -73,7 +73,7 @@
 
 			<button class="btn btn-back" onclick="backToGallery()">Back to Gallery</button>
 
-			<h2 class="sr-only">Add New Meme</h2>
+			<h2 class="sr-only">Create you own Meme</h2>
 
 			<div class="meme">
 
@@ -89,7 +89,8 @@
 						<legend>Image</legend>
 
 						<label for="">Set custom image:</label>
-						<br><br>
+						<br>
+						<br>
 						<input type="file" name="image" onchange="onFileInputChange(event)" />
 						<input type="submit" value="Update" />
 
@@ -141,6 +142,11 @@
 						<button class="btn arrow-left" onclick="moveLeft()">←</button>
 
 					</fieldset>
+
+					<a href="#" onclick="downloadImage(this)" download="my-img.jpg" class="btn btn-success float-right">
+						Download Meme
+					</a>
+					<!-- <button class="btn btn-success float-right" onclick="downloadImage()">Download Meme</button> -->
 
 				</div>
 				<!-- /text editor -->

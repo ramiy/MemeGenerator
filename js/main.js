@@ -16,6 +16,10 @@ var gMeme = {
 var gTxtPosition; // Is used for function that types a text on the image (not sure we need that..)
 var gCurrImg;
 
+var gColor;
+var gFont;
+
+
 
 
 // Initialize the app
@@ -226,6 +230,39 @@ function typeOnImg() {
 			console.log(ev.key, elTxtField.value);
 		}
 	}
+}
+
+//Text adjustment functions
+function changeFont() {
+	
+}
+
+function changeColor() {
+
+}
+
+function fontSizeUp() {
+
+}
+
+function fontSizeDown() {
+
+}
+
+function moveUp() {
+
+}
+
+function moveRight() {
+
+}
+
+function moveDown() {
+
+}
+
+function moveLeft() {
+
 }
 
 

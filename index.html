@@ -79,29 +79,40 @@
 
 			<canvas class="meme-canvas" width="500" height="500"></canvas>
 
-				<!-- Text Editor -->
-				<div class="txt-editor">
-					<h2>type in a text:</h2>
-					<input class="txt-field" type="text" onfocus="typeOnImg()">
-					<button class="btn-plus">＋</button>
-					<button class="btn-minus">−</button>
-					<button class="arrow-up"></button>
-					<button class="arrow-right"></button>
-					<button class="arrow-down"></button>
-					<button class="arrow-left"></button>
+			<!-- Text Editor -->
+			<div class="txt-editor">
+				<h2>type in a text:</h2>
+				<input class="txt-field" type="text" onfocus="typeOnImg()">
+				<select onchange="changeFont()">
+					<option value="arial">arial
+					<option value="monospace">monospace
+					<option value="fantasy">fantasy
+					<option value="cursive">cursive
+				</select>
+				<select onchange="changeColor()">
+						<option value="white">white
+						<option value="blue">blue
+						<option value="green">green
+						<option value="red">red
+						<option value="hotpink">hotpink
+						<option value="aquamarine">aquamarine
+					</select>
+				<br>
+				<button class="btn-plus" onclick="fontSizeUp()">＋</button>
+				<button class="btn-minus" onclick="fontSizeDown()">−</button>
+				<br>
+				<button class="arrow-up" onclick="moveUp()">↑</button>
+				<button class="arrow-right" onclick="moveRight()">→</button>
+				<button class="arrow-down" onclick="moveDown()">↓</button>
+				<button class="arrow-left" onclick="moveLeft()">←</button>
 
-					<select id="mySelect" onchange="changeFont()">
-						<option value="arial">arial
-						<option value="monospace">monospace
-						<option value="fantasy">fantasy
-						<option value="cursive">cursive
-					  </select>
-				</div>
-				<!-- Text Editor -->
-				<br>
-				<br>
-				<input type="file" name="image" onchange="onFileInputChange(event)" />
-				<input type="submit" />
+			</div>
+
+
+			<br>
+			<br>
+			<input type="file" name="image" onchange="onFileInputChange(event)" />
+			<input type="submit" />
 
 		</div>
 

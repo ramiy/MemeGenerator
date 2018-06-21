@@ -281,6 +281,7 @@ function typeOnImg() {
 			// copy from 5 first lines of typeOnImg(), to avoid recursion
 			elCanvas = getCanvas();
 			ctx = elCanvas.getContext('2d');
+			
 			ctx.font = `${gFontSize}px ${gFont}`;
 			ctx.fillStyle = gColor;
 			elTxtField = document.querySelector('.txt-field');
@@ -301,6 +302,7 @@ function changeFont(font) {
 	gFont = font;
 	// Update meme modal text font
 	gMeme.txts[0].line = font;
+
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');
 	ctx.clearRect(0, 0, 500, 550);

@@ -138,6 +138,7 @@ header a {
 /********** MAIN SECTIONS **********/
 
 .gallery-section {
+	min-height: 90vh;
 	margin: 50px auto;
 }
 
@@ -147,7 +148,11 @@ header a {
 }
 
 .canvas-section {
-	margin: 50px auto;
+	min-height: 90vh;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background-color: #666;
+	color: #fff;
 }
 
 .btn-back {
@@ -168,13 +173,13 @@ header a {
 	display: block;
     margin: 0 1em 1em;
     padding: 0.5em 1.5em;
-    border: 2px groove grey;
+    border: 1px solid #999;
 }
 
 .text-editor legend {
 	padding: 0.2em 0.5em;
-    border: 2px solid grey;
-    color: blue;
+    border: 1px solid #999;
+    color: #fff;
     font-size: 1em;
 }
 

@@ -114,9 +114,13 @@ header a {
 	margin: 50px auto;
 }
 
+.btn-back {
+	display: block;
+    margin-bottom: 30px;
+}
+
 .meme-canvas {
 	border: 1px solid grey;
-	margin: 10px auto;
 }
 
 /********** FOOTER **********/
@@ -127,10 +131,5 @@ footer {
 }
 
 .add-txt-btn{
-    
     bottom: 50px;
-}
-
-.display-none {
-	display: none;
 }

@@ -157,15 +157,7 @@ function placeImgToCanvas(el) {
 	showElement('.canvas-section');
 }
 
-// When "add Text To Image" button is pressed
-function addTxtToImg(el) {
-	el.classList.add('display-none');
-	var elImgTxtInputField = document.querySelector('.txt-editor');
-	elImgTxtInputField.classList.remove('display-none');
-}
-
 //The typing on the image
-
 function typeOnImg() {
 	var elCanvas = document.querySelector('.meme-canvas');
 	var ctx = elCanvas.getContext('2d');

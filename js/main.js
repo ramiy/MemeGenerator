@@ -281,6 +281,7 @@ function typeOnImg() {
 			// copy from 5 first lines of typeOnImg(), to avoid recursion
 			elCanvas = getCanvas();
 			ctx = elCanvas.getContext('2d');
+			
 			ctx.font = `${gFontSize}px ${gFont}`;
 			ctx.fillStyle = gColor;
 			elTxtField = document.querySelector('.txt-field');

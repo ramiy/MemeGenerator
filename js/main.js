@@ -16,7 +16,7 @@ function init() {
 	loadMemeData();
 
 	// Show gallery screen, hide canvas
-	showGallery()
+	showGallery();
 }
 
 
@@ -59,7 +59,7 @@ function renderGallery() {
 		<li class="hex">
 			<div class="hexIn">
 				<div class="hexLink">
-					<img src="${image.url}" alt="" onclick="placeImgToCanvas(this, '${image.id}')" />
+					<img src="${image.url}" alt="" onclick="onChangeImage(this); showCanvas();" />
 				</div>
 			</div>
 		</li>`;
@@ -96,6 +96,34 @@ function renderKeywords() {
 
 
 
+/*************** CANVAS ***************/
+
+// Retrieve the canvas element
+function getCanvas() {
+	var elCanvas = document.querySelector('.meme-canvas');
+	return elCanvas;
+}
+
+// Render canvas
+function renderCanvas() {
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+
+	// Clean board
+	ctx.fillStyle = "#fff";
+	ctx.fillRect(0, 0, ctx.elCanvas, elCanvas.height);
+
+	// Print Image
+	ctx.drawImage(getMemeImage(), 0, 0, 500, 500);
+
+	// Print text
+	ctx.font = `${getMemeSize()}px ${getMemeFont()}`;
+	ctx.fillStyle = getMemeColor();
+	ctx.fillText(getMemeText(), getMemePositionX(), getMemePositionY());
+}
+
+
+
 /*************** MEME ***************/
 
 // Load initial meme data from the model and render it on screen
@@ -105,117 +133,67 @@ function loadMemeData() {
 	document.querySelector('.select-color').value = getMemeColor();
 }
 
-// Retrieve the canvas element
-function getCanvas() {
-	var elCanvas = document.querySelector('.meme-canvas');
-	return elCanvas;
-}
-
-// Render canvas
-function renderCanvas(elImg) {
-	// Retrieve canvas element
-	var elCanvas = getCanvas();
-
-	// Update canvas
-	var ctx = elCanvas.getContext('2d');
-
-	// Clean board
-	ctx.fillStyle = "#fff";
-	ctx.fillRect(0, 0, ctx.elCanvas, elCanvas.height);
-
-	// Print Image
-	ctx.drawImage(elImg, 0, 0, 500, 500);
-
-	// Print text
-	ctx.font = `${gMeme.txts[0].size}px ${gMeme.txts[0].font}`;
-	ctx.fillStyle = gMeme.txts[0].color;
-	ctx.strokeText(gMeme.txts[0].line, 10, 50);
-}
-
-// Download the image
-function downloadImage(elLink) {
-	var elCanvas = getCanvas();
-	var ctx = elCanvas.getContext('2d');
-
-	var imgContent = elCanvas.toDataURL('image/jpeg');
-	elLink.href = imgContent
-}
-
-// Draw image to canvas
-function placeImgToCanvas(elImg, imgId) {
+// On change meme image
+function onChangeImage(elImg) {
 	updateMemeImage(elImg);
-	renderCanvas(elImg);
-	showCanvas();
-}
-
-function updateCanvas() {
-	var elCanvas = getCanvas();
-	var ctx = elCanvas.getContext('2d');
-	ctx.clearRect(0, 0, 500, 550);
-
-	placeImgToCanvas(getMemeImage());
-
-	ctx.font = `${getMemeSize()}px ${getMemeFont()}`;
-	ctx.fillStyle = getMemeColor();
-	ctx.fillText(getMemeText(), getMemePositionX(), getMemePositionY());
+	renderCanvas();
 }
 
 // On change meme text
 function onChangeText(text) {
-	console.log( text );
 	updateMemeText(text);
-	updateCanvas();
-	console.log( gMeme );
+	renderCanvas();
 }
 
 // On change meme font
 function onChangeFont(font) {
 	updateMemeFont(font);
-	updateCanvas();
+	renderCanvas();
 }
 
 // On change meme color
 function onChangeColor(color) {
 	updateMemeColor(color);
-	updateCanvas();
+	renderCanvas();
 }
 
 // On font size increase
 function onSizeIncrease() {
-	updateMemeSize(10);
-	updateCanvas();
+	updateMemeSize(5);
+	renderCanvas();
 }
 
 // On font size decrease
 function onSizeDecrease() {
-	updateMemeSize(-10);
-	updateCanvas();
+	updateMemeSize(-5);
+	renderCanvas();
 }
 
 // On move up
 function moveUp() {
-	updateMemePositionY(-10);
-	updateCanvas();
+	updateMemePositionY(-5);
+	renderCanvas();
 }
 
 // On move right
 function moveRight() {
-	updateMemePositionX(+10);
-	updateCanvas();
+	updateMemePositionX(+5);
+	renderCanvas();
 }
 
 // On move down
 function moveDown() {
 	updateMemePositionY(10);
-	updateCanvas();
+	renderCanvas();
 }
 
 // On move left
 function moveLeft() {
 	updateMemePositionX(-10);
-	updateCanvas();
+	renderCanvas();
 }
 
+// Handle keyboards clicks
 function handleKeyPress(ev) {
 	console.log(ev.key);
 	switch (ev.key) {
@@ -240,4 +218,9 @@ function handleKeyPress(ev) {
 	}
 }
 
-
+// Download the image
+function downloadImage(elLink) {
+	var elCanvas = getCanvas();
+	var imgContent = elCanvas.toDataURL('image/jpeg');
+	elLink.href = imgContent;
+}

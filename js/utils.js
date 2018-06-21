@@ -1,15 +1,33 @@
 'use strict';
 
+// Save data to local storage
+function saveToStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value))
+}
+
+// Load data from local storage
+function loadFromStorage(key) {
+    return JSON.parse(localStorage.getItem(key))
+}
+
+// Hide an HTML element
+function hideElement(selector) {
+    document.querySelector(selector).style.display = 'none';
+}
+
+// Show an HTML element
+function showElement(selector) {
+    document.querySelector(selector).style.display = 'block';
+}
+
 // Create a unique ID
 function makeId() {
-    var length = 6;
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
+    var length = 6;
     var txt = '';
     for (var i = 0; i < length; i++) {
         txt += possible.charAt(Math.floor(Math.random() * possible.length));
     }
-
     return txt;
 }
 
@@ -41,14 +59,4 @@ function sortArrayByOccurrences(values) {
     });
 
     return sortable;
-}
-
-// Hide and HTML element
-function hideElement(selector) {
-    document.querySelector(selector).style.display = 'none';
-}
-
-// Show and HTML element
-function showElement(selector) {
-    document.querySelector(selector).style.display = 'block';
 }

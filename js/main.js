@@ -5,11 +5,10 @@ var gMeme = {
 	selectedImgId: 5,
 	txts: [
 		{
-			line: 'I never eat Falafel',
-			size: 20,
-			align: 'left',
-			color: 'white',
-			font: 'arial'
+			line: 'I never eat Falafel with arie',
+			font: 'arial',
+			color: 'blue',
+			size: 20
 		}
 	]
 }
@@ -25,6 +24,9 @@ var gFontSize = 50;
 function init() {
 	// Add initial images
 	addImages();
+
+	// Load initial meme data
+	loadMemeData();
 
 	// Render images keywords
 	renderKeywords();
@@ -140,6 +142,13 @@ function renderKeywords() {
 
 
 /*************** MEME ***************/
+
+// Load initial meme data from the model and render it on screen
+function loadMemeData() {
+	document.querySelector('.txt-field').value = gMeme.txts[0].line;
+	document.querySelector('.select-font').value = gMeme.txts[0].font;
+	document.querySelector('.select-color').value = gMeme.txts[0].color;
+}
 
 // Go back to gallery
 function backToGallery() {

@@ -124,8 +124,9 @@ function renderKeywords() {
 
 	// Create keywords HTML
 	var srtHTML = '';
-	for (var keyword in keywords) {
-		srtHTML += `<option value="${keyword}"></option>`;
+	for (var i = 0; i < keywords.length; i++) {
+		var keyword = keywords[i];
+		srtHTML += `<option value="${keyword[0]}">${keyword[0]}</option>`;
 	}
 
 	// Update keywords data list on screen

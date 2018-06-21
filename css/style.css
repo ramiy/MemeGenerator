@@ -152,8 +152,13 @@ header a {
 
 .btn-back {
 	display: block;
-    margin-bottom: 30px;
+	margin-bottom: 30px;
 }
+
+.meme {
+	display: flex;
+    justify-content: space-between;
+}	
 
 .meme-canvas {
 	border: 1px solid grey;

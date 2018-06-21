@@ -18,6 +18,7 @@ var gCurrImg;
 
 var gColor;
 var gFont;
+var gTxtStr;
 
 
 
@@ -232,8 +233,8 @@ function typeOnImg() {
 
 
 //Text adjustment functions
-function changeFont(el) {
-	gFont = el.value;	
+function changeFont(elFont) {
+	gFont = elFont.value;	
 
 	var elCanvas = getCanvas();
 	var ctx = elCanvas.getContext('2d');

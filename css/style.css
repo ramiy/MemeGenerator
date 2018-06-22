@@ -167,6 +167,11 @@ header a {
 	align-items: center;
 	margin-bottom: 50px;
 	color: #dd0;
+	text-transform: capitalize;
+}
+
+.searches span {
+	cursor: pointer;
 }
 
 .hex,
@@ -179,11 +184,14 @@ header a {
 	transition: all 1s;
 }
 
+.hex .hexIn {
+	cursor: pointer;
+}
+
 .canvas-section {
 	min-height: 90vh;
 	padding-top: 50px;
 	padding-bottom: 50px;
-	
 	color: #fff;
 }
 
@@ -195,10 +203,8 @@ header a {
 .meme {
 	display: flex;
 	justify-content: space-between;
-	border-width: 20px;
-	border-color: #552;
-	border-style: solid;
-	padding: 18px;
+	border: 20px solid #552;
+	padding: 20px;
 }	
 
 .meme-canvas {
@@ -307,4 +313,43 @@ header a {
 footer {
 	background-color: #333;
 	color: #fff;
+}
+
+
+
+
+
+/********** TABLETS **********/
+
+@media ( max-width: 1000px ) {
+
+	.container {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+
+	.searches {
+		display: none;
+	}
+
+	.btn-back {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.meme {
+		flex-direction: column;
+		padding: 0;
+		border: 0;
+	}
+
+	.text-editor {
+		margin-top: 20px;
+	}
+
+	.text-editor fieldset {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
 }

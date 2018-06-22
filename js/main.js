@@ -119,10 +119,8 @@ function renderSearches() {
 		// elements[i].style.fontSize = size + "px";
 
 		var keyword = items[i][0];
-		strHTML += `<li><span role="button" style="font-size: ${size}px">${keyword}</span></li>`;
+		strHTML += `<li><span role="button" style="font-size: ${size}px" onclick="onSelectSearch('${keyword}')">${keyword}</span></li>`;
 	}
-	console.log(strHTML);
-
 
 	// Update popular searches on screen
 	var elSearches = document.querySelector('.searches');
@@ -150,6 +148,11 @@ function onSearch(search) {
 	renderGallery();
 }
 
+// When selecting a popular search
+function onSelectSearch(keyword) {
+	document.querySelector('#filter').value = keyword;
+	onSearch(keyword);
+}
 
 
 /*************** CANVAS ***************/

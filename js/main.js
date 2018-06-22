@@ -114,10 +114,7 @@ function renderSearches() {
 	for (i = 0; i < items.length; i++) {
 		data = parseInt(items[i][1], 10);
 		var size = (spreadSize * (data - lowVal) / spread) + minSize;
-
 		size = Math.round(size);
-		// elements[i].style.fontSize = size + "px";
-
 		var keyword = items[i][0];
 		strHTML += `<li><span role="button" style="font-size: ${size}px" onclick="onSelectSearch('${keyword}')">${keyword}</span></li>`;
 	}
@@ -153,6 +150,7 @@ function onSelectSearch(keyword) {
 	document.querySelector('#filter').value = keyword;
 	onSearch(keyword);
 }
+
 
 
 /*************** CANVAS ***************/
@@ -268,7 +266,6 @@ function moveLeft() {
 
 // Handle keyboards clicks
 function handleKeyPress(ev) {
-	console.log(ev.key);
 	switch (ev.key) {
 		case '+':
 			onMemeSizeIncrease();

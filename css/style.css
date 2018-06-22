@@ -169,6 +169,16 @@ header a {
 	color: #dd0;
 }
 
+.hex,
+.hex img {
+	transition: all 1s;
+}
+
+.hex img:hover {
+	transform: scale(1.25);
+	transition: all 1s;
+}
+
 .canvas-section {
 	min-height: 90vh;
 	padding-top: 50px;

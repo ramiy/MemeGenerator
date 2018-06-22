@@ -186,7 +186,7 @@ header a {
 	display: flex;
 	justify-content: space-between;
 	border-width: 20px;
-	border-color: rgba(102, 129, 49, 0.43);
+	border-color: #552;
 	border-style: solid;
 	padding: 18px;
 }	
@@ -205,10 +205,11 @@ header a {
 }
 
 .text-editor legend {
-	padding: 0.2em 0.5em;
+	padding: 0.25em 0.5em;
 	border: 1px solid #999;
-	color: #fff;
+	color: #ff0;
 	font-size: 1em;
+	background-color: #444;
 }
 
 .text-editor label {
@@ -227,7 +228,7 @@ header a {
 }
 
 .text-editor .btn:hover {
-	color: yellow;
+	color: #ff0;
 	background-color: #444;
 	box-shadow: none;
 }
@@ -246,7 +247,6 @@ header a {
 }
 
 .meme-actions {
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 

@@ -12,10 +12,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/hexagons.css">
-	
+
 </head>
 
-<body onload="init()">
+<body onload="init()" onkeyup="handleKeyPress(event)">
 
 	<!-- header -->
 	<header>
@@ -82,7 +82,7 @@
 			<div class="meme">
 
 				<!-- editor canvas -->
-				<canvas class="meme-canvas" width="500" height="500"></canvas>
+				<canvas class="meme-canvas" width="500" height="500" onclick="onCanvasClick()"></canvas>
 				<!-- /editor canvas -->
 
 				<!-- text editor -->
@@ -117,30 +117,30 @@
 							<div class="inline-block">
 								<label for="meme-font">Font:</label>
 								<select class="meme-font" id="meme-font" onchange="onChangeMemeFont(this.value)">
-							<option value="" disabled selected>Text Font</option>
-							<option value="impact">Impact</option>
-							<option value="arial">Arial</option>
-							<option value="monospace">Monospace</option>
-							<option value="fantasy">Fantasy</option>
-							<option value="cursive">Cursive</option>
-						</select>
+									<option value="" disabled selected>Text Font</option>
+									<option value="impact">Impact</option>
+									<option value="arial">Arial</option>
+									<option value="monospace">Monospace</option>
+									<option value="fantasy">Fantasy</option>
+									<option value="cursive">Cursive</option>
+								</select>
 							</div>
 							<div class="inline-block">
 								<label for="meme-color">Color:</label>
-						<select class="meme-color" id="meme-color" onchange="onChangeMemeColor(this.value)">
-							<option value="" disabled selected>Text Color</option>
+								<select class="meme-color" id="meme-color" onchange="onChangeMemeColor(this.value)">
+									<option value="" disabled selected>Text Color</option>
 									<option value="white">White</option>
 									<option value="black">Black</option>
 									<option value="red">Red</option>
 									<option value="green">Green</option>
 									<option value="blue">Blue</option>
-						</select>
+								</select>
 							</div>
 							<div class="inline-block">
 								<label for="">Size:</label>
-							<button class="btn btn-plus" onclick="onMemeSizeIncrease()" aria-label="Increase text size">&plus;</button>
-							<button class="btn btn-minus" onclick="onMemeSizeDecrease()" aria-label="Decrease text size">&minus;</button>
-						</div>
+								<button class="btn btn-plus" onclick="onMemeSizeIncrease()" aria-label="Increase text size">&plus;</button>
+								<button class="btn btn-minus" onclick="onMemeSizeDecrease()" aria-label="Decrease text size">&minus;</button>
+							</div>
 						</div>
 
 						<div class="meme-move" aria-label="Move the text position using those arrows">
@@ -174,6 +174,7 @@
 	</footer>
 	<!-- /footer -->
 
+	<script src="libs/jscolor.js"></script>
 	<script src="js/service-utils.js"></script>
 	<script src="js/service-gallery.js"></script>
 	<script src="js/service-keywords.js"></script>

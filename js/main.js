@@ -162,20 +162,20 @@ function onSelectSearch(keyword) {
 
 // Retrieve the canvas element
 function getCanvas() {
-	var elCanvas = document.querySelector('.meme-canvas');
-	return elCanvas;
+	var canvas = document.querySelector('.meme-canvas');
+	return canvas;
 }
 
 // Render canvas
 function renderCanvas(img) {
-	var elCanvas = getCanvas();
-	var ctx = elCanvas.getContext('2d');
+	var canvas = getCanvas();
+	var ctx = canvas.getContext('2d');
 
 	// If no image uploaded, use meme image
 	if (!img) img = getMemeImage();
 
 	// Clean board
-	ctx.clearRect(0, 0, elCanvas.width, elCanvas.height);
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 	// Print Image
 	var imgObj = getImage(img);
@@ -264,10 +264,10 @@ function onMemeSizeDecrease() {
 
 // On meme alignment
 function onMemeAlignment(pos) {
-	var elCanvas = getCanvas();
-	var ctx = elCanvas.getContext('2d');
+	var canvas = getCanvas();
+	var ctx = canvas.getContext('2d');
 	var textWidth = ctx.measureText(getMemeText()).width;
-	updateMemeAlignment(pos, elCanvas.width, textWidth);
+	updateMemeAlignment(pos, canvas.width, textWidth);
 	renderCanvas();
 }
 
@@ -321,7 +321,7 @@ function handleKeyPress(ev) {
 
 // Download the image
 function downloadImage(elLink) {
-	var elCanvas = getCanvas();
-	var imgContent = elCanvas.toDataURL('image/jpeg');
+	var canvas = getCanvas();
+	var imgContent = canvas.toDataURL('image/jpeg');
 	elLink.href = imgContent;
 }

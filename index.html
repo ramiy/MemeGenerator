@@ -9,7 +9,8 @@
 	<title>Meme Generator</title>
 
 	<link rel="stylesheet" href="css/reset.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/hexagons.css">
 
@@ -138,16 +139,39 @@
 							</div>
 							<div class="inline-block">
 								<label for="">Size:</label>
-								<button class="btn btn-plus" onclick="onMemeSizeIncrease()" aria-label="Increase text size">&plus;</button>
-								<button class="btn btn-minus" onclick="onMemeSizeDecrease()" aria-label="Decrease text size">&minus;</button>
-							</div>
+								<button class="btn btn-plus" onclick="onMemeSizeIncrease()" aria-label="Increase text size">
+									<i class="fas fa-plus"></i>
+								</button>
+								<button class="btn btn-minus" onclick="onMemeSizeDecrease()" aria-label="Decrease text size">
+									<i class="fas fa-minus"></i>
+								</button>
+						</div>
+							<div class="inline-block">
+								<button class="btn btn-align-left" onclick="onMemeAlignment(-1)" aria-label="Align left">
+									<i class="fas fa-align-left"></i>
+								</button>
+								<button class="btn btn-align-center" onclick="onMemeAlignment(0)" aria-label="Align center">
+									<i class="fas fa-align-center"></i>
+								</button>
+								<button class="btn btn-align-right" onclick="onMemeAlignment(1)" aria-label="Align right">
+									<i class="fas fa-align-right"></i>
+								</button>
+						</div>
 						</div>
 
 						<div class="meme-move" aria-label="Move the text position using those arrows">
-							<button class="btn meme-move-up" onclick="moveUp()" aria-label="Move up">&uarr;</button>
-							<button class="btn meme-move-right" onclick="moveRight()" aria-label="Move right">&rarr;</button>
-							<button class="btn meme-move-down" onclick="moveDown()" aria-label="Move down">&darr;</button>
-							<button class="btn meme-move-left" onclick="moveLeft()" aria-label="Move left">&larr;</button>
+							<button class="btn meme-move-up" onclick="moveUp()" aria-label="Move up">
+								<i class="fas fa-arrow-up"></i>
+							</button>
+							<button class="btn meme-move-right" onclick="moveRight()" aria-label="Move right">
+								<i class="fas fa-arrow-right"></i>
+							</button>
+							<button class="btn meme-move-down" onclick="moveDown()" aria-label="Move down">
+								<i class="fas fa-arrow-down"></i>
+							</button>
+							<button class="btn meme-move-left" onclick="moveLeft()" aria-label="Move left">
+								<i class="fas fa-arrow-left"></i>
+							</button>
 						</div>
 
 					</fieldset>

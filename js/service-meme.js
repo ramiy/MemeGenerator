@@ -102,3 +102,18 @@ function updateMemePositionX(position) {
 function updateMemePositionY(position) {
     gMeme.txts[0].positionY += position;
 }
+
+// Update the meme alignment
+function updateMemeAlignment(position, canvasWidth, textWidth) {
+    switch (position) {
+        case -1:
+            gMeme.txts[0].positionX = 0;
+            break;
+        case 0:
+            gMeme.txts[0].positionX = (canvasWidth - textWidth) / 2;
+            break;
+        case 1:
+            gMeme.txts[0].positionX = canvasWidth - textWidth;
+            break;
+    }
+}

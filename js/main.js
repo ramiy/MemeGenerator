@@ -244,6 +244,15 @@ function onMemeSizeDecrease() {
 	renderCanvas();
 }
 
+// On meme alignment
+function onMemeAlignment(pos) {
+	var elCanvas = getCanvas();
+	var ctx = elCanvas.getContext('2d');
+	var textWidth = ctx.measureText(getMemeText()).width;
+	updateMemeAlignment(pos, elCanvas.width, textWidth);
+	renderCanvas();
+}
+
 // On move up
 function moveUp() {
 	updateMemePositionY(-5);

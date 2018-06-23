@@ -172,8 +172,7 @@ function renderCanvas(img) {
 	if (!img) img = getMemeImage();
 
 	// Clean board
-	ctx.fillStyle = "#fff";
-	ctx.fillRect(0, 0, ctx.elCanvas, elCanvas.height);
+	ctx.clearRect(0, 0, elCanvas.width, elCanvas.height);
 
 	// Print Image
 	var imgObj = getImage(img);

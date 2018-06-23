@@ -53,8 +53,9 @@ function createImage(imgUrl, keywords) {
 }
 
 // Retrieve an image by image id
-function getImage( imgId ) {
-	return gGallery.filter(function (image) {
+function getImage(imgId) {
+	var res = gGallery.filter(function (image) {
 		return image.id === imgId;
 	});
+	return res[0];
 }

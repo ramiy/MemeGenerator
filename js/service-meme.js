@@ -69,8 +69,8 @@ function getMemePositionY() {
 /*************** UPDATE ***************/
 
 // Update the meme image
-function updateMemeImage(img) {
-    gMeme.selectedImgId = img;
+function updateMemeImage(imgId) {
+    gMeme.selectedImgId = imgId;
 }
 
 // Update the meme text

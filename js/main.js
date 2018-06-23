@@ -21,8 +21,11 @@ function init() {
 	// Render gallery grid on screen
 	renderGallery();
 
-	// Load initial meme data
-	loadMemeData();
+	// Load meme texts
+	renderMemeTexts();
+
+	// Load meme design
+	renderMemeDesigns();
 
 	// Show gallery screen, hide canvas
 	showGallery();
@@ -192,11 +195,24 @@ function renderCanvas(img) {
 
 /*************** MEME ***************/
 
-// Load initial meme data from the model and render it on screen
-function loadMemeData() {
-	document.querySelector('.meme-text').value = getMemeText();
+// Render meme texts from the model and render them on screen
+function renderMemeTexts() {
+	var meme = getMeme();
+	for (var i = 0; i < meme.txts.length; i++) {
+		document.querySelector('.meme-text-' + i).value = getMemeText(i);
+	}
+}
+
+// Render meme design from the model and render it on screen
+function renderMemeDesigns() {
 	document.querySelector('.meme-font').value = getMemeFont();
 	document.querySelector('.meme-color').value = getMemeColor();
+}
+
+// On upload meme image
+function onChangeMemeCurrText(textIdx) {
+	setMemeCurrText(textIdx);
+	renderMemeDesigns();
 }
 
 // On upload meme image

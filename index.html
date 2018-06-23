@@ -103,10 +103,10 @@
 						<legend>Content</legend>
 
 						<label for="meme-text-0" class="sr-only">Text 0:</label>
-						<input type="text" class="meme-text meme-text-0" id="meme-text-0" onfocus="setMemeCurrText(0)" onkeyup="onChangeMemeText(this.value)">
+						<input type="text" class="meme-text meme-text-0" id="meme-text-0" onfocus="onChangeMemeCurrText(0)" onkeyup="onChangeMemeText(this.value)">
 
 						<label for="meme-text-1" class="sr-only">Text 1:</label>
-						<input type="text" class="meme-text meme-text-1" id="meme-text-1" onfocus="setMemeCurrText(1)" onkeyup="onChangeMemeText(this.value)">
+						<input type="text" class="meme-text meme-text-1" id="meme-text-1" onfocus="onChangeMemeCurrText(1)" onkeyup="onChangeMemeText(this.value)">
 
 					</fieldset>
 
@@ -145,7 +145,7 @@
 								<button class="btn btn-minus" onclick="onMemeSizeDecrease()" aria-label="Decrease text size">
 									<i class="fas fa-minus"></i>
 								</button>
-						</div>
+							</div>
 							<div class="inline-block">
 								<button class="btn btn-align-left" onclick="onMemeAlignment(-1)" aria-label="Align left">
 									<i class="fas fa-align-left"></i>
@@ -156,7 +156,7 @@
 								<button class="btn btn-align-right" onclick="onMemeAlignment(1)" aria-label="Align right">
 									<i class="fas fa-align-right"></i>
 								</button>
-						</div>
+							</div>
 						</div>
 
 						<div class="meme-move" aria-label="Move the text position using those arrows">

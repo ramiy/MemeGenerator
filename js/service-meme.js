@@ -1,7 +1,7 @@
 'use strict';
 
 var gMeme = {
-    selectedImgElement: null,
+    selectedImgId: null,
     txts: [
         {
             text: 'Your top text...',
@@ -33,7 +33,7 @@ function getMeme() {
 
 // Retrieve meme image
 function getMemeImage() {
-    return gMeme.selectedImgElement;
+    return gMeme.selectedImgId;
 }
 
 // Retrieve meme text
@@ -70,7 +70,7 @@ function getMemePositionY() {
 
 // Update the meme image
 function updateMemeImage(img) {
-    gMeme.selectedImgElement = img;
+    gMeme.selectedImgId = img;
 }
 
 // Update the meme text

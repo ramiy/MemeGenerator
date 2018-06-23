@@ -68,7 +68,7 @@ function renderGallery() {
 		<li class="hex">
 			<div class="hexIn">
 				<div class="hexLink">
-					<img src="${image.url}" alt="" onclick="onChangeMemeImage(this); showCanvas();" />
+					<img src="${image.url}" alt="" onclick="onChangeMemeImage('${image.id}'); showCanvas();" />
 				</div>
 			</div>
 		</li>`;
@@ -174,7 +174,8 @@ function renderCanvas(img) {
 	ctx.fillRect(0, 0, ctx.elCanvas, elCanvas.height);
 
 	// Print Image
-	ctx.drawImage(img, 0, 0, 500, 500);
+	var imgObj = getImage( img );
+	ctx.drawImage(imgObj.url, 0, 0, 500, 500);
 
 	// Print text
 	ctx.font = `${getMemeSize()}px ${getMemeFont()}`;

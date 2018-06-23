@@ -180,9 +180,12 @@ function renderCanvas(img) {
 	ctx.drawImage(elImg, 0, 0, 500, 500);
 
 	// Print text
-	ctx.font = `${getMemeSize()}px ${getMemeFont()}`;
-	ctx.fillStyle = getMemeColor();
-	ctx.fillText(getMemeText(), getMemePositionX(), getMemePositionY());
+	var meme = getMeme();
+	for (var i = 0; i < meme.txts.length; i++) {
+		ctx.font = `${getMemeSize(i)}px ${getMemeFont(i)}`;
+		ctx.fillStyle = getMemeColor(i);
+		ctx.fillText(getMemeText(i), getMemePositionX(i), getMemePositionY(i));
+	}
 }
 
 

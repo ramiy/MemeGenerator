@@ -30,6 +30,11 @@ function getMeme() {
 	return gMeme;
 }
 
+// Update the current text being edited
+function setMemeCurrText(idx) {
+	gCurrTextIdx = idx;
+}
+
 /*************** GET ***************/
 
 // Retrieve meme image
@@ -38,33 +43,39 @@ function getMemeImage() {
 }
 
 // Retrieve meme text
-function getMemeText() {
-	return gMeme.txts[gCurrTextIdx].text;
+function getMemeText(textIdx) {
+	if (!textIdx) textIdx = gCurrTextIdx;
+	return gMeme.txts[textIdx].text;
 }
 
 // Retrieve meme font
-function getMemeFont() {
-	return gMeme.txts[gCurrTextIdx].font;
+function getMemeFont(textIdx) {
+	if (!textIdx) textIdx = gCurrTextIdx;
+	return gMeme.txts[textIdx].font;
 }
 
 // Retrieve meme color
-function getMemeColor() {
-	return gMeme.txts[gCurrTextIdx].color;
+function getMemeColor(textIdx) {
+	if (!textIdx) textIdx = gCurrTextIdx;
+	return gMeme.txts[textIdx].color;
 }
 
 // Retrieve meme size
-function getMemeSize() {
-	return gMeme.txts[gCurrTextIdx].size;
+function getMemeSize(textIdx) {
+	if (!textIdx) textIdx = gCurrTextIdx;
+	return gMeme.txts[textIdx].size;
 }
 
 // Retrieve meme position X
-function getMemePositionX() {
-	return gMeme.txts[gCurrTextIdx].positionX;
+function getMemePositionX(textIdx) {
+	if (!textIdx) textIdx = gCurrTextIdx;
+	return gMeme.txts[textIdx].positionX;
 }
 
 // Retrieve meme position Y
-function getMemePositionY() {
-	return gMeme.txts[gCurrTextIdx].positionY;
+function getMemePositionY(textIdx) {
+	if (!textIdx) textIdx = gCurrTextIdx;
+	return gMeme.txts[textIdx].positionY;
 }
 
 /*************** UPDATE ***************/

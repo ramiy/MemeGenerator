@@ -269,6 +269,14 @@ header a {
 	box-shadow: none;
 }
 
+.text-editor .btn-danger {
+	color: #f44336;
+}
+.text-editor .btn-danger:hover {
+	background-color: #843;
+	color: #fff;
+}
+
 .meme-text {
 	width: 100%;
 }
@@ -373,10 +381,6 @@ footer {
 .text-line-btn {
 	display: flex;
 	justify-content: space-between
-}
-
-.del-btn {
-	margin-left: 25px;
 }
 
 .bold {

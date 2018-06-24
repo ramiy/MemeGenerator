@@ -104,15 +104,24 @@
 
 						<div class="text-line-btn meme-text-block-0">
 							<label for="meme-text-0" class="sr-only">Text 0:</label>
-							<input style="margin-bottom: 10px" type="text" class="meme-text meme-text-0" id="meme-text-0" onfocus="onChangeMemeCurrText(0)"
-							 onkeyup="onChangeMemeText(this.value)">
-							<button class="btn del-btn" style="margin-bottom: 10px" onclick="onDelLine(0)">delete line</button>
+							<input type="text" class="meme-text meme-text-0" id="meme-text-0" onfocus="onChangeMemeCurrText(0)" onkeyup="onChangeMemeText(this.value)">
+							<button class="btn btn-danger" onclick="onDelLine(0)">
+								<i class="fas fa-times"></i>
+							</button>
 						</div>
 						<div class="text-line-btn meme-text-block-1">
 							<label for="meme-text-1" class="sr-only">Text 1:</label>
-							<input style="margin-top: 10px" type="text" class="meme-text meme-text-1" id="meme-text-1" onfocus="onChangeMemeCurrText(1)"
-							 onkeyup="onChangeMemeText(this.value)">
-							<button class="btn del-btn" style="margin-top: 10px" onclick="onDelLine(1)">delete line</button>
+							<input type="text" class="meme-text meme-text-1" id="meme-text-1" onfocus="onChangeMemeCurrText(1)" onkeyup="onChangeMemeText(this.value)">
+							<button class="btn btn-danger" onclick="onDelLine(1)">
+								<i class="fas fa-times"></i>
+							</button>
+						</div>
+						<div class="text-line-btn meme-text-block-2">
+							<label for="meme-text-2" class="sr-only">Text 2:</label>
+							<input type="text" class="meme-text meme-text-2" id="meme-text-2" onfocus="onChangeMemeCurrText(2)" onkeyup="onChangeMemeText(this.value)">
+							<button class="btn btn-danger" onclick="onDelLine(2)">
+								<i class="fas fa-times"></i>
+							</button>
 						</div>
 
 					</fieldset>

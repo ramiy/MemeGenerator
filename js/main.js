@@ -38,13 +38,46 @@ function init() {
 // Show gallery screen
 function showGallery() {
 	hideElement('.canvas-section');
+	hideElement('.upload-section');
 	showElement('.gallery-section');
+	hideElement('.about-section');
+	hideElement('.contact-section');
 }
 
 // Show gallery screen
 function showCanvas() {
-	hideElement('.gallery-section');
 	showElement('.canvas-section');
+	hideElement('.upload-section');
+	hideElement('.gallery-section');
+	hideElement('.about-section');
+	hideElement('.contact-section');
+}
+
+// Show upload screen
+function showUpload() {
+	hideElement('.canvas-section');
+	showElement('.upload-section');
+	hideElement('.gallery-section');
+	hideElement('.about-section');
+	hideElement('.contact-section');
+}
+
+// Show about screen
+function showAbout() {
+	hideElement('.canvas-section');
+	hideElement('.upload-section');
+	hideElement('.gallery-section');
+	showElement('.about-section');
+	hideElement('.contact-section');
+}
+
+// Show about screen
+function showContact() {
+	hideElement('.canvas-section');
+	hideElement('.upload-section');
+	hideElement('.gallery-section');
+	hideElement('.about-section');
+	showElement('.contact-section');
 }
 
 

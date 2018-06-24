@@ -129,27 +129,16 @@ header {
 	position: relative;
 	background-color: #333;
 	color: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	height: 70px;
 	font-size: 10px;
 	font-weight: 700;
 	text-transform: uppercase;
 }
 
-header:after {
-	content:'';
-	position: absolute;
-	top: 100%;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	width: 0;
-	height: 0;
-	border-top: solid 25px #333;
-	border-left: solid 25px transparent;
-	border-right: solid 25px transparent;
+header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 header a {
@@ -157,7 +146,7 @@ header a {
 	color: #fff;
 }
 
-/********** MAIN SECTIONS **********/
+/********** GALLERY SECTION **********/
 
 .gallery-section {
 	min-height: 90vh;
@@ -221,6 +210,17 @@ header a {
 .hex .hexIn {
 	cursor: pointer;
 }
+
+/********** UPLOAD SECTION **********/
+
+.upload-section {
+	min-height: 90vh;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: #fff;
+}
+
+/********** CANVAS SECTION **********/
 
 .canvas-section {
 	min-height: 90vh;
@@ -304,7 +304,6 @@ header a {
 	box-shadow: inset 0 0 15px 5px rgba(0,0,0,0.5);
 }
 
-
 .meme-text {
 	width: 100%;
 }
@@ -362,15 +361,6 @@ header a {
 .meme-move-left {
 	grid-row: 2;
 	width: 0;
-}
-
-
-
-/********** FOOTER **********/
-
-footer {
-	background-color: #333;
-	color: #fff;
 }
 
 

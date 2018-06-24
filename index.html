@@ -21,28 +21,26 @@
 	<!-- header -->
 	<header>
 
-		<ul class="inline-list">
-			<li>
-				<a href="#">Portfolio</a>
-			</li>
-			<li>
-				<a href="#">About</a>
-			</li>
-		</ul>
+		<div class="container">
 
 		<h1 class="logo">
-			<span class="sr-only">Memes list</span>
-			<img src="img/logo.png">
+				<img src="img/logo.png" onclick="showGallery()">
+				<span class="sr-only">Memes Generator</span>
 		</h1>
 
 		<ul class="inline-list">
 			<li>
-				<a href="#">Blog</a>
+					<a href="#" onclick="showGallery()">Gallery</a>
+				</li>
+				<li>
+					<a href="#" onclick="showAbout()">About</a>
 			</li>
 			<li>
-				<a href="#">Get In Touch</a>
+					<a href="#" onclick="showContact()">Get In Touch</a>
 			</li>
 		</ul>
+
+		</div>
 
 	</header>
 	<!-- /header -->
@@ -70,6 +68,17 @@
 
 	</section>
 	<!-- /gallery section -->
+
+	<!-- upload section -->
+	<section class="upload-section">
+
+		<div class="container">
+
+
+		</div>
+
+	</section>
+	<!-- /upload section -->
 
 	<!-- canvas section -->
 	<section class="canvas-section">
@@ -204,15 +213,29 @@
 	</section>
 	<!-- /canvas section -->
 
-	<!-- footer -->
-	<footer>
+	<!-- about section -->
+	<section class="about-section">
 
 		<div class="container">
 
+			About
+
 		</div>
 
-	</footer>
-	<!-- /footer -->
+	</section>
+	<!-- /about section -->
+
+	<!-- contact section -->
+	<section class="contact-section">
+
+		<div class="container">
+
+			Contact
+
+		</div>
+
+	</section>
+	<!-- /contact section -->
 
 	<script src="js/service-utils.js"></script>
 	<script src="js/service-gallery.js"></script>

@@ -14,12 +14,22 @@ var gMeme = {
 			isStroke: false
 		},
 		{
+			text: 'Your center text...',
+			font: 'monospace',
+			color: 'white',
+			size: 20,
+			positionX: 160,
+			positionY: 480,
+			isBold: false,
+			isStroke: false
+		},
+		{
 			text: 'Your bottom text...',
 			font: 'monospace',
 			color: 'white',
-			size: 30,
+			size: 40,
 			positionX: 160,
-			positionY: 480,
+			positionY: 240,
 			isBold: false,
 			isStroke: false
 		},

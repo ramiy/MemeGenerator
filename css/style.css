@@ -29,6 +29,21 @@ a:focus {
 	text-decoration: none;
 }
 
+p {
+	font-size: 1.1em;
+	line-height: 1.5em;
+	margin-bottom: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.25em;
+	margin-bottom: 1em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
 /********** GENERAL **********/
 
 .container {
@@ -148,8 +163,6 @@ header {
 	background-color: #333;
 	color: #fff;
 	height: 70px;
-	font-size: 10px;
-	font-weight: 700;
 	text-transform: uppercase;
 }
 
@@ -168,7 +181,8 @@ header a {
 
 .gallery-section {
 	min-height: 90vh;
-	margin: 50px auto 0;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
 .filter {
@@ -361,6 +375,49 @@ header a {
 .meme-move-left {
 	grid-row: 2;
 	width: 0;
+}
+
+/********** ABOUT SECTION **********/
+
+.about-section {
+	min-height: 90vh;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: #fff;
+}
+
+.about-section .container {
+	border: 20px solid #552;
+	padding: 20px;
+}
+
+.about-section ul {
+	list-style-type: disc;
+	margin-left: 1em;
+}
+
+.about-section ul li {
+	font-size: 1.1em;
+	line-height: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+.about-section h2:not(:first-of-type) {
+	margin-top: 3em;
+}
+
+/********** CONTACT SECTION **********/
+
+.contact-section {
+	min-height: 90vh;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: #fff;
+}
+
+.contact-section .container {
+	border: 20px solid #552;
+	padding: 20px;
 }
 
 

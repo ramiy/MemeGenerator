@@ -417,8 +417,8 @@ function handleKeyPress(ev) {
 	}
 }
 
-// Download the image   -  צריך להיות onDowloadImage ?
-function downloadImage(elLink) {
+// Download the image
+function onDownloadImage(elLink) {
 	var canvas = getCanvas();
 	var imgContent = canvas.toDataURL('image/jpeg');
 	elLink.href = imgContent;

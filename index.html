@@ -131,65 +131,79 @@
 						<legend>Design</legend>
 
 						<div class="meme-actions" aria-label="Actions">
-							<div class="inline-block">
-								<label for="meme-font">Font:</label>
-								<select class="meme-font" id="meme-font" onchange="onChangeMemeFont(this.value)">
-									<option value="" disabled selected>Text Font</option>
-									<option value="impact">Impact</option>
-									<option value="arial">Arial</option>
-									<option value="monospace">Monospace</option>
-									<option value="fantasy">Fantasy</option>
-									<option value="cursive">Cursive</option>
-								</select>
-							</div>
-							<div class="inline-block">
-								<label for="meme-color">Color:</label>
-								<select class="meme-color" id="meme-color" onchange="onChangeMemeColor(this.value)">
-									<option value="" disabled selected>Text Color</option>
-									<option value="white">White</option>
-									<option value="black">Black</option>
-									<option value="red">Red</option>
-									<option value="green">Green</option>
-									<option value="blue">Blue</option>
-								</select>
-							</div>
-							<div class="inline-block">
-								<label for="">Size:</label>
-								<button class="btn btn-plus" onclick="onMemeSizeIncrease()" aria-label="Increase text size">
-									<i class="fas fa-plus"></i>
-								</button>
-								<button class="btn btn-minus" onclick="onMemeSizeDecrease()" aria-label="Decrease text size">
-									<i class="fas fa-minus"></i>
-								</button>
-							</div>
-							<div class="inline-block">
-								<button class="btn btn-align-left" onclick="onMemeAlignment(-1)" aria-label="Align left">
-									<i class="fas fa-align-left"></i>
-								</button>
-								<button class="btn btn-align-center" onclick="onMemeAlignment(0)" aria-label="Align center">
-									<i class="fas fa-align-center"></i>
-								</button>
-								<button class="btn btn-align-right" onclick="onMemeAlignment(1)" aria-label="Align right">
-									<i class="fas fa-align-right"></i>
-								</button>
-								<button class="btn" onclick="onBold()">
-									<b>B</b>
-								</button>
-								<button class="btn" onclick="onStroke()">S</button>
-							</div>
+							<button class="btn dropdown">
+								<span class="sr-only">Font</span>
+								<i class="fas fa-font"></i>
+								<div class="dropdown-content">
+									<select class="meme-font" id="meme-font" size="6" onchange="onChangeMemeFont(this.value)">
+										<option value="" disabled selected>Text Font</option>
+										<option value="impact">Impact</option>
+										<option value="arial">Arial</option>
+										<option value="monospace">Monospace</option>
+										<option value="fantasy">Fantasy</option>
+										<option value="cursive">Cursive</option>
+									</select>
+								</div>
+							</button>
+							<button class="btn dropdown">
+								<span class="sr-only">Color</span>
+								<i class="fas fa-eye-dropper"></i>
+								<div class="dropdown-content">
+									<select class="meme-color" id="meme-color" size="6" onchange="onChangeMemeColor(this.value)">
+										<option value="" disabled selected>Text Color</option>
+										<option value="white">White</option>
+										<option value="black">Black</option>
+										<option value="red">Red</option>
+										<option value="green">Green</option>
+										<option value="blue">Blue</option>
+									</select>
+								</div>
+							</button>
+							<button class="btn" onclick="onBold()">
+								<span class="sr-only">Bold text</span>
+								<i class="fas fa-bold"></i>
+							</button>
+							<button class="btn" onclick="onStroke()">
+								<span class="sr-only">Strock text</span>
+								S
+							</button>
+							<button class="btn" onclick="onMemeSizeIncrease()">
+								<span class="sr-only">Increase text size</span>
+								<i class="fas fa-plus"></i>
+							</button>
+							<button class="btn" onclick="onMemeSizeDecrease()">
+								<span class="sr-only">Decrease text size</span>
+								<i class="fas fa-minus"></i>
+							</button>
+							<button class="btn" onclick="onMemeAlignment(-1)">
+								<span class="sr-only">Align left</span>
+								<i class="fas fa-align-left"></i>
+							</button>
+							<button class="btn" onclick="onMemeAlignment(0)">
+								<span class="sr-only">Align center</span>
+								<i class="fas fa-align-center"></i>
+							</button>
+							<button class="btn" onclick="onMemeAlignment(1)">
+								<span class="sr-only">Align right</span>
+								<i class="fas fa-align-right"></i>
+							</button>
 						</div>
 
-						<div class="meme-move" aria-label="Move the text position using those arrows">
-							<button class="btn meme-move-up" onclick="moveUp()" aria-label="Move up">
+						<div class="meme-move">
+							<button class="btn meme-move-up" onclick="moveUp()">
+								<span class="sr-only">Move up</span>
 								<i class="fas fa-arrow-up"></i>
 							</button>
-							<button class="btn meme-move-right" onclick="moveRight()" aria-label="Move right">
+							<button class="btn meme-move-right" onclick="moveRight()">
+								<span class="sr-only">Move right</span>
 								<i class="fas fa-arrow-right"></i>
 							</button>
-							<button class="btn meme-move-down" onclick="moveDown()" aria-label="Move down">
+							<button class="btn meme-move-down" onclick="moveDown()">
+								<span class="sr-only">Move down</span>
 								<i class="fas fa-arrow-down"></i>
 							</button>
-							<button class="btn meme-move-left" onclick="moveLeft()" aria-label="Move left">
+							<button class="btn meme-move-left" onclick="moveLeft()">
+								<span class="sr-only">Move left</span>
 								<i class="fas fa-arrow-left"></i>
 							</button>
 						</div>

@@ -109,6 +109,20 @@ a:focus {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.dropdown:hover>.dropdown-content {
+	opacity: 1;
+	visibility: visible;
+	/* transform: translateY(0); */
+}
+
+.dropdown-content {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	/* transform: translateX(-2em); */
+	transition: all 0.3s ease-in-out;
+}
+
 /********** HEADER **********/
 
 header {
@@ -288,6 +302,12 @@ header a {
 	background-color: #555;
 	border: 1px solid #999;
 	color: #ddd;
+}
+
+.meme-font,
+.meme-color {
+	margin-top: 10px;
+	margin-left: -11px;
 }
 
 .meme-actions {

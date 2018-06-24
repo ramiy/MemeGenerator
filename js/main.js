@@ -215,9 +215,9 @@ function renderCanvas(img) {
 	}
 
 	// For large image canvas image size
-	if (img.width > 500) {
-		img.height = img.height * ( 500 / img.width);
-		img.width = 500;
+	if (img.width > 600) {
+		img.height = img.height * ( 600 / img.width);
+		img.width = 600;
 	}
 
 	// for small images decrease canvas size

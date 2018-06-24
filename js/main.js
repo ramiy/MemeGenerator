@@ -185,7 +185,7 @@ function renderCanvas(img) {
 	// Print text
 	var meme = getMeme();
 	for (var i = 0; i < meme.txts.length; i++) {
-		ctx.font = `${getMemeSize(i)}px ${getMemeFont(i)}`;
+		ctx.font = `${getBoldness(i)} ${getMemeSize(i)}px ${getMemeFont(i)}`;
 		ctx.fillStyle = getMemeColor(i);
 		ctx.fillText(getMemeText(i), getMemePositionX(i), getMemePositionY(i));
 	}
@@ -331,4 +331,16 @@ function onDelLine(textIdx) {
 	setMemeCurrText(textIdx);
 	deleteLine();
 	renderCanvas();	
+}
+
+// On bold
+function onBold() {
+	updateBoldness();
+	renderCanvas();
+}
+
+// On stroke
+function onStroke() {
+	updateStroke();
+	renderCanvas();
 }

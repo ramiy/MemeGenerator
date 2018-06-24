@@ -5,19 +5,21 @@ var gMeme = {
 	txts: [
 		{
 			text: 'Your top text...',
-			font: 'fantasy',
+			font: 'monospace',
 			color: 'white',
 			size: 30,
 			positionX: 170,
-			positionY: 80
+			positionY: 80,
+			isBold: false
 		},
 		{
 			text: 'Your bottom text...',
-			font: 'fantasy',
+			font: 'monospace',
 			color: 'white',
 			size: 30,
 			positionX: 160,
-			positionY: 480
+			positionY: 480,
+			isBold: false
 		},
 	]
 }
@@ -133,4 +135,17 @@ function updateMemeAlignment(position, canvasWidth, textWidth) {
 // Delete line
 function deleteLine() {
 	gMeme.txts[gCurrTextIdx].text = '';
+}
+
+// Change Boldness
+function updateBoldness() {
+	if (gMeme.txts[gCurrTextIdx].isBold) gMeme.txts[gCurrTextIdx].isBold = false;
+	else gMeme.txts[gCurrTextIdx].isBold = true;
+}
+
+// Get boldness
+function getBoldness(textIdx) {
+	gCurrTextIdx = textIdx;
+	if (gMeme.txts[gCurrTextIdx].isBold) return 'bold';
+	else return '';
 }

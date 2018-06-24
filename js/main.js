@@ -237,13 +237,20 @@ function renderCanvas(img) {
 	for (var i = 0; i < texts.length; i++) {
 		var text = texts[i];
 		var bold = (getMemeBold(text.id)) ? 'bold' : '';
+
+		// Text size, font family and bold
 		ctx.font = `${bold} ${getMemeSize(text.id)}px ${getMemeFont(text.id)}`;
+
+		// Text Color
 		ctx.fillStyle = getMemeColor(text.id);
+
 		if (getMemeStroke(text.id)) {
-			ctx.fillText(getMemeText(text.id), getMemePositionX(text.id), getMemePositionY(text.id));
-		} else {
+			// Stroked text
 			ctx.strokeStyle = getMemeColor(text.id);
 			ctx.strokeText(getMemeText(text.id), getMemePositionX(text.id), getMemePositionY(text.id));
+		} else {
+			// Regular text
+			ctx.fillText(getMemeText(text.id), getMemePositionX(text.id), getMemePositionY(text.id));
 		}
 	}
 }

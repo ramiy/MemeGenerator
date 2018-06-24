@@ -168,6 +168,7 @@ function getCanvas() {
 
 // Render canvas
 function renderCanvas(img) {
+	
 	var canvas = getCanvas();
 	var ctx = canvas.getContext('2d');
 
@@ -180,6 +181,13 @@ function renderCanvas(img) {
 	// Print Image
 	var imgObj = getImage(img);
 	var elImg = document.querySelector('.img-' + imgObj.id);
+	/*elImg.width = elImg.width/1.5;
+	elImg.height = elImg.height/1.5;
+	canvas.width = elImg.width;
+	canvas.height = elImg.height;*/
+	console.log('canvas height', canvas.height);
+	
+
 	ctx.drawImage(elImg, 0, 0, 500, 500);
 
 	// Print text
@@ -390,4 +398,8 @@ function onAddLine() {
 }
 
 
-//el.innerHTML += 
+
+
+function sayHi() {
+	alert('Hi');
+}

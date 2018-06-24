@@ -23,8 +23,8 @@ img {
 
 a,
 a:link,
-a:hover,
-a:focus {
+a:hover/*,
+a:focus*/ {
 	color: #2eb398;
 	text-decoration: none;
 }

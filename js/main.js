@@ -349,3 +349,10 @@ function onStroke() {
 	updateStrokness();
 	renderCanvas();
 }
+
+function onAddLine() {
+
+}
+
+
+//el.innerHTML += 

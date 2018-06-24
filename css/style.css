@@ -75,6 +75,8 @@ a:focus {
 	margin: 0 auto;
 }
 
+
+
 .btn {
 	background-color: #e7e7e7;
 	border: none;
@@ -85,6 +87,8 @@ a:focus {
 	display: inline-block;
 	font-size: 1em;
 }
+
+
 .btn-default { /* White */ 
 	background-color: #fff;
 	color: #000;
@@ -97,10 +101,8 @@ a:focus {
 	background-color: #555;
 	color: #fff;
 }
-.btn-success { /* Green */
-	background-color: #4CAF50;
-	color: #fff;
-}
+
+
 .btn-danger { /* Red */ 
 	background-color: #f44336;
 	color: #fff;
@@ -277,6 +279,8 @@ header a {
 	color: #fff;
 }
 
+
+
 .meme-text {
 	width: 100%;
 }
@@ -390,4 +394,10 @@ footer {
 .display-none {
 	display: none;
 }
+
+.content .add-line-btn {
+	color: green;
+}
+
+
 

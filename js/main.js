@@ -257,7 +257,7 @@ function renderMemeTexts() {
 		var content = getMemeText(text.id);
 		var currClass = (currTextIdx === i) ? 'current' : '';
 		strHTML += `
-			<div class="text-line-btn meme-text-block-${text.id} ${currClass}">
+			<div class="meme-text-block meme-text-block-${text.id} ${currClass}">
 				<label for="meme-text-${text.id}" class="sr-only">Text ${i + 1}:</label>
 				<input type="text" value="${content}" class="meme-text meme-text-${text.id}" id="meme-text-${text.id}" onfocus="onChangeMemeCurrText('${i}')" onkeyup="onChangeMemeText(this.value)">
 				<button class="btn btn-danger" onclick="onDeleteMemeText('${text.id}')">

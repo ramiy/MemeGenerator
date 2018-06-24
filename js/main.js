@@ -41,48 +41,35 @@ function menuToggle( el ) {
 	document.querySelector('header ul.nav').classList.toggle('open');
 }
 
-// Show gallery screen
-function showGallery() {
+// Hide all sections
+function hideAllSections() {
 	hideElement('.canvas-section');
-	hideElement('.upload-section');
-	showElement('.gallery-section');
+	hideElement('.gallery-section');
 	hideElement('.about-section');
 	hideElement('.contact-section');
+}
+
+// Show gallery screen
+function showGallery() {
+	hideAllSections();
+	showElement('.gallery-section');
 }
 
 // Show gallery screen
 function showCanvas() {
+	hideAllSections();
 	showElement('.canvas-section');
-	hideElement('.upload-section');
-	hideElement('.gallery-section');
-	hideElement('.about-section');
-	hideElement('.contact-section');
-}
-
-// Show upload screen
-function showUpload() {
-	hideElement('.canvas-section');
-	showElement('.upload-section');
-	hideElement('.gallery-section');
-	hideElement('.about-section');
-	hideElement('.contact-section');
 }
 
 // Show about screen
 function showAbout() {
-	hideElement('.canvas-section');
-	hideElement('.upload-section');
-	hideElement('.gallery-section');
+	hideAllSections();
 	showElement('.about-section');
-	hideElement('.contact-section');
 }
 
 // Show about screen
 function showContact() {
-	hideElement('.canvas-section');
-	hideElement('.upload-section');
-	hideElement('.gallery-section');
-	hideElement('.about-section');
+	hideAllSections();
 	showElement('.contact-section');
 }
 

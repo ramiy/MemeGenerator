@@ -395,11 +395,16 @@ header a {
 
 	.text-editor {
 		margin-top: 20px;
+		width: 100%;
 	}
 
 	.text-editor fieldset {
 		margin-right: 0;
 		margin-left: 0;
+	}
+
+	.text-editor .meme-actions {
+		text-align: center;
 	}
 
 }

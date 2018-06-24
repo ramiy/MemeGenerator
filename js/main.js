@@ -204,15 +204,17 @@ function renderCanvas(img) {
 
 // Render meme texts from the model and render them on screen
 function renderMemeTexts() {
+	var currTextIdx = getMemeCurrText();
 	var texts = getMemeTexts();
 	var strHTML = '';
 	for (var i = 0; i < texts.length; i++) {
 		var text = texts[i];
 		var content = getMemeText(text.id);
+		var currClass = (currTextIdx === i ) ? 'current' : '';
 		strHTML += `
-			<div class="text-line-btn meme-text-block-${text.id}">
+			<div class="text-line-btn meme-text-block-${text.id} ${currClass}">
 				<label for="meme-text-${text.id}" class="sr-only">Text ${i + 1}:</label>
-				<input type="text" value="${content}" class="meme-text meme-text-${text.id}" id="meme-text-${text.id}" onfocus="onChangeMemeCurrText('${i}');" onkeyup="onChangeMemeText(this.value)">
+				<input type="text" value="${content}" class="meme-text meme-text-${text.id}" id="meme-text-${text.id}" onfocus="onChangeMemeCurrText('${i}')" onkeyup="onChangeMemeText(this.value)">
 				<button class="btn btn-danger" onclick="onDeleteMemeText('${text.id}')">
 					<i class="fas fa-times"></i>
 				</button>
@@ -248,7 +250,8 @@ function onAddMemeText() {
 // On upload meme image
 function onChangeMemeCurrText(textIdx) {
 	setMemeCurrText(textIdx);
-	// renderMemeDesigns();
+	renderMemeTexts();
+	renderMemeDesigns();
 }
 
 // On upload meme image

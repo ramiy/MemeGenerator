@@ -50,7 +50,7 @@ function getMemeCurrText() {
 
 // Update the current text being edited
 function setMemeCurrText(idx) {
-	gCurrTextIdx = idx;
+	gCurrTextIdx = +idx;
 }
 
 

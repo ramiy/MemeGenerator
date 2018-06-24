@@ -75,8 +75,6 @@ a:focus {
 	margin: 0 auto;
 }
 
-
-
 .btn {
 	background-color: #e7e7e7;
 	border: none;
@@ -87,7 +85,6 @@ a:focus {
 	display: inline-block;
 	font-size: 1em;
 }
-
 
 .btn-default { /* White */ 
 	background-color: #fff;
@@ -102,7 +99,6 @@ a:focus {
 	color: #fff;
 }
 
-
 .btn-danger { /* Red */ 
 	background-color: #f44336;
 	color: #fff;
@@ -111,19 +107,21 @@ a:focus {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-.dropdown:hover>.dropdown-content {
+.dropdown:hover > .dropdown-content {
 	opacity: 1;
 	visibility: visible;
-	/* transform: translateY(0); */
+	transform: translateY(0);
 }
 
 .dropdown-content {
 	position: absolute;
 	opacity: 0;
 	visibility: hidden;
-	/* transform: translateX(-2em); */
-	transition: all 0.3s ease-in-out;
+	transform: translateY(2em);
+	transition: all .3s ease-in-out;
 }
+
+
 
 /********** HEADER **********/
 
@@ -293,8 +291,6 @@ header a {
 	color: #fff;
 }
 
-
-
 .meme-text {
 	width: 100%;
 }
@@ -418,6 +414,3 @@ footer {
 .content .add-line-btn {
 	color: #4BB543;
 }
-
-
-

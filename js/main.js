@@ -35,6 +35,12 @@ function init() {
 
 /*************** SCREENS ***************/
 
+// Toggle header menu
+function menuToggle( el ) {
+	document.querySelector('header .btn').classList.toggle('open');
+	document.querySelector('header ul.nav').classList.toggle('open');
+}
+
 // Show gallery screen
 function showGallery() {
 	hideElement('.canvas-section');

@@ -49,6 +49,27 @@ function setMemeCurrText(idx) {
 	gCurrTextIdx = idx;
 }
 
+// Delete existing text
+function removeMemeText(textIdx) {
+	if (textIdx > gMeme.length && textIdx >= 0) return;
+	gMeme.txts.splice(textIdx, 1);
+	setMemeCurrText(0);
+}
+
+// Add new text object (returns the number text items)
+function addMemeText() {
+	return gMeme.txts.push({
+		text: 'Your text...',
+		font: 'monospace',
+		color: 'white',
+		size: 40,
+		positionX: 100,
+		positionY: 100,
+		isBold: false,
+		isStroke: false
+	});
+}
+
 /*************** GET ***************/
 
 // Retrieve meme image
@@ -72,6 +93,18 @@ function getMemeFont(textIdx) {
 function getMemeColor(textIdx) {
 	if (!textIdx) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].color;
+}
+
+// Retrieve meme Bold
+function getMemeBold(textIdx) {
+	if (!textIdx) textIdx = gCurrTextIdx;
+	return gMeme.txts[textIdx].isBold;
+}
+
+// Retrieve meme strokness
+function getMemeStroke(textIdx) {
+	if (!textIdx) textIdx = gCurrTextIdx;
+	return gMeme.txts[textIdx].isStroke;
 }
 
 // Retrieve meme size
@@ -114,6 +147,16 @@ function updateMemeColor(color) {
 	gMeme.txts[gCurrTextIdx].color = color;
 }
 
+// Update the meme Bold
+function updateBold(bold) {
+	gMeme.txts[gCurrTextIdx].isBold = bold;
+}
+
+// Update the meme strokness
+function updateStroke(stroke) {
+	gMeme.txts[gCurrTextIdx].isStroke = stroke;
+}
+
 // Update the meme size
 function updateMemeSize(size) {
 	gMeme.txts[gCurrTextIdx].size += size;
@@ -143,51 +186,3 @@ function updateMemeAlignment(position, canvasWidth, textWidth) {
 			break;
 	}
 }
-
-// Delete line
-function deleteLine(textIdx) {
-	gMeme.txts.splice(textIdx,1);
-	var elTextBlock = document.querySelector(`.meme-text-block-${textIdx}`);
-	elTextBlock.classList.add('display-none');
-}
-
-// Change Boldness
-function updateBoldness() {
-	if (gMeme.txts[gCurrTextIdx].isBold) gMeme.txts[gCurrTextIdx].isBold = false;
-	else gMeme.txts[gCurrTextIdx].isBold = true;
-}
-
-// Get boldness
-function getBoldness(textIdx) {
-	gCurrTextIdx = textIdx;
-	if (gMeme.txts[gCurrTextIdx].isBold) return 'bold';
-	else return '';
-}
-
-// Change strokness
-function updateStrokness() {
-	if (gMeme.txts[gCurrTextIdx].isStroke) gMeme.txts[gCurrTextIdx].isStroke = false;
-	else gMeme.txts[gCurrTextIdx].isStroke = true;
-}
-
-// Get Strokness
-function getStrokness(textIdx) {
-	gCurrTextIdx = textIdx;
-	if (gMeme.txts[gCurrTextIdx].isStroke) return true;
-	else return false;
-}
-
-// Add another text line input field
-function addLineToMemeEditor() {
-	var elTxtFieldsContainer = document.querySelector('.input-fields-container');
-	var textLineIdx = gMeme.txts.length;
-	elTxtFieldsContainer.innerHTML += `
-	                        <div class="text-line-btn meme-text-block-${textLineIdx}">
-								<label for="meme-text-${textLineIdx}" class="sr-only">Text ${textLineIdx}:</label>
-								<input type="text" class="meme-text meme-text-${textLineIdx}" id="meme-text-${textLineIdx}" onfocus="onChangeMemeCurrText(${textLineIdx})" onkeyup="onChangeMemeText(this.value)">
-								<button class="btn btn-danger" onclick="onDelLine(${textLineIdx})">
-									<i class="fas fa-times"></i>
-								</button>
-							</div>`;
-}
-

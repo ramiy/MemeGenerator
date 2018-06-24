@@ -185,9 +185,10 @@ function renderCanvas(img) {
 	// Print text
 	var meme = getMeme();
 	for (var i = 0; i < meme.txts.length; i++) {
-		ctx.font = `${getBoldness(i)} ${getMemeSize(i)}px ${getMemeFont(i)}`;
+		var bold = ( getMemeBold(i) ) ? 'bold' : '';
+		ctx.font = `${bold} ${getMemeSize(i)}px ${getMemeFont(i)}`;
 		ctx.fillStyle = getMemeColor(i);
-		if (getStrokness(i)) {
+		if (getMemeStroke(i)) {
 			ctx.fillText(getMemeText(i), getMemePositionX(i), getMemePositionY(i));
 		} else {
 			ctx.strokeStyle = getMemeColor(i);
@@ -212,6 +213,36 @@ function renderMemeTexts() {
 function renderMemeDesigns() {
 	document.querySelector('.meme-font').value = getMemeFont();
 	document.querySelector('.meme-color').value = getMemeColor();
+}
+
+// Delete line
+function onDeleteMemeText(textIdx) {
+	// Remove text from model
+	removeMemeText(textIdx);
+
+	// Update on screen
+	var elTextBlock = document.querySelector(`.meme-text-block-${textIdx}`);
+	elTextBlock.classList.add('display-none');
+}
+
+// Add another text line input field
+function onAddMemeText() {
+	// Update meme model
+	var newTextIdx = addMemeText()-1;
+
+	// Update on screen
+	var elNewText = document.querySelector('.input-fields-container');
+	elNewText.innerHTML += `
+		<div class="text-line-btn meme-text-block-${newTextIdx}">
+			<label for="meme-text-${newTextIdx}" class="sr-only">Text ${newTextIdx}:</label>
+			<input type="text" class="meme-text meme-text-${newTextIdx}" id="meme-text-${newTextIdx}" onfocus="onChangeMemeCurrText(${newTextIdx})" onkeyup="onChangeMemeText(this.value)">
+			<button class="btn btn-danger" onclick="onDelLine(${newTextIdx})">
+				<i class="fas fa-times"></i>
+			</button>
+		</div>`;
+
+	// Load meme texts
+	renderMemeTexts();
 }
 
 // On upload meme image
@@ -252,6 +283,20 @@ function onChangeMemeFont(font) {
 // On change meme color
 function onChangeMemeColor(color) {
 	updateMemeColor(color);
+	renderCanvas();
+}
+
+// On change meme bold
+function onChangeMemeBold() {
+	var bold = !getMemeBold();
+	updateBold(bold);
+	renderCanvas();
+}
+
+// On change meme stroke
+function onChangeMemeStroke() {
+	var stroke = !getMemeStroke();
+	updateStroke(stroke);
 	renderCanvas();
 }
 
@@ -334,24 +379,13 @@ function downloadImage(elLink) {
 // On delete line
 function onDelLine(textIdx) {
 	setMemeCurrText(textIdx);
-	deleteLine(textIdx);
+	onDeleteMemeText(textIdx);
 	renderCanvas();	
 }
 
-// On bold
-function onBold() {
-	updateBoldness();
-	renderCanvas();
-}
-
-// On stroke
-function onStroke() {
-	updateStrokness();
-	renderCanvas();
-}
 
 function onAddLine() {
-	addLineToMemeEditor();
+	onAddMemeText();
 	renderCanvas();
 }
 

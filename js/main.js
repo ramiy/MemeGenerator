@@ -201,33 +201,31 @@ function getCanvas() {
 
 // Render canvas
 function renderCanvas(img) {
-
 	var canvas = getCanvas();
 	var ctx = canvas.getContext('2d');
-
-	// If no image uploaded, use meme image
-	if (!img) img = getMemeImage();
 
 	// Clean board
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	// Print Image
-	var imgObj = getImage(img);
-	var elImg = document.querySelector('.img-' + imgObj.id);
-
-	if (elImg.width < 300) {
-		elImg.width *= 1.5;
-		elImg.height *= 1.5;
-	} else if (elImg.width > 500) {
-		elImg.width /= 1.3;
-		elImg.height /= 1.3;
+	// If no image uploaded, use meme image
+	if (!img) {
+		var imgId = getMemeImage();
+		var imgObj = getImage(imgId);
+		var img = document.querySelector('.img-' + imgObj.id);
 	}
 
-	canvas.width = elImg.width;
-	canvas.height = elImg.height;
-	canvas.height = canvas.width * (elImg.height / elImg.width);
+	// For large image canvas image size
+	if (img.width > 500) {
+		img.height = img.height * ( 500 / img.width);
+		img.width = 500;
+	}
 
-	ctx.drawImage(elImg, 0, 0, canvas.width, canvas.height);
+	// for small images decrease canvas size
+	canvas.width = img.width;
+	canvas.height = canvas.width * (img.height / img.width);
+
+	// Print Image
+	ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
 	// Print text
 	var texts = getMemeTexts();

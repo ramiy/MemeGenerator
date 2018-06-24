@@ -47,6 +47,14 @@ a:focus {
 	border: 0;
 }
 
+.bold {
+	font-weight: bold
+}
+
+.display-none {
+	display: none;
+}
+
 .inline-list {
 	list-style-type: none;
 }
@@ -79,7 +87,7 @@ a:focus {
 	display: inline-block;
 	min-width: 50px;
 	padding: 10px;
-	margin-right: 15px;
+	margin-right: 1em;
 	background-color: #555;
 	border: 1px solid #999;
 	color: #ddd;
@@ -290,6 +298,12 @@ header a {
 	box-shadow: inset 0 0 15px 5px rgba(0,0,0,0.5);
 }
 
+.meme-text-block {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5px;
+}
+
 .meme-text {
 	width: 100%;
 }
@@ -315,6 +329,7 @@ header a {
 
 .meme-actions .btn {
 	margin-right: 0;
+	margin-bottom: 5px;
 }
 
 .meme-move {	
@@ -335,7 +350,6 @@ header a {
 	grid-row: 2;
 	grid-column: 3;
 	width: 0;
-
 }
 
 .meme-move-down {
@@ -348,8 +362,6 @@ header a {
 	grid-row: 2;
 	width: 0;
 }
-
-
 
 
 

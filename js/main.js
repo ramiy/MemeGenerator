@@ -214,13 +214,18 @@ function renderCanvas(img) {
 		var img = document.querySelector('.img-' + imgObj.id);
 	}
 
-	// For large image canvas image size
-	if (img.width > 550) {
-		img.height = img.height * ( 550 / img.width);
-		img.width = 550;
+	// Set max canvas width
+	var maxCanvasWidth = 550;
+	var screenWidth = window.screen.availWidth - 20;
+	maxCanvasWidth = (maxCanvasWidth < screenWidth) ? maxCanvasWidth : screenWidth;
+
+	// For large image, reduce image size
+	if (img.width > maxCanvasWidth) {
+		img.height = img.height * (maxCanvasWidth / img.width);
+		img.width = maxCanvasWidth;
 	}
 
-	// for small images decrease canvas size
+	// For small images, reduce canvas size
 	canvas.width = img.width;
 	canvas.height = canvas.width * (img.height / img.width);
 
@@ -257,7 +262,7 @@ function renderMemeTexts() {
 		var content = getMemeText(text.id);
 		var currClass = (currTextIdx === i) ? 'current' : '';
 		strHTML += `
-			<div class="text-line-btn meme-text-block-${text.id} ${currClass}">
+			<div class="meme-text-block meme-text-block-${text.id} ${currClass}">
 				<label for="meme-text-${text.id}" class="sr-only">Text ${i + 1}:</label>
 				<input type="text" value="${content}" class="meme-text meme-text-${text.id}" id="meme-text-${text.id}" onfocus="onChangeMemeCurrText('${i}')" onkeyup="onChangeMemeText(this.value)">
 				<button class="btn btn-danger" onclick="onDeleteMemeText('${text.id}')">

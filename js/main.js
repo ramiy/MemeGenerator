@@ -250,7 +250,7 @@ function onAddMemeText() {
 // On upload meme image
 function onChangeMemeCurrText(textIdx) {
 	setMemeCurrText(textIdx);
-	renderMemeTexts();
+	// renderMemeTexts();
 	renderMemeDesigns();
 }
 

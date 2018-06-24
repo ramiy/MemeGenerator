@@ -45,7 +45,7 @@ var gCurrTextIdx = 0;
 
 // Get the current text being edited
 function getMemeCurrText() {
-	return gCurrTextIdx;
+	return +gCurrTextIdx;
 }
 
 // Update the current text being edited

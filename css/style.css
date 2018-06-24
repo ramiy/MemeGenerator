@@ -369,3 +369,12 @@ footer {
 	}
 
 }
+
+.text-line-btn {
+	display: flex;
+	justify-content: space-between
+}
+
+.del-btn {
+	margin-left: 25px;
+}

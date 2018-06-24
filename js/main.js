@@ -319,9 +319,16 @@ function handleKeyPress(ev) {
 	}
 }
 
-// Download the image
+// Download the image   -  צריך להיות onDowloadImage ?
 function downloadImage(elLink) {
 	var canvas = getCanvas();
 	var imgContent = canvas.toDataURL('image/jpeg');
 	elLink.href = imgContent;
+}
+
+// On delete line
+function onDelLine(textIdx) {
+	setMemeCurrText(textIdx);
+	deleteLine();
+	renderCanvas();	
 }

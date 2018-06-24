@@ -129,3 +129,8 @@ function updateMemeAlignment(position, canvasWidth, textWidth) {
 			break;
 	}
 }
+
+// Delete line
+function deleteLine() {
+	gMeme.txts[gCurrTextIdx].text = '';
+}

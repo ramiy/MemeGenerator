@@ -76,35 +76,45 @@ a:focus {
 }
 
 .btn {
-	background-color: #e7e7e7;
-	border: none;
-	color: #333;
-	padding: 15px 32px;
+	display: inline-block;
+	min-width: 50px;
+	padding: 10px;
+	margin-right: 15px;
+	background-color: #555;
+	border: 1px solid #999;
+	color: #ddd;
 	text-align: center;
 	text-decoration: none;
-	display: inline-block;
 	font-size: 1em;
+	font-weight: bold;
+	box-shadow: inset 0 0 10px 2px rgba(0,0,0,0.25);
 }
-
 .btn-default { /* White */ 
-	background-color: #fff;
-	color: #000;
+	color: #fff;
 }
 .btn-primary { /* Blue */
-	background-color: #008CBA;
-	color: #fff;
+	color: #1bf;
 }
-.btn-info { /* Black */
-	background-color: #555;
-	color: #fff;
+.btn-success { /* Green */
+	color: #5c5;
+}
+.btn-danger { /* Red */ 
+	color: #f43;
 }
 
-.btn-danger { /* Red */ 
-	background-color: #f44336;
-	color: #fff;
-}
 .btn:hover {
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	color: #ff0;
+	background-color: #444;
+}
+.btn-default:hover {
+	color: #ff0;
+}
+.btn-primary:hover {
+	color: #ff0;
+}
+.btn-danger:hover {
+	background-color: #843;
+	color: #ff0;
 }
 
 .dropdown:hover > .dropdown-content {
@@ -270,31 +280,6 @@ header a {
 
 .text-editor input {
 	box-shadow: inset 0 0 10px 2px rgba(0,0,0,0.25);
-}
-
-.text-editor .btn {
-	margin-right: 15px;
-	min-width: 50px;
-	padding: 10px;
-	background-color: #555;
-	border: 1px solid #999;
-	color: #ddd;
-	font-weight: bold;
-	box-shadow: inset 0 0 10px 2px rgba(0,0,0,0.25);
-}
-
-.text-editor .btn:hover {
-	color: #ff0;
-	background-color: #444;
-}
-
-.text-editor .btn-danger {
-	color: #f44336;
-}
-
-.text-editor .btn-danger:hover {
-	background-color: #843;
-	color: #fff;
 }
 
 .text-editor .current > input {

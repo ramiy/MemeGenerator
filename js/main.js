@@ -351,7 +351,8 @@ function onStroke() {
 }
 
 function onAddLine() {
-
+	addLineToMemeEditor();
+	renderCanvas();
 }
 
 

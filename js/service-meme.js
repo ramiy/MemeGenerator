@@ -176,3 +176,18 @@ function getStrokness(textIdx) {
 	if (gMeme.txts[gCurrTextIdx].isStroke) return true;
 	else return false;
 }
+
+// Add another text line input field
+function addLineToMemeEditor() {
+	var elTxtFieldsContainer = document.querySelector('.input-fields-container');
+	var textLineIdx = gMeme.txts.length;
+	elTxtFieldsContainer.innerHTML += `
+	                        <div class="text-line-btn meme-text-block-${textLineIdx}">
+								<label for="meme-text-${textLineIdx}" class="sr-only">Text ${textLineIdx}:</label>
+								<input type="text" class="meme-text meme-text-${textLineIdx}" id="meme-text-${textLineIdx}" onfocus="onChangeMemeCurrText(${textLineIdx})" onkeyup="onChangeMemeText(this.value)">
+								<button class="btn btn-danger" onclick="onDelLine(${textLineIdx})">
+									<i class="fas fa-times"></i>
+								</button>
+							</div>`;
+}
+

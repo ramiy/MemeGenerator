@@ -236,13 +236,16 @@ function onAddMemeText() {
 		<div class="text-line-btn meme-text-block-${newTextIdx}">
 			<label for="meme-text-${newTextIdx}" class="sr-only">Text ${newTextIdx}:</label>
 			<input type="text" class="meme-text meme-text-${newTextIdx}" id="meme-text-${newTextIdx}" onfocus="onChangeMemeCurrText(${newTextIdx})" onkeyup="onChangeMemeText(this.value)">
-			<button class="btn btn-danger" onclick="onDelLine(${newTextIdx})">
+			<button class="btn btn-danger" onclick="onDeleteMemeText(${newTextIdx})">
 				<i class="fas fa-times"></i>
 			</button>
 		</div>`;
 
 	// Load meme texts
 	renderMemeTexts();
+
+	// Update canvas
+	renderCanvas();
 }
 
 // On upload meme image
@@ -375,19 +378,3 @@ function downloadImage(elLink) {
 	var imgContent = canvas.toDataURL('image/jpeg');
 	elLink.href = imgContent;
 }
-
-// On delete line
-function onDelLine(textIdx) {
-	setMemeCurrText(textIdx);
-	onDeleteMemeText(textIdx);
-	renderCanvas();	
-}
-
-
-function onAddLine() {
-	onAddMemeText();
-	renderCanvas();
-}
-
-
-//el.innerHTML += 

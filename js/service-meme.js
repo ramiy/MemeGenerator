@@ -79,49 +79,49 @@ function getMemeImage() {
 
 // Retrieve meme text
 function getMemeText(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+	if (!textIdx && textIdx!== 0) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].text;
 }
 
 // Retrieve meme font
 function getMemeFont(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+	if (!textIdx && textIdx!== 0) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].font;
 }
 
 // Retrieve meme color
 function getMemeColor(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+	if (!textIdx && textIdx!== 0) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].color;
 }
 
 // Retrieve meme Bold
 function getMemeBold(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+	if (!textIdx && textIdx!== 0) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].isBold;
 }
 
 // Retrieve meme strokness
 function getMemeStroke(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+	if (!textIdx && textIdx!== 0) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].isStroke;
 }
 
 // Retrieve meme size
 function getMemeSize(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+	if (!textIdx && textIdx!== 0) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].size;
 }
 
 // Retrieve meme position X
 function getMemePositionX(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+	if (!textIdx && textIdx!== 0) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].positionX;
 }
 
 // Retrieve meme position Y
 function getMemePositionY(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+	if (!textIdx && textIdx!== 0) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].positionY;
 }
 

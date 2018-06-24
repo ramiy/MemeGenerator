@@ -4,7 +4,8 @@ var gMeme = {
 	selectedImgId: null,
 	txts: [
 		{
-			text: 'Your top text...',
+			id: 'aaa',
+			text: '111',
 			font: 'monospace',
 			color: 'white',
 			size: 20,
@@ -14,7 +15,8 @@ var gMeme = {
 			isStroke: false
 		},
 		{
-			text: 'Your center text...',
+			id: 'bbb',
+			text: '222',
 			font: 'monospace',
 			color: 'white',
 			size: 30,
@@ -24,7 +26,8 @@ var gMeme = {
 			isStroke: false
 		},
 		{
-			text: 'Your bottom text...',
+			id: 'ccc',
+			text: '333',
 			font: 'monospace',
 			color: 'white',
 			size: 40,
@@ -35,30 +38,42 @@ var gMeme = {
 		},
 	]
 }
+
+
+
 var gCurrTextIdx = 0;
 
-
-
-// Retrieve the meme model
-function getMeme() {
-	return gMeme;
+// Get the current text being edited
+function getMemeCurrText() {
+	return +gCurrTextIdx;
 }
 
 // Update the current text being edited
 function setMemeCurrText(idx) {
-	gCurrTextIdx = idx;
+	gCurrTextIdx = +idx;
+}
+
+
+
+/*************** General ***************/
+
+// Retrieve the meme model texts
+function getMemeTexts() {
+	return gMeme.txts;
 }
 
 // Delete existing text
-function removeMemeText(textIdx) {
-	if (textIdx > gMeme.length && textIdx >= 0) return;
+function removeMemeText(textId) {
+	var textIdx = getMemeTextIdx(textId);
+	if ( textIdx >= 0 && textIdx > gMeme.txts.length) return;
 	gMeme.txts.splice(textIdx, 1);
 	setMemeCurrText(0);
 }
 
 // Add new text object (returns the number text items)
 function addMemeText() {
-	return gMeme.txts.push({
+	gMeme.txts.push({
+		id: makeId(),
 		text: 'Your text...',
 		font: 'monospace',
 		color: 'white',
@@ -77,51 +92,66 @@ function getMemeImage() {
 	return gMeme.selectedImgId;
 }
 
-// Retrieve meme text
-function getMemeText(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+// Retrieve meme text ids by text id
+function getMemeTextIdx(textId) {
+	return gMeme.txts.findIndex(function (txt) {
+		return txt.id === textId;
+	});
+}
+
+// Retrieve meme text by text id
+function getMemeText(textId) {
+	var textIdx = getMemeTextIdx(textId);
+	if ( typeof textIdx === 'undefined' || textIdx < 0 || textIdx > gMeme.txts.length) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].text;
 }
 
 // Retrieve meme font
-function getMemeFont(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+function getMemeFont(textId) {
+	var textIdx = getMemeTextIdx(textId);
+	if ( typeof textIdx === 'undefined' || textIdx < 0 || textIdx > gMeme.txts.length) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].font;
 }
 
 // Retrieve meme color
-function getMemeColor(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+function getMemeColor(textId) {
+	var textIdx = getMemeTextIdx(textId);
+	if ( typeof textIdx === 'undefined' || textIdx < 0 || textIdx > gMeme.txts.length) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].color;
 }
 
 // Retrieve meme Bold
-function getMemeBold(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+function getMemeBold(textId) {
+	var textIdx = getMemeTextIdx(textId);
+	if ( typeof textIdx === 'undefined' || textIdx < 0 || textIdx > gMeme.txts.length) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].isBold;
 }
 
 // Retrieve meme strokness
-function getMemeStroke(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+function getMemeStroke(textId) {
+	var textIdx = getMemeTextIdx(textId);
+	if ( typeof textIdx === 'undefined' || textIdx < 0 || textIdx > gMeme.txts.length) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].isStroke;
 }
 
 // Retrieve meme size
-function getMemeSize(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+function getMemeSize(textId) {
+	var textIdx = getMemeTextIdx(textId);
+	if ( typeof textIdx === 'undefined' || textIdx < 0 || textIdx > gMeme.txts.length) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].size;
 }
 
 // Retrieve meme position X
-function getMemePositionX(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+function getMemePositionX(textId) {
+	var textIdx = getMemeTextIdx(textId);
+	if ( typeof textIdx === 'undefined' || textIdx < 0 || textIdx > gMeme.txts.length) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].positionX;
 }
 
 // Retrieve meme position Y
-function getMemePositionY(textIdx) {
-	if (!textIdx) textIdx = gCurrTextIdx;
+function getMemePositionY(textId) {
+	var textIdx = getMemeTextIdx(textId);
+	if ( typeof textIdx === 'undefined' || textIdx < 0 || textIdx > gMeme.txts.length) textIdx = gCurrTextIdx;
 	return gMeme.txts[textIdx].positionY;
 }
 

@@ -191,16 +191,17 @@ function renderCanvas(img) {
 	ctx.drawImage(elImg, 0, 0, 500, 500);
 
 	// Print text
-	var meme = getMeme();
-	for (var i = 0; i < meme.txts.length; i++) {
-		var bold = ( getMemeBold(i) ) ? 'bold' : '';
-		ctx.font = `${bold} ${getMemeSize(i)}px ${getMemeFont(i)}`;
-		ctx.fillStyle = getMemeColor(i);
-		if (getMemeStroke(i)) {
-			ctx.fillText(getMemeText(i), getMemePositionX(i), getMemePositionY(i));
+	var texts = getMemeTexts();
+	for (var i = 0; i < texts.length; i++) {
+		var text = texts[i];
+		var bold = (getMemeBold(text.id)) ? 'bold' : '';
+		ctx.font = `${bold} ${getMemeSize(text.id)}px ${getMemeFont(text.id)}`;
+		ctx.fillStyle = getMemeColor(text.id);
+		if (getMemeStroke(text.id)) {
+			ctx.fillText(getMemeText(text.id), getMemePositionX(text.id), getMemePositionY(text.id));
 		} else {
-			ctx.strokeStyle = getMemeColor(i);
-			ctx.strokeText(getMemeText(i), getMemePositionX(i), getMemePositionY(i));
+			ctx.strokeStyle = getMemeColor(text.id);
+			ctx.strokeText(getMemeText(text.id), getMemePositionX(text.id), getMemePositionY(text.id));
 		}
 	}
 }
@@ -211,10 +212,27 @@ function renderCanvas(img) {
 
 // Render meme texts from the model and render them on screen
 function renderMemeTexts() {
-	var meme = getMeme();
-	for (var i = 0; i < meme.txts.length; i++) {
-		document.querySelector('.meme-text-' + i).value = getMemeText(i);
+	var currTextIdx = getMemeCurrText();
+	var texts = getMemeTexts();
+	var strHTML = '';
+	for (var i = 0; i < texts.length; i++) {
+		var text = texts[i];
+		var content = getMemeText(text.id);
+		var currClass = (currTextIdx === i ) ? 'current' : '';
+		strHTML += `
+			<div class="text-line-btn meme-text-block-${text.id} ${currClass}">
+				<label for="meme-text-${text.id}" class="sr-only">Text ${i + 1}:</label>
+				<input type="text" value="${content}" class="meme-text meme-text-${text.id}" id="meme-text-${text.id}" onfocus="onChangeMemeCurrText('${i}')" onkeyup="onChangeMemeText(this.value)">
+				<button class="btn btn-danger" onclick="onDeleteMemeText('${text.id}')">
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+		`;
 	}
+
+	// Update keywords data list on screen
+	var elKeywordsDataList = document.querySelector('.input-fields-container');
+	elKeywordsDataList.innerHTML = strHTML;
 }
 
 // Render meme design from the model and render it on screen
@@ -225,37 +243,22 @@ function renderMemeDesigns() {
 
 // Delete line
 function onDeleteMemeText(textIdx) {
-	// Remove text from model
 	removeMemeText(textIdx);
-
-	// Update on screen
-	var elTextBlock = document.querySelector(`.meme-text-block-${textIdx}`);
-	elTextBlock.classList.add('display-none');
+	renderMemeTexts();
+	renderCanvas();
 }
 
 // Add another text line input field
 function onAddMemeText() {
-	// Update meme model
-	var newTextIdx = addMemeText()-1;
-
-	// Update on screen
-	var elNewText = document.querySelector('.input-fields-container');
-	elNewText.innerHTML += `
-		<div class="text-line-btn meme-text-block-${newTextIdx}">
-			<label for="meme-text-${newTextIdx}" class="sr-only">Text ${newTextIdx}:</label>
-			<input type="text" class="meme-text meme-text-${newTextIdx}" id="meme-text-${newTextIdx}" onfocus="onChangeMemeCurrText(${newTextIdx})" onkeyup="onChangeMemeText(this.value)">
-			<button class="btn btn-danger" onclick="onDelLine(${newTextIdx})">
-				<i class="fas fa-times"></i>
-			</button>
-		</div>`;
-
-	// Load meme texts
+	addMemeText();
 	renderMemeTexts();
+	renderCanvas();
 }
 
 // On upload meme image
 function onChangeMemeCurrText(textIdx) {
 	setMemeCurrText(textIdx);
+	// renderMemeTexts();
 	renderMemeDesigns();
 }
 

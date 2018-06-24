@@ -267,6 +267,10 @@ header a {
 	padding-bottom: 10px;
 }
 
+.text-editor input {
+	box-shadow: inset 0 0 10px 2px rgba(0,0,0,0.25);
+}
+
 .text-editor .btn {
 	margin-right: 15px;
 	min-width: 50px;
@@ -275,21 +279,31 @@ header a {
 	border: 1px solid #999;
 	color: #ddd;
 	font-weight: bold;
+	box-shadow: inset 0 0 10px 2px rgba(0,0,0,0.25);
 }
 
 .text-editor .btn:hover {
 	color: #ff0;
 	background-color: #444;
-	box-shadow: none;
 }
 
 .text-editor .btn-danger {
 	color: #f44336;
 }
+
 .text-editor .btn-danger:hover {
 	background-color: #843;
 	color: #fff;
 }
+
+.text-editor .current > input {
+	box-shadow: inset 0 0 15px 5px rgba(0,0,0,0.5);
+}
+
+.text-editor .current > button {
+	box-shadow: inset 0 0 15px 5px rgba(0,0,0,0.5);
+}
+
 
 .meme-text {
 	width: 100%;
@@ -400,7 +414,8 @@ footer {
 
 .text-line-btn {
 	display: flex;
-	justify-content: space-between
+	justify-content: space-between;
+	margin-bottom: 5px;
 }
 
 .bold {

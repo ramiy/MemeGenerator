@@ -387,3 +387,7 @@ footer {
 	font-weight: bold
 }
 
+.display-none {
+	display: none;
+}
+

@@ -10,7 +10,8 @@ var gMeme = {
 			size: 30,
 			positionX: 170,
 			positionY: 80,
-			isBold: false
+			isBold: false,
+			isStroke: false
 		},
 		{
 			text: 'Your bottom text...',
@@ -19,7 +20,8 @@ var gMeme = {
 			size: 30,
 			positionX: 160,
 			positionY: 480,
-			isBold: false
+			isBold: false,
+			isStroke: false
 		},
 	]
 }
@@ -148,4 +150,17 @@ function getBoldness(textIdx) {
 	gCurrTextIdx = textIdx;
 	if (gMeme.txts[gCurrTextIdx].isBold) return 'bold';
 	else return '';
+}
+
+// Change strokness
+function updateStrokness() {
+	if (gMeme.txts[gCurrTextIdx].isStroke) gMeme.txts[gCurrTextIdx].isStroke = false;
+	else gMeme.txts[gCurrTextIdx].isStroke = true;
+}
+
+// Get Strokness
+function getStrokness(textIdx) {
+	gCurrTextIdx = textIdx;
+	if (gMeme.txts[gCurrTextIdx].isStroke) return true;
+	else return false;
 }

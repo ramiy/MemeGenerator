@@ -187,7 +187,12 @@ function renderCanvas(img) {
 	for (var i = 0; i < meme.txts.length; i++) {
 		ctx.font = `${getBoldness(i)} ${getMemeSize(i)}px ${getMemeFont(i)}`;
 		ctx.fillStyle = getMemeColor(i);
-		ctx.fillText(getMemeText(i), getMemePositionX(i), getMemePositionY(i));
+		if (getStrokness(i)) {
+			ctx.fillText(getMemeText(i), getMemePositionX(i), getMemePositionY(i));
+		} else {
+			ctx.strokeStyle = getMemeColor(i);
+			ctx.strokeText(getMemeText(i), getMemePositionX(i), getMemePositionY(i));
+		}
 	}
 }
 
@@ -341,6 +346,6 @@ function onBold() {
 
 // On stroke
 function onStroke() {
-	updateStroke();
+	updateStrokness();
 	renderCanvas();
 }

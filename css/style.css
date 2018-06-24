@@ -355,7 +355,7 @@ header a {
 
 /********** TABLETS **********/
 
-@media ( max-width: 1000px ) {
+@media (max-width: 1000px ) {
 
 	.container {
 		padding-right: 20px;
@@ -392,6 +392,12 @@ header a {
 		text-align: center;
 	}
 
+}
+
+@media (width: 800px ) {
+	.inline-list li {
+		display: none;
+	}
 }
 
 .text-line-btn {

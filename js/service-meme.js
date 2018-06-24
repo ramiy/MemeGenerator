@@ -5,37 +5,26 @@ var gMeme = {
 	txts: [
 		{
 			id: 'aaa',
-			text: '111',
-			font: 'monospace',
-			color: 'white',
-			size: 20,
-			positionX: 160,
-			positionY: 80,
-			isBold: false,
-			isStroke: false
-		},
-		{
-			id: 'bbb',
-			text: '222',
+			text: 'Top text...',
 			font: 'monospace',
 			color: 'white',
 			size: 30,
-			positionX: 100,
-			positionY: 240,
-			isBold: false,
+			positionX: 190,
+			positionY: 80,
+			isBold: true,
 			isStroke: false
 		},
 		{
-			id: 'ccc',
-			text: '333',
+			id: '222',
+			text: 'Bottom text...',
 			font: 'monospace',
 			color: 'white',
-			size: 40,
-			positionX: 50,
-			positionY: 480,
-			isBold: false,
-			isStroke: false
-		},
+			size: 30,
+			positionX: 160,
+			positionY: 240,
+			isBold: true,
+			isStroke: true
+		}
 	]
 }
 

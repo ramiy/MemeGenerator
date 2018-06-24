@@ -145,8 +145,10 @@ function updateMemeAlignment(position, canvasWidth, textWidth) {
 }
 
 // Delete line
-function deleteLine() {
-	gMeme.txts[gCurrTextIdx].text = '';
+function deleteLine(textIdx) {
+	gMeme.txts.splice(textIdx,1);
+	var elTextBlock = document.querySelector(`.meme-text-block-${textIdx}`);
+	elTextBlock.classList.add('display-none');
 }
 
 // Change Boldness

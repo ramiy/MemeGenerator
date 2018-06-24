@@ -334,7 +334,7 @@ function downloadImage(elLink) {
 // On delete line
 function onDelLine(textIdx) {
 	setMemeCurrText(textIdx);
-	deleteLine();
+	deleteLine(textIdx);
 	renderCanvas();	
 }
 

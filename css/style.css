@@ -239,6 +239,7 @@ header a {
 	justify-content: space-between;
 	border: 20px solid #552;
 	padding: 20px;
+	align-items: start;
 }	
 
 .meme-canvas {

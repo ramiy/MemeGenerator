@@ -201,6 +201,7 @@ function getCanvas() {
 
 // Render canvas
 function renderCanvas(img) {
+
 	var canvas = getCanvas();
 	var ctx = canvas.getContext('2d');
 
@@ -213,7 +214,20 @@ function renderCanvas(img) {
 	// Print Image
 	var imgObj = getImage(img);
 	var elImg = document.querySelector('.img-' + imgObj.id);
-	ctx.drawImage(elImg, 0, 0, 500, 500);
+
+	if (elImg.width < 300) {
+		elImg.width *= 1.5;
+		elImg.height *= 1.5;
+	} else if (elImg.width > 500) {
+		elImg.width /= 1.3;
+		elImg.height /= 1.3;
+	}
+
+	canvas.width = elImg.width;
+	canvas.height = elImg.height;
+	canvas.height = canvas.width * (elImg.height / elImg.width);
+
+	ctx.drawImage(elImg, 0, 0, canvas.width, canvas.height);
 
 	// Print text
 	var texts = getMemeTexts();
@@ -243,7 +257,7 @@ function renderMemeTexts() {
 	for (var i = 0; i < texts.length; i++) {
 		var text = texts[i];
 		var content = getMemeText(text.id);
-		var currClass = (currTextIdx === i ) ? 'current' : '';
+		var currClass = (currTextIdx === i) ? 'current' : '';
 		strHTML += `
 			<div class="text-line-btn meme-text-block-${text.id} ${currClass}">
 				<label for="meme-text-${text.id}" class="sr-only">Text ${i + 1}:</label>
